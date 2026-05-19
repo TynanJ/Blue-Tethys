@@ -1,32 +1,20 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="3">
   <diagram name="TopLevel" id="SeMwB9o6f9JzT8_ZJjfT">
-    <mxGraphModel dx="1661" dy="973" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1096" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="Gk2kCFXvIx01EkBjeWqo-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
           <mxGeometry height="280" width="280" x="280" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Wheel Angle Sensor (Submodule 2)" vertex="1">
+        <mxCell id="Gk2kCFXvIx01EkBjeWqo-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Wheel Angle Sensor (SM-1)" vertex="1">
           <mxGeometry height="80" width="80" x="380" y="380" as="geometry" />
         </mxCell>
         <mxCell id="Gk2kCFXvIx01EkBjeWqo-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Base Station (NRF52840 #2)" vertex="1">
-          <mxGeometry height="120" width="120" x="760" y="360" as="geometry" />
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="RFID Rx (Submodule 1)" vertex="1">
-          <mxGeometry height="80" width="80" x="640" y="640" as="geometry" />
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="RFID Rx (Submodule 1)" vertex="1">
-          <mxGeometry height="80" width="80" x="920" y="640" as="geometry" />
+          <mxGeometry height="120" width="120" x="707" y="360" as="geometry" />
         </mxCell>
         <mxCell id="Gk2kCFXvIx01EkBjeWqo-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Wheel" vertex="1">
           <mxGeometry height="30" width="60" x="390" y="250" as="geometry" />
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-12" edge="1" parent="1" source="Gk2kCFXvIx01EkBjeWqo-5" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" target="Gk2kCFXvIx01EkBjeWqo-4" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="730" y="570" as="sourcePoint" />
-            <mxPoint x="780" y="520" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="Gk2kCFXvIx01EkBjeWqo-13" edge="1" parent="1" source="Gk2kCFXvIx01EkBjeWqo-3" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" target="Gk2kCFXvIx01EkBjeWqo-4" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -34,41 +22,11 @@
             <mxPoint x="650" y="395" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-14" edge="1" parent="1" source="Gk2kCFXvIx01EkBjeWqo-16" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" target="Gk2kCFXvIx01EkBjeWqo-4" value="">
+        <mxCell id="Gk2kCFXvIx01EkBjeWqo-14" edge="1" parent="1" source="bcYlQbUDpKahL4JjQKCU-1" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="Gk2kCFXvIx01EkBjeWqo-4" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="799.9999999999998" y="640" as="sourcePoint" />
-            <mxPoint x="950" y="570" as="targetPoint" />
+            <mxPoint x="767" y="630" as="sourcePoint" />
+            <mxPoint x="897" y="570" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-15" edge="1" parent="1" source="Gk2kCFXvIx01EkBjeWqo-7" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" target="Gk2kCFXvIx01EkBjeWqo-4" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="860" y="670" as="sourcePoint" />
-            <mxPoint x="880" y="510" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="RFID Rx (Submodule 1)" vertex="1">
-          <mxGeometry height="80" width="80" x="780" y="760" as="geometry" />
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-17" edge="1" parent="1" source="Gk2kCFXvIx01EkBjeWqo-16" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" target="Gk2kCFXvIx01EkBjeWqo-5" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="610" y="860" as="sourcePoint" />
-            <mxPoint x="660" y="810" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-18" edge="1" parent="1" source="Gk2kCFXvIx01EkBjeWqo-7" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" target="Gk2kCFXvIx01EkBjeWqo-16" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="960" y="910" as="sourcePoint" />
-            <mxPoint x="860" y="830" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-19" edge="1" parent="1" source="Gk2kCFXvIx01EkBjeWqo-7" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" target="Gk2kCFXvIx01EkBjeWqo-5" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1070" y="780" as="sourcePoint" />
-            <mxPoint x="970" y="860" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-23" edge="1" parent="1" source="Gk2kCFXvIx01EkBjeWqo-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Gk2kCFXvIx01EkBjeWqo-22">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Gk2kCFXvIx01EkBjeWqo-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Host PC" vertex="1">
           <mxGeometry height="120" width="120" x="1040" y="360" as="geometry" />
@@ -79,94 +37,60 @@
             <mxPoint x="1030" y="260" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Projector" vertex="1">
-          <mxGeometry height="120" width="120" x="1240" y="360" as="geometry" />
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="HDMI" vertex="1">
-          <mxGeometry height="30" width="60" x="1170" y="390" as="geometry" />
-        </mxCell>
         <mxCell id="Gk2kCFXvIx01EkBjeWqo-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="USB" vertex="1">
           <mxGeometry height="30" width="60" x="940" y="390" as="geometry" />
         </mxCell>
         <mxCell id="Gk2kCFXvIx01EkBjeWqo-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="BLE" vertex="1">
           <mxGeometry height="30" width="60" x="610" y="390" as="geometry" />
         </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-28" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="LoRA Network" vertex="1">
-          <mxGeometry height="30" width="60" x="610" y="530" as="geometry" />
+        <mxCell id="bcYlQbUDpKahL4JjQKCU-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Handheld RFID Scanner (SM-2)" vertex="1">
+          <mxGeometry height="120" width="120" x="707" y="600" as="geometry" />
         </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-31" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="720" y="520" as="sourcePoint" />
-            <mxPoint x="720" y="320" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="bcYlQbUDpKahL4JjQKCU-2" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="RFID Tag&lt;div&gt;1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="560" y="800" as="geometry" />
         </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-32" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="920" y="519.58" as="sourcePoint" />
-            <mxPoint x="920" y="319.58" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="bcYlQbUDpKahL4JjQKCU-4" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="RFID Tag&lt;div&gt;2&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="727" y="800" as="geometry" />
         </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-33" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1040" y="520" as="sourcePoint" />
-            <mxPoint x="920.42" y="519.58" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="bcYlQbUDpKahL4JjQKCU-5" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="RFID Tag&lt;div&gt;3&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="890" y="800" as="geometry" />
         </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-34" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="720" y="520" as="sourcePoint" />
-            <mxPoint x="600" y="520" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-35" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="600" y="880" as="sourcePoint" />
-            <mxPoint x="600" y="520" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-36" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1040" y="880" as="sourcePoint" />
-            <mxPoint x="600" y="880" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-37" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1040" y="880" as="sourcePoint" />
-            <mxPoint x="1040" y="520" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Gk2kCFXvIx01EkBjeWqo-38" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="720" y="320" as="sourcePoint" />
-            <mxPoint x="920" y="320" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="Xwn0gQ8Yr-nZ7PZdGtJC-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="BLE" vertex="1">
+          <mxGeometry height="30" width="60" x="767" y="520" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="1KRB7dyE4T5nVf_iHWXs" name="SM-1">
-    <mxGraphModel dx="1177" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1036" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="alloAy9JLLN8FMWhKoQQ-2" edge="1" parent="1" source="CVkwTajoZar0PKTQ15tW-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="CVkwTajoZar0PKTQ15tW-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="NRF52840" vertex="1">
           <mxGeometry height="80" width="80" x="600" y="320" as="geometry" />
         </mxCell>
         <mxCell id="CVkwTajoZar0PKTQ15tW-3" edge="1" parent="1" source="CVkwTajoZar0PKTQ15tW-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="CVkwTajoZar0PKTQ15tW-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="CVkwTajoZar0PKTQ15tW-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="LiPO&amp;nbsp;&lt;div&gt;Battery&lt;/div&gt;&lt;div&gt;(3.7V) (?)&lt;/div&gt;" vertex="1">
+        <mxCell id="CVkwTajoZar0PKTQ15tW-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="1-Cell LiPO&amp;nbsp;&lt;div&gt;Battery&lt;/div&gt;&lt;div&gt;(3.7V)&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="80" x="440" y="320" as="geometry" />
         </mxCell>
-        <mxCell id="CVkwTajoZar0PKTQ15tW-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="Notes:&lt;div&gt;&amp;nbsp;- MVP will be mounted to wheel using mushroom tape. Final product mounting TBC&lt;/div&gt;&lt;div&gt;&amp;nbsp;- Header pins will be removed from NRF. NRF will be mounted to LiPO using double-sided tape&lt;/div&gt;&lt;div&gt;&amp;nbsp;- Wire will be constrained to sustain ~1NM of radial force (conservative estimate, in case of off-centre mounting)&lt;/div&gt;" vertex="1">
-          <mxGeometry height="200" width="520" x="760" y="200" as="geometry" />
+        <mxCell id="CVkwTajoZar0PKTQ15tW-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="Notes:&lt;div&gt;&amp;nbsp;- MVP will be mounted to wheel using mushroom tape. Final product mounting TBC&lt;/div&gt;&lt;div&gt;&amp;nbsp;- LiPO will be directly soldered to NRF, which has an inbuilt BMS and charger.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;- Header pins will be removed from NRF. NRF will be mounted on top of LiPO face using double-sided tape&lt;/div&gt;&lt;div&gt;&amp;nbsp;- Wire will be constrained to sustain ~1NM of radial force (conservative estimate, in case of off-centre mounting)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="520" x="840" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="alloAy9JLLN8FMWhKoQQ-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="See Top Level" vertex="1">
+          <mxGeometry height="30" width="60" x="760" y="340" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="9Yr1LYjng6vg4TGS4G2O" name="SM-2">
-    <mxGraphModel dx="1177" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="932" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -179,14 +103,22 @@
         <mxCell id="iJrt_uNKx1Bjx1NTiBjN-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="LiPO&amp;nbsp;&lt;div&gt;Battery&lt;/div&gt;&lt;div&gt;(3.7V) (?)&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="80" x="560" y="320" as="geometry" />
         </mxCell>
-        <mxCell id="iJrt_uNKx1Bjx1NTiBjN-5" edge="1" parent="1" source="iJrt_uNKx1Bjx1NTiBjN-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" target="iJrt_uNKx1Bjx1NTiBjN-1">
+        <mxCell id="U3PU9izSV82bIuXBHprD-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="Notes:&lt;div&gt;&amp;nbsp;- MVP will not have any handheld design considerations (TBD for final design, pending prototype learnings).&lt;/div&gt;&lt;div&gt;&amp;nbsp;- MVP components will be installed on a breadboard for demo. Additional female headers will be added to give clearance under the device.&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;- LiPO will be directly soldered to NRF, which has an inbuilt BMS and charger.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="590" x="880" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gQ8Dn9jL246bdEcaQhvM-2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" target="iJrt_uNKx1Bjx1NTiBjN-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="240" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8x_-KBOfDKnccFME4djM-2" edge="1" parent="1" source="8x_-KBOfDKnccFME4djM-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="iJrt_uNKx1Bjx1NTiBjN-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="iJrt_uNKx1Bjx1NTiBjN-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="LoRa module" vertex="1">
+        <mxCell id="8x_-KBOfDKnccFME4djM-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="RFID&amp;nbsp;&lt;div&gt;Reader&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="80" x="720" y="480" as="geometry" />
         </mxCell>
-        <mxCell id="U3PU9izSV82bIuXBHprD-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="Notes:&lt;div&gt;&amp;nbsp;- MVP will not have any enclosure designed, just a bare module on a breadboard. Mechanical considerations TBD for final design, pending prototype learnings&lt;/div&gt;&lt;div&gt;&amp;nbsp;- Battery will be soldered to underside of battery. Hence, headers will be used on the breadboard to give clearance for the bottom side of the NRF module.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="200" width="520" x="880" y="280" as="geometry" />
+        <mxCell id="8x_-KBOfDKnccFME4djM-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="See Top Level" vertex="1">
+          <mxGeometry height="30" width="60" x="730" y="210" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
