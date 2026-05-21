@@ -1,5 +1,5 @@
 west:
   command: /Users/piperhofstee/csse4011/.venv/bin/west build -p -b xiao_ble/nrf52840/sense
-    -d 01mobilestation/build 01mobilestation
+    -d 02RFID/build 02RFID
   topdir: /Users/piperhofstee/csse4011
   version: 1.5.0

@@ -25,6 +25,7 @@ set(CMAKE_CXX_COMPILER_ARCHITECTURE_ID "")
 
 
 
+
 set(CMAKE_AR "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar")
 set(CMAKE_CXX_COMPILER_AR "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar")
 set(CMAKE_RANLIB "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib")
@@ -97,4 +98,5 @@ set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 set(CMAKE_CXX_COMPILER_CLANG_RESOURCE_DIR "")
 
 set(CMAKE_CXX_COMPILER_IMPORT_STD "")
-
+set(CMAKE_CXX_COMPILER_IMPORT_STD_ERROR_MESSAGE  "")
+set(CMAKE_CXX_STDLIB_MODULES_JSON "")

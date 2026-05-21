@@ -40,6 +40,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/hal_stm32/install_local_manifest.txt"
+  file(WRITE "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/hal_stm32/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

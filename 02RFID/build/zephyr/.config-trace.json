@@ -82,9 +82,12 @@
     "CONFIG_SPI",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      12
+    ]
   ],
   [
     "CONFIG_MIPI_DSI",
@@ -700,10 +703,9 @@
     "y",
     "bool",
     "y",
-    "assign",
+    "select",
     [
-      "/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense_defconfig",
-      10
+      "SPI_NRFX && SOC_FAMILY_NORDIC_NRF && SPI"
     ]
   ],
   [
@@ -1051,7 +1053,7 @@
     "511",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       9
     ]
   ],
@@ -1062,7 +1064,7 @@
     "511",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       10
     ]
   ],
@@ -1073,7 +1075,7 @@
     "512",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       8
     ]
   ],
@@ -1084,7 +1086,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       938
     ]
   ],
@@ -1095,7 +1097,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       1078
     ]
   ],
@@ -1106,7 +1108,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       1308
     ]
   ],
@@ -1117,7 +1119,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       2578
     ]
   ],
@@ -1128,7 +1130,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       2833
     ]
   ],
@@ -1139,7 +1141,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5138
     ]
   ],
@@ -1150,7 +1152,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5368
     ]
   ],
@@ -1161,7 +1163,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5408
     ]
   ],
@@ -1172,7 +1174,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5418
     ]
   ],
@@ -1183,7 +1185,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5458
     ]
   ],
@@ -1194,7 +1196,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5463
     ]
   ],
@@ -1205,7 +1207,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5473
     ]
   ],
@@ -1216,7 +1218,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5483
     ]
   ],
@@ -1227,7 +1229,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5493
     ]
   ],
@@ -1238,7 +1240,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5498
     ]
   ],
@@ -1249,7 +1251,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5523
     ]
   ],
@@ -1260,7 +1262,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5588
     ]
   ],
@@ -1271,7 +1273,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5608
     ]
   ],
@@ -1282,7 +1284,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5613
     ]
   ],
@@ -1293,7 +1295,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5618
     ]
   ],
@@ -1304,7 +1306,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5628
     ]
   ],
@@ -1315,7 +1317,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5638
     ]
   ],
@@ -1326,7 +1328,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5648
     ]
   ],
@@ -1337,7 +1339,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5663
     ]
   ],
@@ -1348,19 +1350,19 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5673
     ]
   ],
   [
-    "CONFIG_DT_HAS_NORDIC_NRF_SPI_ENABLED",
+    "CONFIG_DT_HAS_NORDIC_NRF_SPIM_ENABLED",
     "n",
     "bool",
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
-      5678
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
+      5683
     ]
   ],
   [
@@ -1370,7 +1372,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5703
     ]
   ],
@@ -1381,7 +1383,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5718
     ]
   ],
@@ -1392,7 +1394,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5733
     ]
   ],
@@ -1403,7 +1405,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5738
     ]
   ],
@@ -1414,7 +1416,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5753
     ]
   ],
@@ -1425,7 +1427,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5758
     ]
   ],
@@ -1436,7 +1438,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5768
     ]
   ],
@@ -1447,7 +1449,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5808
     ]
   ],
@@ -1458,7 +1460,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5833
     ]
   ],
@@ -1469,7 +1471,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5838
     ]
   ],
@@ -1480,7 +1482,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5843
     ]
   ],
@@ -1491,7 +1493,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5903
     ]
   ],
@@ -1502,7 +1504,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       5993
     ]
   ],
@@ -1513,7 +1515,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       8413
     ]
   ],
@@ -1524,7 +1526,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       8748
     ]
   ],
@@ -1535,7 +1537,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       9908
     ]
   ],
@@ -1546,7 +1548,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       10868
     ]
   ],
@@ -1557,8 +1559,19 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       11163
+    ]
+  ],
+  [
+    "CONFIG_DT_HAS_VND_SPI_DEVICE_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
+      13623
     ]
   ],
   [
@@ -1568,7 +1581,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       14123
     ]
   ],
@@ -1579,7 +1592,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.dts",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.dts",
       14153
     ]
   ],
@@ -1614,7 +1627,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       5
     ]
   ],
@@ -1633,7 +1646,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       11
     ]
   ],
@@ -1644,7 +1657,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       17
     ]
   ],
@@ -1665,7 +1678,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       23
     ]
   ],
@@ -1684,7 +1697,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       29
     ]
   ],
@@ -1703,7 +1716,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       35
     ]
   ],
@@ -1732,7 +1745,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       41
     ]
   ],
@@ -1743,7 +1756,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       47
     ]
   ],
@@ -2137,6 +2150,16 @@
     null
   ],
   [
+    "CONFIG_NRFX_SPIM",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NRFX_SPIM2 && HAS_NRFX"
+    ]
+  ],
+  [
     "CONFIG_NRFX_SPIM0",
     "y",
     "bool",
@@ -2156,9 +2179,11 @@
     "CONFIG_NRFX_SPIM2",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SPI_NRFX_SPIM && HAS_HW_NRF_SPIM2 && DT_HAS_NORDIC_NRF_SPIM_ENABLED && SPI_NRFX && SPI"
+    ]
   ],
   [
     "CONFIG_NRFX_SPIM3",
@@ -2394,7 +2419,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       56
     ]
   ],
@@ -2405,7 +2430,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       62
     ]
   ],
@@ -2416,7 +2441,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       66
     ]
   ],
@@ -2427,7 +2452,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       74
     ]
   ],
@@ -2446,7 +2471,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       78
     ]
   ],
@@ -2465,7 +2490,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       83
     ]
   ],
@@ -2476,7 +2501,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       89
     ]
   ],
@@ -2487,7 +2512,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       93
     ]
   ],
@@ -2498,7 +2523,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       98
     ]
   ],
@@ -2509,7 +2534,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       104
     ]
   ],
@@ -2528,7 +2553,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       110
     ]
   ],
@@ -2539,7 +2564,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       116
     ]
   ],
@@ -2577,7 +2602,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       120
     ]
   ],
@@ -2588,7 +2613,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       125
     ]
   ],
@@ -2607,7 +2632,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       131
     ]
   ],
@@ -2626,7 +2651,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       138
     ]
   ],
@@ -2645,7 +2670,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       143
     ]
   ],
@@ -2664,7 +2689,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       149
     ]
   ],
@@ -2675,7 +2700,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       155
     ]
   ],
@@ -2704,7 +2729,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       161
     ]
   ],
@@ -2715,7 +2740,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       167
     ]
   ],
@@ -2734,7 +2759,7 @@
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/Kconfig/Kconfig.modules",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/Kconfig/Kconfig.modules",
       171
     ]
   ],
@@ -3302,14 +3327,14 @@
     ]
   ],
   [
-    "CONFIG_HAS_HW_NRF_SPI2",
+    "CONFIG_HAS_HW_NRF_SPIM2",
     "n",
     "bool",
     "y",
     "default",
     [
       "/Users/piperhofstee/csse4011/zephyr/soc/nordic/common/Kconfig.peripherals",
-      254
+      263
     ]
   ],
   [
@@ -5875,7 +5900,8 @@
     "y",
     "select",
     [
-      "UART_NRFX && (DT_HAS_NORDIC_NRF_UART_ENABLED || DT_HAS_NORDIC_NRF_UARTE_ENABLED) && SERIAL"
+      "UART_NRFX && (DT_HAS_NORDIC_NRF_UART_ENABLED || DT_HAS_NORDIC_NRF_UARTE_ENABLED) && SERIAL",
+      "SPI_NRFX && SOC_FAMILY_NORDIC_NRF && SPI"
     ]
   ],
   [
@@ -6216,6 +6242,104 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_SPI_ASYNC",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_RTIO",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_SLAVE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_EXTENDED_MODES",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/spi/Kconfig",
+      77
+    ]
+  ],
+  [
+    "CONFIG_SPI_COMPLETION_TIMEOUT_TOLERANCE",
+    "y",
+    "int",
+    "200",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/spi/Kconfig",
+      83
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/spi/Kconfig.nrfx",
+      6
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_SPIM",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/spi/Kconfig.nrfx",
+      23
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_RAM_BUFFER_SIZE",
+    "y",
+    "int",
+    "8",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/spi/Kconfig.nrfx",
+      95
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_WAKE_TIMEOUT_US",
+    "y",
+    "int",
+    "200",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/spi/Kconfig.nrfx",
+      115
+    ]
   ],
   [
     "CONFIG_STEPPER",
@@ -7356,7 +7480,7 @@
     "y",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       1
     ]
   ],
@@ -7410,7 +7534,7 @@
     "y",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       2
     ]
   ],
@@ -7439,7 +7563,7 @@
     "y",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       5
     ]
   ],
@@ -8036,7 +8160,7 @@
     "y",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       7
     ]
   ],
@@ -8191,7 +8315,7 @@
     "y",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       3
     ]
   ],
@@ -8362,7 +8486,7 @@
     "46387008",
     "assign",
     [
-      "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf",
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
       4
     ]
   ],

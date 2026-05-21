@@ -39,207 +39,207 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/arch/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/arch/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/lib/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/soc/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/soc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/boards/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/boards/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/subsys/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/firmware/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/firmware/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/csse4011-sdk/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/csse4011-sdk/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/cmsis/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/cmsis/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/cmsis-dsp/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/cmsis-dsp/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/cmsis-nn/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/cmsis-nn/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/cmsis_6/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/cmsis_6/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/fatfs/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/fatfs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/hal_nordic/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/hal_nordic/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/hal_rpi_pico/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/hal_rpi_pico/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/hal_st/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/hal_st/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/hal_stm32/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/hal_stm32/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/hal_tdk/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/hal_tdk/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/hal_wurthelektronik/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/hal_wurthelektronik/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/hostap/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/hostap/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/liblc3/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/liblc3/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/libmetal/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/libmetal/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/littlefs/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/littlefs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/loramac-node/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/loramac-node/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/lvgl/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/lvgl/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/mbedtls/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/mbedtls/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/mipi-sys-t/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/mipi-sys-t/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/nanopb/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/nanopb/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/nrf_wifi/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/nrf_wifi/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/open-amp/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/open-amp/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/percepio/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/percepio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/picolibc/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/picolibc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/segger/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/segger/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/uoscore-uedhoc/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/uoscore-uedhoc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/zcbor/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/zcbor/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/modules/nrf_hw_models/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/modules/nrf_hw_models/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/kernel/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/kernel/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/cmake/flash/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/cmake/flash/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/cmake/usage/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/cmake/usage/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/cmake/reports/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/cmake/reports/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/install_local_manifest.txt"
+  file(WRITE "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

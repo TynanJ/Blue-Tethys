@@ -8,9 +8,400 @@
 #include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/bluetooth/services/nus.h>
 #include <zephyr/bluetooth/hci.h>
+#include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/spi.h>
+#include <zephyr/device.h>
+#include <zephyr/logging/log.h>
+
+#define LED1_NODE DT_ALIAS(led1) //green
+#define LED2_NODE DT_ALIAS(led2) //blue
+#define LED0_NODE DT_ALIAS(led0) //red
+
+static const struct gpio_dt_spec led_green = GPIO_DT_SPEC_GET(LED1_NODE, gpios);
+static const struct gpio_dt_spec led_blue = GPIO_DT_SPEC_GET(LED2_NODE, gpios);
+static const struct gpio_dt_spec led_red = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
+
 
 #define DEVICE_NAME		CONFIG_BT_DEVICE_NAME
 #define DEVICE_NAME_LEN		(sizeof(DEVICE_NAME) - 1)
+LOG_MODULE_REGISTER(rc522, LOG_LEVEL_INF);
+
+/* Device tree bindings */
+#define RC522_NODE DT_NODELABEL(rc522)
+
+static const struct spi_dt_spec rc522_spi = SPI_DT_SPEC_GET(RC522_NODE,
+    SPI_OP_MODE_MASTER | SPI_TRANSFER_MSB | SPI_WORD_SET(8));
+
+static const struct gpio_dt_spec rc522_rst =
+    GPIO_DT_SPEC_GET(DT_NODELABEL(rc522_rst), gpios);
+
+/* RC522 Register Addresses */
+#define RC522_REG_COMMAND       0x01
+#define RC522_REG_COM_IEN       0x02
+#define RC522_REG_COM_IRQ       0x04
+#define RC522_REG_ERROR         0x06
+#define RC522_REG_FIFO_DATA     0x09
+#define RC522_REG_FIFO_LEVEL    0x0A
+#define RC522_REG_CONTROL       0x0C
+#define RC522_REG_BIT_FRAMING   0x0D
+#define RC522_REG_MODE          0x11
+#define RC522_REG_TX_CONTROL    0x14
+#define RC522_REG_TX_ASK        0x15
+#define RC522_REG_CRC_RESULT_H  0x21
+#define RC522_REG_CRC_RESULT_L  0x22
+#define RC522_REG_VERSION       0x37
+
+/* RC522 Commands */
+#define RC522_CMD_IDLE          0x00
+#define RC522_CMD_MEM           0x01
+#define RC522_CMD_CALC_CRC      0x03
+#define RC522_CMD_TRANSMIT      0x04
+#define RC522_CMD_RECEIVE       0x08
+#define RC522_CMD_TRANSCEIVE    0x0C
+#define RC522_CMD_SOFT_RESET    0x0F
+
+#define MFRC522_REG_COMM_IE_N    0x02
+#define MFRC522_REG_COMM_IRQ     0x04
+#define MFRC522_REG_DIV_IRQ      0x05
+#define MFRC522_REG_ERROR        0x06
+#define MFRC522_REG_FIFO_DATA    0x09
+#define MFRC522_REG_FIFO_LEVEL   0x0A
+#define MFRC522_REG_CONTROL      0x0C
+#define MFRC522_REG_BIT_FRAMING  0x0D
+#define MFRC522_REG_COMMAND      0x01
+#define MFRC522_REG_TX_CONTROL   0x14
+#define MFRC522_REG_CRC_RESULT_L 0x22
+#define MFRC522_REG_CRC_RESULT_M 0x21
+#define MFRC522_MAX_LEN          16
+
+#define PCD_IDLE                 0x00
+#define PCD_AUTHENT              0x0E
+#define PCD_TRANSCEIVE           0x0C
+#define PCD_CALCCRC              0x03
+
+#define PICC_REQIDL              0x26
+#define PICC_ANTICOLL            0x93
+#define PICC_HALT                0x50
+
+/* -----------------------------------------------------------------------
+ * Low-level SPI read/write
+ * --------------------------------------------------------------------- */
+
+static int rc522_write_reg(uint8_t reg, uint8_t val)
+{
+    /* Address byte: MSB=0 (write), bits[6:1]=addr, LSB=0 */
+    uint8_t tx_buf[2] = { (reg << 1) & 0x7E, val };
+    struct spi_buf tx[] = {{ .buf = tx_buf, .len = 2 }};
+    struct spi_buf_set tx_set = { .buffers = tx, .count = 1 };
+
+    return spi_write_dt(&rc522_spi, &tx_set);
+}
+
+static int rc522_read_reg(uint8_t reg, uint8_t *val)
+{
+    /* Address byte: MSB=1 (read), bits[6:1]=addr, LSB=0 */
+    uint8_t tx_buf[2] = { ((reg << 1) & 0x7E) | 0x80, 0x00 };
+    uint8_t rx_buf[2] = { 0 };
+    struct spi_buf tx[] = {{ .buf = tx_buf, .len = 2 }};
+    struct spi_buf rx[] = {{ .buf = rx_buf, .len = 2 }};
+    struct spi_buf_set tx_set = { .buffers = tx, .count = 1 };
+    struct spi_buf_set rx_set = { .buffers = rx, .count = 1 };
+
+    int err = spi_transceive_dt(&rc522_spi, &tx_set, &rx_set);
+    *val = rx_buf[1];
+    return err;
+}
+
+static int rc522_set_bits(uint8_t reg, uint8_t mask)
+{
+    uint8_t val;
+    int err = rc522_read_reg(reg, &val);
+    if (err) return err;
+    return rc522_write_reg(reg, val | mask);
+}
+
+static int rc522_clear_bits(uint8_t reg, uint8_t mask)
+{
+    uint8_t val;
+    int err = rc522_read_reg(reg, &val);
+    if (err) return err;
+    return rc522_write_reg(reg, val & ~mask);
+}
+
+/* -----------------------------------------------------------------------
+ * Hardware reset
+ * --------------------------------------------------------------------- */
+
+static int rc522_hw_reset(void)
+{
+    if (!gpio_is_ready_dt(&rc522_rst)) {
+        LOG_ERR("RST GPIO not ready");
+        return -ENODEV;
+    }
+
+    int err = gpio_pin_configure_dt(&rc522_rst, GPIO_OUTPUT_ACTIVE);
+    if (err) return err;
+
+    gpio_pin_set_dt(&rc522_rst, 0);  /* assert reset */
+    k_msleep(10);
+    gpio_pin_set_dt(&rc522_rst, 1);  /* release reset */
+    k_msleep(50);                     /* wait for oscillator to stabilise */
+
+    return 0;
+}
+
+/* -----------------------------------------------------------------------
+ * Full init sequence
+ * --------------------------------------------------------------------- */
+
+int rc522_init(void)
+{
+    if (!spi_is_ready_dt(&rc522_spi)) {
+        LOG_ERR("SPI device not ready");
+        return -ENODEV;
+    }
+
+    rc522_hw_reset();
+
+    /* Software reset */
+    rc522_write_reg(RC522_REG_COMMAND, RC522_CMD_SOFT_RESET);
+    k_msleep(50);
+
+    /* Timer config matching working Arduino version */
+    rc522_write_reg(0x2A, 0x80);
+    rc522_write_reg(0x2B, 0xA9);
+    rc522_write_reg(0x2C, 0xE8);
+    rc522_write_reg(0x2D, 0x03);
+
+    /* Modulation */
+    rc522_write_reg(RC522_REG_TX_ASK, 0x40);
+    rc522_write_reg(RC522_REG_MODE, 0x3D);
+
+    /* Antenna on */
+    rc522_set_bits(RC522_REG_TX_CONTROL, 0x03);
+
+    /* Read version just for info, don't fail on it */
+    uint8_t version;
+    rc522_read_reg(RC522_REG_VERSION, &version);
+    LOG_INF("RC522 version: 0x%02x", version);
+
+    LOG_INF("RC522 initialised successfully");
+    return 0;
+}
+
+/* Send REQA command and check for response */
+static int rc522_detect_card(void)
+{
+    uint8_t buffer[2];
+    uint8_t buffer_size = sizeof(buffer);
+
+    /* Prepare for transmission */
+    rc522_write_reg(RC522_REG_COMMAND, RC522_CMD_IDLE);
+    rc522_write_reg(RC522_REG_COM_IRQ, 0x7F);           /* clear interrupts */
+    rc522_write_reg(RC522_REG_FIFO_LEVEL, 0x80);        /* flush FIFO */
+    rc522_write_reg(RC522_REG_FIFO_DATA, 0x26);         /* REQA command */
+    rc522_write_reg(RC522_REG_BIT_FRAMING, 0x07);       /* 7 bits */
+    rc522_write_reg(RC522_REG_COMMAND, RC522_CMD_TRANSCEIVE);
+    rc522_set_bits(RC522_REG_BIT_FRAMING, 0x80);        /* start transmission */
+
+    /* Wait for response with timeout */
+    uint8_t irq;
+    int timeout = 50;
+    do {
+        rc522_read_reg(RC522_REG_COM_IRQ, &irq);
+        k_msleep(1);
+    } while (--timeout && !(irq & 0x30));  /* wait for RxIRq or IdleIRq */
+
+    if (timeout == 0) {
+        return -ETIMEDOUT;  /* no card */
+    }
+
+    /* Check for errors */
+    uint8_t error;
+    rc522_read_reg(RC522_REG_ERROR, &error);
+    if (error & 0x1B) {
+        return -EIO;
+    }
+
+    /* Check FIFO has data */
+    uint8_t fifo_level;
+    rc522_read_reg(RC522_REG_FIFO_LEVEL, &fifo_level);
+    if (fifo_level == 0) {
+        return -ENODATA;
+    }
+
+    return 0;  /* card detected */
+}
+
+static void rc522_calculateCRC(uint8_t *pIndata, uint8_t len, uint8_t *pOutData)
+{
+    uint8_t i, n;
+
+    rc522_clear_bits(MFRC522_REG_DIV_IRQ, 0x04);
+    rc522_set_bits(MFRC522_REG_FIFO_LEVEL, 0x80);
+
+    for (i = 0; i < len; i++) {
+        rc522_write_reg(MFRC522_REG_FIFO_DATA, *(pIndata + i));
+    }
+    rc522_write_reg(MFRC522_REG_COMMAND, PCD_CALCCRC);
+
+    i = 0xFF;
+    do {
+        rc522_read_reg(MFRC522_REG_DIV_IRQ, &n);
+        i--;
+    } while ((i != 0) && !(n & 0x04));
+
+    rc522_read_reg(MFRC522_REG_CRC_RESULT_L, &pOutData[0]);
+    rc522_read_reg(MFRC522_REG_CRC_RESULT_M, &pOutData[1]);
+}
+
+static bool rc522_toCard(uint8_t command, uint8_t *sendData, uint8_t sendLen,
+                         uint8_t *backData, uint16_t *backLen)
+{
+    bool status = false;
+    uint8_t irqEn = 0x00;
+    uint8_t waitIRq = 0x00;
+    uint8_t lastBits, n;
+    uint16_t i;
+
+    switch (command) {
+    case PCD_AUTHENT:
+        irqEn = 0x12;
+        waitIRq = 0x10;
+        break;
+    case PCD_TRANSCEIVE:
+        irqEn = 0x77;
+        waitIRq = 0x30;
+        break;
+    default:
+        break;
+    }
+
+    rc522_write_reg(MFRC522_REG_COMM_IE_N, irqEn | 0x80);
+    rc522_clear_bits(MFRC522_REG_COMM_IRQ, 0x80);
+    rc522_set_bits(MFRC522_REG_FIFO_LEVEL, 0x80);
+    rc522_write_reg(MFRC522_REG_COMMAND, PCD_IDLE);
+
+    for (i = 0; i < sendLen; i++) {
+        rc522_write_reg(MFRC522_REG_FIFO_DATA, sendData[i]);
+    }
+
+    rc522_write_reg(MFRC522_REG_COMMAND, command);
+    if (command == PCD_TRANSCEIVE) {
+        rc522_set_bits(MFRC522_REG_BIT_FRAMING, 0x80);
+    }
+
+    i = 100;
+    do {
+        rc522_read_reg(MFRC522_REG_COMM_IRQ, &n);
+        i--;
+    } while ((i != 0) && !(n & 0x01) && !(n & waitIRq));
+
+    rc522_clear_bits(MFRC522_REG_BIT_FRAMING, 0x80);
+
+    if (i != 0) {
+        uint8_t err;
+        rc522_read_reg(MFRC522_REG_ERROR, &err);
+        if (!(err & 0x1B)) {
+            status = true;
+            if (n & irqEn & 0x01) {
+                status = false;
+            }
+
+            if (command == PCD_TRANSCEIVE) {
+                uint8_t fifo_level;
+                rc522_read_reg(MFRC522_REG_FIFO_LEVEL, &fifo_level);
+                n = fifo_level;
+                lastBits = 0;
+                rc522_read_reg(MFRC522_REG_CONTROL, &lastBits);
+                lastBits &= 0x07;
+
+                if (lastBits) {
+                    *backLen = (n - 1) * 8 + lastBits;
+                } else {
+                    *backLen = n * 8;
+                }
+
+                if (n == 0) n = 1;
+                if (n > MFRC522_MAX_LEN) n = MFRC522_MAX_LEN;
+
+                for (i = 0; i < n; i++) {
+                    rc522_read_reg(MFRC522_REG_FIFO_DATA, &backData[i]);
+                }
+
+                if (fifo_level == 4) {
+                    LOG_INF("Card data: %02x %02x %02x %02x",
+                        backData[0], backData[1], backData[2], backData[3]);
+                }
+                return status;
+            }
+        } else {
+            LOG_ERR("RC522 toCard error");
+            status = false;
+        }
+    }
+
+    return status;
+}
+
+static bool rc522_request(uint8_t reqMode, uint8_t *tagType)
+{
+    uint16_t backBits;
+
+    rc522_write_reg(MFRC522_REG_BIT_FRAMING, 0x07);
+    tagType[0] = reqMode;
+
+    bool status = rc522_toCard(PCD_TRANSCEIVE, tagType, 1, tagType, &backBits);
+    if (!status || backBits != 0x10) {
+        status = false;
+    }
+    return status;
+}
+
+static bool rc522_antiColl(uint8_t *serNum)
+{
+    uint16_t unLen;
+    uint8_t serNumCheck = 0;
+
+    rc522_write_reg(MFRC522_REG_BIT_FRAMING, 0x00);
+    serNum[0] = PICC_ANTICOLL;
+    serNum[1] = 0x20;
+
+    bool status = rc522_toCard(PCD_TRANSCEIVE, serNum, 2, serNum, &unLen);
+
+    if (status) {
+        uint8_t i;
+        for (i = 0; i < 4; i++) {
+            serNumCheck ^= serNum[i];
+        }
+        if (serNumCheck != serNum[i]) {
+            status = false;
+        }
+    }
+    return status;
+}
+
+static void rc522_halt(void)
+{
+    uint16_t unLen;
+    uint8_t buff[4];
+
+    buff[0] = PICC_HALT;
+    buff[1] = 0;
+    rc522_calculateCRC(buff, 2, &buff[2]);
+    rc522_toCard(PCD_TRANSCEIVE, buff, 4, buff, &unLen);
+}
+
+bool rc522_checkCard(uint8_t *id)
+{
+    bool status = rc522_request(PICC_REQIDL, id);
+    if (status) {
+        status = rc522_antiColl(id);
+    }
+    rc522_halt();
+    return status;
+}
+
 
 /* == Advertising data ===================================================== */
 static const struct bt_data ad[] = {
@@ -195,43 +586,67 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
 /* == Entry point ========================================================== */
 int main(void)
 {
-	int err;
 
-	printk("Sample - Bluetooth Scanner + Peripheral NUS\n");
-
-    /* == NUS callback registration ============ */
-	err = bt_nus_cb_register(&nus_listener, NULL);
-	if (err) {
-		printk("Failed to register NUS callback: %d\n", err);
-		return err;
-	}
-
-    /* == Bluetooth init =================================================== */
-	err = bt_enable(NULL);
-	if (err) {
-		printk("Failed to enable bluetooth: %d\n", err);
-		return err;
-	}
-
-    /* == Advertise so a NUS central can connect =========================== */
-	err = bt_le_adv_start(BT_LE_ADV_CONN_FAST_1, ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
-	if (err) {
-		printk("Failed to start advertising: %d\n", err);
-		return err;
-	}
-
-    /* == Start scanning simultaneously ==================================== */
-    err = bt_le_scan_start(&scan_params, scan_cb);
-    if (err) {
-        printk("Failed to start scanning: %d\n", err);
-        return err;
+    if (rc522_init() != 0) {
+        LOG_ERR("RC522 init failed, halting");
+        gpio_pin_configure_dt(&led_red, GPIO_OUTPUT_ACTIVE);
+        return -1;
     }
 
-	printk("Initialization complete\n");
+    printk("RC522 ready, waiting for card...\n");
+    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+    k_msleep(500);
+    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
+
+    uint8_t id[5];
+    while (1) {
+        if (rc522_checkCard(id)) {
+            printk("Card UID: %02x %02x %02x %02x\n",
+                id[0], id[1], id[2], id[3]);
+            gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT_ACTIVE);
+            k_msleep(1000);
+            gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT_INACTIVE);
+        }
+        k_msleep(200);
+    }
+
+	// int err;
+
+	// printk("Sample - Bluetooth Scanner + Peripheral NUS\n");
+
+    // /* == NUS callback registration ============ */
+	// err = bt_nus_cb_register(&nus_listener, NULL);
+	// if (err) {
+	// 	printk("Failed to register NUS callback: %d\n", err);
+	// 	return err;
+	// }
+
+    // /* == Bluetooth init =================================================== */
+	// err = bt_enable(NULL);
+	// if (err) {
+	// 	printk("Failed to enable bluetooth: %d\n", err);
+	// 	return err;
+	// }
+
+    // /* == Advertise so a NUS central can connect =========================== */
+	// err = bt_le_adv_start(BT_LE_ADV_CONN_FAST_1, ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
+	// if (err) {
+	// 	printk("Failed to start advertising: %d\n", err);
+	// 	return err;
+	// }
+
+    // /* == Start scanning simultaneously ==================================== */
+    // err = bt_le_scan_start(&scan_params, scan_cb);
+    // if (err) {
+    //     printk("Failed to start scanning: %d\n", err);
+    //     return err;
+    // }
+
+	// printk("Initialization complete\n");
     
-	while (true) {
-		k_sleep(K_FOREVER);
-	}
+	// while (true) {
+	// 	k_sleep(K_FOREVER);
+	// }
 
 	return 0;
 }

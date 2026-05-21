@@ -39,17 +39,17 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/soc/soc/nrf52840/nrf52/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/soc/soc/nrf52840/nrf52/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/soc/soc/nrf52840/common/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/soc/soc/nrf52840/common/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/soc/soc/nrf52840/install_local_manifest.txt"
+  file(WRITE "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/soc/soc/nrf52840/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

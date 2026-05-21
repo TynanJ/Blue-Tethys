@@ -1,7 +1,7 @@
 cmake:
   application:
-    configuration-dir: '/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation'
-    source-dir: '/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation'
+    configuration-dir: '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID'
+    source-dir: '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID'
   board:
     name: 'xiao_ble'
     path:
@@ -14,6 +14,7 @@ cmake:
      - '/Users/piperhofstee/csse4011/zephyr/dts/bindings'
     files:
      - '/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts'
+     - '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay'
     include-dirs:
      - '/Users/piperhofstee/csse4011/firmware/include'
      - '/Users/piperhofstee/csse4011/firmware/dts'
@@ -32,12 +33,14 @@ cmake:
      - '/Users/piperhofstee/csse4011/zephyr/dts/arm'
      - '/Users/piperhofstee/csse4011/zephyr/dts/arc'
      - '/Users/piperhofstee/csse4011/zephyr/dts'
+    user-files:
+     - '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay'
   kconfig:
     files:
      - '/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense_defconfig'
-     - '/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf'
+     - '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf'
     user-files:
-     - '/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/prj.conf'
+     - '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf'
   toolchain:
     name: 'zephyr'
     path: '/Users/piperhofstee/zephyr-sdk-0.17.4'
@@ -49,6 +52,6 @@ cmake:
     zephyr-base: '/Users/piperhofstee/csse4011/zephyr'
 version: '0.1.0'
 west:
-  command: '/Users/piperhofstee/csse4011/.venv/bin/west build -p -b xiao_ble/nrf52840/sense -d 01mobilestation/build 01mobilestation'
+  command: '/Users/piperhofstee/csse4011/.venv/bin/west build -p -b xiao_ble/nrf52840/sense -d 02RFID/build 02RFID'
   topdir: '/Users/piperhofstee/csse4011'
   version: '1.5.0'

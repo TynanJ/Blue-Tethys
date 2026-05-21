@@ -33,4 +33,5 @@ empty_file.o: /Users/piperhofstee/csse4011/zephyr/misc/empty_file.c \
  /Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi \
  /Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/seeed_xiao_connector.dtsi \
  /Users/piperhofstee/csse4011/zephyr/boards/common/usb/cdc_acm_serial.dtsi \
- /Users/piperhofstee/csse4011/zephyr/include/zephyr/dt-bindings/gpio/nordic-nrf-gpio.h
+ /Users/piperhofstee/csse4011/zephyr/include/zephyr/dt-bindings/gpio/nordic-nrf-gpio.h \
+ /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay

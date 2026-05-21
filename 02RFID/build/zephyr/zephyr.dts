@@ -580,12 +580,20 @@
 			interrupts = < 0x23 0x1 >;      /* in zephyr/dts/arm/nordic/nrf52840.dtsi:473 */
 			max-frequency = < 0x7a1200 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:474 */
 			easydma-maxcnt-bits = < 0x10 >; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:475 */
-			compatible = "nordic,nrf-spi";  /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:110 */
-			status = "okay";                /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:111 */
-			pinctrl-0 = < &spi2_default >;  /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:112 */
-			pinctrl-1 = < &spi2_sleep >;    /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:113 */
+			compatible = "nordic,nrf-spim"; /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:2 */
+			status = "okay";                /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:3 */
+			pinctrl-0 = < &spi2_default >;  /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:5 */
+			pinctrl-1 = < &spi2_sleep >;    /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:6 */
 			pinctrl-names = "default",
-			                "sleep";        /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:114 */
+			                "sleep";        /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:7 */
+			cs-gpios = < &gpio0 0x4 0x1 >;  /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:9 */
+
+			/* node '/soc/spi@40023000/rc522@0' defined in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:11 */
+			rc522: rc522@0 {
+				compatible = "vnd,spi-device";    /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:12 */
+				reg = < 0x0 >;                    /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:13 */
+				spi-max-frequency = < 0x4c4b40 >; /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:14 */
+			};
 		};
 
 		/* node '/soc/rtc@40024000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:479 */
@@ -852,26 +860,26 @@
 
 		/* node '/pin-controller/spi2_default' defined in zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi:85 */
 		spi2_default: spi2_default {
-			phandle = < 0xd >; /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:112 */
+			phandle = < 0xd >; /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:5 */
 
 			/* node '/pin-controller/spi2_default/group1' defined in zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi:86 */
 			group1 {
 				psels = < 0x400002d >,
 				        < 0x500002f >,
-				        < 0x600002e >; /* in zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi:87 */
+				        < 0x600002e >; /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:21 */
 			};
 		};
 
 		/* node '/pin-controller/spi2_sleep' defined in zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi:93 */
 		spi2_sleep: spi2_sleep {
-			phandle = < 0xe >; /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:113 */
+			phandle = < 0xe >; /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:6 */
 
 			/* node '/pin-controller/spi2_sleep/group1' defined in zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi:94 */
 			group1 {
 				psels = < 0x400002d >,
 				        < 0x500002f >,
-				        < 0x600002e >; /* in zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi:95 */
-				low-power-enable;      /* in zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi:98 */
+				        < 0x600002e >; /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:28 */
+				low-power-enable;      /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:31 */
 			};
 		};
 
@@ -1052,5 +1060,17 @@
 		regulator-name = "LSM6DS3TR_C_EN";   /* in zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts:25 */
 		regulator-boot-on;                   /* in zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts:26 */
 		startup-delay-us = < 0xbb8 >;        /* in zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts:27 */
+	};
+
+	/* node '/rc522_pins' defined in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:37 */
+	rc522_pins {
+		compatible = "gpio-leds"; /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:38 */
+		status = "okay";          /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:39 */
+
+		/* node '/rc522_pins/rc522_rst_0' defined in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:40 */
+		rc522_rst: rc522_rst_0 {
+			gpios = < &gpio0 0x0 0x0 >; /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:41 */
+			label = "RC522_RST";        /* in bluetethys/Blue-Tethys/02RFID/boards/xiao_ble_nrf52840_sense.overlay:42 */
+		};
 	};
 };

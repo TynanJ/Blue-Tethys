@@ -11,6 +11,12 @@ events:
     name: "ZephyrBuildConfiguration"
     configs:
       -
+        filename: "ZephyrBuild.cps"
+        kind: "cps"
+      -
+        filename: "zephyrbuild.cps"
+        kind: "cps"
+      -
         filename: "ZephyrBuildConfig.cmake"
         kind: "cmake"
       -
@@ -42,12 +48,28 @@ events:
         CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
     candidates:
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/pkgRedirects/ZephyrBuildConfig.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/ZephyrBuildConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/pkgRedirects/zephyrbuild-config.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/zephyrbuild-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/share/cps/zephyrbuild.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/prac5/ZephyrBuildConfig.cmake"
@@ -58,12 +80,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/Users/piperhofstee/csse4011/prac5/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/prac5/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/prac5/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/prac5/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/Users/piperhofstee/csse4011/firmware/ZephyrBuildConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/firmware/zephyrbuild-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/firmware/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/firmware/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/firmware/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/firmware/share/cps/zephyrbuild.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/tools/ZephyrBuildConfig.cmake"
@@ -74,12 +128,92 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/Users/piperhofstee/csse4011/tools/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/tools/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/tools/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/tools/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/Users/piperhofstee/csse4011/csse4011-sdk/ZephyrBuildConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/csse4011-sdk/zephyrbuild-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/csse4011-sdk/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/csse4011-sdk/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/csse4011-sdk/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/csse4011-sdk/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/finalproject/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/finalproject/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/finalproject/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/finalproject/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/finalproject/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/finalproject/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/share/cps/zephyrbuild.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/firmware2/ZephyrBuildConfig.cmake"
@@ -90,12 +224,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/Users/piperhofstee/csse4011/firmware2/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/firmware2/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/firmware2/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/firmware2/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/Users/piperhofstee/csse4011/.venv/ZephyrBuildConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/.venv/zephyrbuild-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.venv/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.venv/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.venv/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.venv/share/cps/zephyrbuild.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/.west/ZephyrBuildConfig.cmake"
@@ -106,12 +272,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/Users/piperhofstee/csse4011/.west/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.west/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.west/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.west/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/Users/piperhofstee/csse4011/modules/ZephyrBuildConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/modules/zephyrbuild-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/modules/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/modules/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/modules/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/modules/share/cps/zephyrbuild.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/zephyr/ZephyrBuildConfig.cmake"
@@ -130,6 +328,22 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/Users/piperhofstee/csse4011/zephyr/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/Users/piperhofstee/csse4011/miniproject/ZephyrBuildConfig.cmake"
         mode: "config"
         reason: "no_exist"
@@ -137,10 +351,28 @@ events:
         path: "/Users/piperhofstee/csse4011/miniproject/zephyrbuild-config.cmake"
         mode: "config"
         reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/miniproject/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/miniproject/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/miniproject/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/miniproject/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
     found: null
     search_context:
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -155,7 +387,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find_package-v1"
     backtrace:
@@ -165,6 +397,12 @@ events:
       - "CMakeLists.txt:4 (find_package)"
     name: "ZephyrAppConfiguration"
     configs:
+      -
+        filename: "ZephyrApp.cps"
+        kind: "cps"
+      -
+        filename: "zephyrapp.cps"
+        kind: "cps"
       -
         filename: "ZephyrAppConfig.cmake"
         kind: "cmake"
@@ -182,7 +420,7 @@ events:
       names:
         - "ZephyrApp"
       search_paths:
-        - "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation"
+        - "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID"
       path_suffixes:
         - ""
       paths:
@@ -197,25 +435,59 @@ events:
         CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
     candidates:
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/pkgRedirects/ZephyrAppConfig.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/ZephyrAppConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/pkgRedirects/zephyrapp-config.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/zephyrapp-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/ZephyrAppConfig.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/lib/cps/ZephyrApp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/lib/cps/zephyrapp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/share/cps/ZephyrApp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/share/cps/zephyrapp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/ZephyrAppConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/zephyrapp-config.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/zephyrapp-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/lib/cps/ZephyrApp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/lib/cps/zephyrapp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/share/cps/ZephyrApp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/share/cps/zephyrapp.cps"
+        mode: "cps"
         reason: "no_exist"
     found: null
     search_context:
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -230,7 +502,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -253,7 +525,9 @@ events:
     names:
       - "ccache"
     candidate_directories:
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -267,14 +541,18 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/ccache"
       - "/Users/piperhofstee/csse4011/.venv/bin/ccache"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/ccache"
       - "/opt/homebrew/opt/python/libexec/bin/ccache"
     found: "/opt/homebrew/bin/ccache"
     search_context:
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -289,7 +567,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find_package-v1"
     backtrace:
@@ -307,6 +585,12 @@ events:
         required: false
         found: false
     configs:
+      -
+        filename: "Zephyr-sdk.cps"
+        kind: "cps"
+      -
+        filename: "zephyr-sdk.cps"
+        kind: "cps"
       -
         filename: "Zephyr-sdkConfig.cmake"
         kind: "cmake"
@@ -347,12 +631,52 @@ events:
         CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
     candidates:
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/pkgRedirects/Zephyr-sdkConfig.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/Zephyr-sdkConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/pkgRedirects/zephyr-sdk-config.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/zephyr-sdk-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/scripts/Zephyr-sdkConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/scripts/zephyr-sdk-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/scripts/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/scripts/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/scripts/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/scripts/share/cps/zephyr-sdk.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/.venv/Zephyr-sdkConfig.cmake"
@@ -363,12 +687,68 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/Users/piperhofstee/csse4011/.venv/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.venv/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.venv/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/.venv/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/Caskroom/miniconda/base/condabin/Zephyr-sdkConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/Caskroom/miniconda/base/condabin/zephyr-sdk-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/Caskroom/miniconda/base/condabin/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/Caskroom/miniconda/base/condabin/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/Caskroom/miniconda/base/condabin/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/Caskroom/miniconda/base/condabin/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/opt/homebrew/opt/python/libexec/Zephyr-sdkConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "/opt/homebrew/opt/python/libexec/zephyr-sdk-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/opt/python/libexec/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/opt/python/libexec/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/opt/python/libexec/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/opt/python/libexec/share/cps/zephyr-sdk.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/opt/homebrew/Zephyr-sdkConfig.cmake"
@@ -379,12 +759,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/opt/homebrew/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/usr/local/Zephyr-sdkConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "/usr/local/zephyr-sdk-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/share/cps/zephyr-sdk.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/System/Cryptexes/App/usr/Zephyr-sdkConfig.cmake"
@@ -395,12 +807,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/System/Cryptexes/App/usr/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/usr/Zephyr-sdkConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "/usr/zephyr-sdk-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/share/cps/zephyr-sdk.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Zephyr-sdkConfig.cmake"
@@ -411,6 +855,22 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/Library/Apple/usr/Zephyr-sdkConfig.cmake"
         mode: "config"
         reason: "no_exist"
@@ -419,12 +879,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/Zephyr-sdkConfig.cmake"
+        path: "/Library/Apple/usr/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Apple/usr/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Apple/usr/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Apple/usr/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/Zephyr-sdkConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/zephyr-sdk-config.cmake"
+        path: "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/zephyr-sdk-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/share/cps/zephyr-sdk.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/zephyr-sdk-0.17.4/cmake/Zephyr-sdkConfig.cmake"
@@ -436,12 +928,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/Users/piperhofstee/zephyr-sdk-0.17.4/cmake/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/zephyr-sdk-0.17.4/cmake/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/zephyr-sdk-0.17.4/cmake/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/zephyr-sdk-0.17.4/cmake/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/opt/Zephyr-sdkConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "/opt/zephyr-sdk-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/share/cps/zephyr-sdk.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/Zephyr-sdkConfig.cmake"
@@ -469,6 +993,22 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "/Users/piperhofstee/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "/Users/piperhofstee/.local/Zephyr-sdkConfig.cmake"
         mode: "config"
         reason: "no_exist"
@@ -476,10 +1016,28 @@ events:
         path: "/Users/piperhofstee/.local/zephyr-sdk-config.cmake"
         mode: "config"
         reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.local/lib/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.local/lib/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.local/share/cps/Zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/.local/share/cps/zephyr-sdk.cps"
+        mode: "cps"
+        reason: "no_exist"
     found: null
     search_context:
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -494,7 +1052,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -521,7 +1079,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -535,19 +1095,23 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/gperf"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/gperf"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/gperf"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/gperf"
       - "/Users/piperhofstee/csse4011/.venv/bin/gperf"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/gperf"
       - "/opt/homebrew/opt/python/libexec/bin/gperf"
     found: "/opt/homebrew/bin/gperf"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -562,7 +1126,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -589,7 +1153,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -603,19 +1169,23 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/openocd"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/openocd"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/openocd"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/openocd"
       - "/Users/piperhofstee/csse4011/.venv/bin/openocd"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/openocd"
       - "/opt/homebrew/opt/python/libexec/bin/openocd"
     found: "/opt/homebrew/bin/openocd"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -630,7 +1200,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -657,7 +1227,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -671,12 +1243,14 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/bossac"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/bossac"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bossac"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/bossac"
       - "/Users/piperhofstee/csse4011/.venv/bin/bossac"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/bossac"
       - "/opt/homebrew/opt/python/libexec/bin/bossac"
       - "/opt/homebrew/bin/bossac"
       - "/opt/homebrew/sbin/bossac"
@@ -690,13 +1264,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/bossac"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/bossac"
       - "/Library/Apple/usr/bin/bossac"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/bossac"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/bossac"
     found: false
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -711,7 +1287,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -740,7 +1316,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
       - "/scripts/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -754,7 +1332,7 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/imgtool.py"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/imgtool"
@@ -764,8 +1342,12 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/imgtool"
       - "/scripts/imgtool.py"
       - "/scripts/imgtool"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/imgtool.py"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/imgtool"
       - "/Users/piperhofstee/csse4011/.venv/bin/imgtool.py"
       - "/Users/piperhofstee/csse4011/.venv/bin/imgtool"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/imgtool.py"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/imgtool"
       - "/opt/homebrew/opt/python/libexec/bin/imgtool.py"
       - "/opt/homebrew/opt/python/libexec/bin/imgtool"
       - "/opt/homebrew/bin/imgtool.py"
@@ -792,14 +1374,16 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/imgtool"
       - "/Library/Apple/usr/bin/imgtool.py"
       - "/Library/Apple/usr/bin/imgtool"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/imgtool.py"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/imgtool"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/imgtool.py"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/imgtool"
     found: false
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -814,7 +1398,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -841,7 +1425,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -855,12 +1441,14 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/winpty"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/winpty"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/winpty"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/winpty"
       - "/Users/piperhofstee/csse4011/.venv/bin/winpty"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/winpty"
       - "/opt/homebrew/opt/python/libexec/bin/winpty"
       - "/opt/homebrew/bin/winpty"
       - "/opt/homebrew/sbin/winpty"
@@ -874,13 +1462,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/winpty"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/winpty"
       - "/Library/Apple/usr/bin/winpty"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/winpty"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/winpty"
     found: false
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -895,7 +1485,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -926,7 +1516,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -941,7 +1533,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -972,7 +1564,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -987,7 +1581,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1014,7 +1608,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1028,19 +1624,23 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/dtc"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/dtc"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/dtc"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/dtc"
       - "/Users/piperhofstee/csse4011/.venv/bin/dtc"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/dtc"
       - "/opt/homebrew/opt/python/libexec/bin/dtc"
     found: "/opt/homebrew/bin/dtc"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1055,7 +1655,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1086,7 +1686,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1101,7 +1703,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1132,7 +1734,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1147,7 +1751,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1178,7 +1782,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1193,7 +1799,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1224,7 +1830,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1239,7 +1847,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1270,7 +1878,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1285,7 +1895,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1316,7 +1926,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1331,7 +1943,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1362,7 +1974,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1377,7 +1991,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1408,7 +2022,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1423,7 +2039,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1454,7 +2070,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1469,7 +2087,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1500,7 +2118,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1515,7 +2135,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1546,7 +2166,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1561,7 +2183,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1592,7 +2214,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1607,7 +2231,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -1634,7 +2258,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1648,12 +2274,14 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/uname"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/uname"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/uname"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/uname"
       - "/Users/piperhofstee/csse4011/.venv/bin/uname"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/uname"
       - "/opt/homebrew/opt/python/libexec/bin/uname"
       - "/opt/homebrew/bin/uname"
       - "/opt/homebrew/sbin/uname"
@@ -1664,7 +2292,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1679,7 +2309,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
@@ -1720,7 +2350,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1734,7 +2366,7 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/ninja-build"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/ninja"
@@ -1745,9 +2377,15 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/ninja-build"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/ninja"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/samu"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/ninja-build"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/ninja"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/samu"
       - "/Users/piperhofstee/csse4011/.venv/bin/ninja-build"
       - "/Users/piperhofstee/csse4011/.venv/bin/ninja"
       - "/Users/piperhofstee/csse4011/.venv/bin/samu"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/ninja-build"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/ninja"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/samu"
       - "/opt/homebrew/opt/python/libexec/bin/ninja-build"
       - "/opt/homebrew/opt/python/libexec/bin/ninja"
       - "/opt/homebrew/opt/python/libexec/bin/samu"
@@ -1757,7 +2395,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1772,12 +2412,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
@@ -1807,7 +2447,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1822,7 +2464,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
@@ -1850,8 +2492,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
@@ -1881,7 +2523,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -1896,7 +2540,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
@@ -1921,7 +2565,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
       
       The C compiler identification is GNU, found in:
-        /Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/4.2.3/CompilerIdC/CMakeCCompilerId.o
+        /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/4.3.2/CompilerIdC/CMakeCCompilerId.o
       
   -
     kind: "find-v1"
@@ -1949,7 +2593,9 @@ events:
       - "dlltool"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1963,10 +2609,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-dlltool"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-dlltool"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-dlltool"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-dlltool"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-dlltool"
       - "/opt/homebrew/bin/arm-zephyr-eabi-dlltool"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-dlltool"
@@ -1980,9 +2628,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-dlltool"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-dlltool"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-dlltool"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-dlltool"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-dlltool"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/dlltool"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/dlltool"
       - "/Users/piperhofstee/csse4011/.venv/bin/dlltool"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/dlltool"
       - "/opt/homebrew/opt/python/libexec/bin/dlltool"
       - "/opt/homebrew/bin/dlltool"
       - "/opt/homebrew/sbin/dlltool"
@@ -1996,13 +2646,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/dlltool"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/dlltool"
       - "/Library/Apple/usr/bin/dlltool"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/dlltool"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/dlltool"
     found: false
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2017,7 +2669,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -2044,7 +2696,9 @@ events:
       - "addr2line"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2058,13 +2712,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     found: "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-addr2line"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2079,7 +2735,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -2106,7 +2762,9 @@ events:
       - "tapi"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2120,10 +2778,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-tapi"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-tapi"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-tapi"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-tapi"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-tapi"
       - "/opt/homebrew/bin/arm-zephyr-eabi-tapi"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-tapi"
@@ -2137,9 +2797,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-tapi"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-tapi"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-tapi"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-tapi"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-tapi"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/tapi"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/tapi"
       - "/Users/piperhofstee/csse4011/.venv/bin/tapi"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/tapi"
       - "/opt/homebrew/opt/python/libexec/bin/tapi"
       - "/opt/homebrew/bin/tapi"
       - "/opt/homebrew/sbin/tapi"
@@ -2153,13 +2815,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/tapi"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/tapi"
       - "/Library/Apple/usr/bin/tapi"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/tapi"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/tapi"
     found: false
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2174,7 +2838,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -2203,7 +2867,9 @@ events:
       - "arm-zephyr-eabi-gcc-ar"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2217,10 +2883,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar-12.2"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ar-12.2"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ar-12.2"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ar-12.2"
@@ -2234,9 +2902,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ar-12.2"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-12.2"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-12.2"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar-12"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ar-12"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ar-12"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ar-12"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ar-12"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ar-12"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ar-12"
@@ -2250,9 +2920,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ar-12"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ar-12"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ar-12"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-12"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-12"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar12"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ar12"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ar12"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ar12"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ar12"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ar12"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ar12"
@@ -2266,13 +2938,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ar12"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ar12"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ar12"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar12"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar12"
     found: "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2287,7 +2961,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -2316,7 +2990,9 @@ events:
       - "arm-zephyr-eabi-gcc-ranlib"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2330,10 +3006,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ranlib-12.2"
@@ -2347,9 +3025,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-12.2"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib-12"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ranlib-12"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ranlib-12"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ranlib-12"
@@ -2363,9 +3043,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ranlib-12"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-12"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-12"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib12"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ranlib12"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ranlib12"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ranlib12"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ranlib12"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ranlib12"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ranlib12"
@@ -2379,13 +3061,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ranlib12"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ranlib12"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ranlib12"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib12"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib12"
     found: "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2400,12 +3084,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
@@ -2435,7 +3119,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2450,7 +3136,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
@@ -2478,8 +3164,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
@@ -2509,7 +3195,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2524,7 +3212,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
@@ -2549,7 +3237,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
       
       The CXX compiler identification is GNU, found in:
-        /Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/4.2.3/CompilerIdCXX/CMakeCXXCompilerId.o
+        /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/4.3.2/CompilerIdCXX/CMakeCXXCompilerId.o
       
   -
     kind: "find-v1"
@@ -2579,7 +3267,9 @@ events:
       - "arm-zephyr-eabi-gcc-ar"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2593,10 +3283,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar-12.2"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ar-12.2"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ar-12.2"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ar-12.2"
@@ -2610,9 +3302,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ar-12.2"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ar-12.2"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-12.2"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-12.2"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar-12"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ar-12"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ar-12"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ar-12"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ar-12"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ar-12"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ar-12"
@@ -2626,9 +3320,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ar-12"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ar-12"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ar-12"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-12"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-12"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar12"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ar12"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ar12"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ar12"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ar12"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ar12"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ar12"
@@ -2642,13 +3338,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ar12"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ar12"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ar12"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar12"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar12"
     found: "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2663,7 +3361,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -2692,7 +3390,9 @@ events:
       - "arm-zephyr-eabi-gcc-ranlib"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2706,10 +3406,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ranlib-12.2"
@@ -2723,9 +3425,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ranlib-12.2"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-12.2"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-12.2"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib-12"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ranlib-12"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ranlib-12"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ranlib-12"
@@ -2739,9 +3443,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ranlib-12"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ranlib-12"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-12"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-12"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib12"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ranlib12"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ranlib12"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ranlib12"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ranlib12"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ranlib12"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ranlib12"
@@ -2755,13 +3461,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ranlib12"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ranlib12"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ranlib12"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib12"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib12"
     found: "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2776,7 +3484,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -2807,7 +3515,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2822,14 +3532,14 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PROGRAM_PATH:
         - "/bin"
   -
     kind: "message-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1290 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1296 (message)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
       - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/kernel.cmake:135 (enable_language)"
       - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/zephyr_default.cmake:140 (include)"
@@ -2871,7 +3581,9 @@ events:
       - "arm-zephyr-eabi-gcc-ar"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2885,10 +3597,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar-"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ar-"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ar-"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ar-"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ar-"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ar-"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ar-"
@@ -2902,9 +3616,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ar-"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ar-"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ar-"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar-"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ar-"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ar-"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ar-"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ar-"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ar-"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ar-"
@@ -2918,13 +3634,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ar-"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ar-"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ar-"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ar-"
     found: "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -2939,7 +3657,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PROGRAM_PATH:
         - "/bin"
@@ -2971,7 +3689,9 @@ events:
       - "arm-zephyr-eabi-gcc-ranlib"
     candidate_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2985,10 +3705,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib-"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ranlib-"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ranlib-"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ranlib-"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ranlib-"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ranlib-"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ranlib-"
@@ -3002,9 +3724,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ranlib-"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ranlib-"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ranlib-"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib-"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/arm-zephyr-eabi-gcc-ranlib-"
       - "/Users/piperhofstee/csse4011/.venv/bin/arm-zephyr-eabi-gcc-ranlib-"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/arm-zephyr-eabi-gcc-ranlib-"
       - "/opt/homebrew/opt/python/libexec/bin/arm-zephyr-eabi-gcc-ranlib-"
       - "/opt/homebrew/bin/arm-zephyr-eabi-gcc-ranlib-"
       - "/opt/homebrew/sbin/arm-zephyr-eabi-gcc-ranlib-"
@@ -3018,13 +3742,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/arm-zephyr-eabi-gcc-ranlib-"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/arm-zephyr-eabi-gcc-ranlib-"
       - "/Library/Apple/usr/bin/arm-zephyr-eabi-gcc-ranlib-"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/arm-zephyr-eabi-gcc-ranlib-"
     found: "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -3039,7 +3765,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PROGRAM_PATH:
         - "/bin"
@@ -3064,7 +3790,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -3078,19 +3806,23 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/ccache"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/ccache"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/ccache"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/ccache"
       - "/Users/piperhofstee/csse4011/.venv/bin/ccache"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/ccache"
       - "/opt/homebrew/opt/python/libexec/bin/ccache"
     found: "/opt/homebrew/bin/ccache"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -3105,7 +3837,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PROGRAM_PATH:
         - "/bin"
@@ -3132,7 +3864,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -3146,13 +3880,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
       - "/Users/piperhofstee/csse4011/zephyr/scripts/build/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/gen_kobject_list"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/gen_kobject_list"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/gen_kobject_list"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/gen_kobject_list"
       - "/Users/piperhofstee/csse4011/.venv/bin/gen_kobject_list"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/gen_kobject_list"
       - "/opt/homebrew/opt/python/libexec/bin/gen_kobject_list"
       - "/opt/homebrew/bin/gen_kobject_list"
       - "/opt/homebrew/sbin/gen_kobject_list"
@@ -3166,12 +3902,14 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/gen_kobject_list"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/gen_kobject_list"
       - "/Library/Apple/usr/bin/gen_kobject_list"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/gen_kobject_list"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/gen_kobject_list"
       - "/Users/piperhofstee/csse4011/zephyr/scripts/build/gen_kobject_list"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/gen_kobject_list.py"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/gen_kobject_list.py"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/gen_kobject_list.py"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/gen_kobject_list.py"
       - "/Users/piperhofstee/csse4011/.venv/bin/gen_kobject_list.py"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/gen_kobject_list.py"
       - "/opt/homebrew/opt/python/libexec/bin/gen_kobject_list.py"
       - "/opt/homebrew/bin/gen_kobject_list.py"
       - "/opt/homebrew/sbin/gen_kobject_list.py"
@@ -3185,13 +3923,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/gen_kobject_list.py"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/gen_kobject_list.py"
       - "/Library/Apple/usr/bin/gen_kobject_list.py"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/gen_kobject_list.py"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/gen_kobject_list.py"
     found: "/Users/piperhofstee/csse4011/zephyr/scripts/build/gen_kobject_list.py"
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -3206,7 +3946,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PROGRAM_PATH:
         - "/bin"
@@ -3231,7 +3971,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -3245,12 +3987,14 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/puncover"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/puncover"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/puncover"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/puncover"
       - "/Users/piperhofstee/csse4011/.venv/bin/puncover"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/puncover"
       - "/opt/homebrew/opt/python/libexec/bin/puncover"
       - "/opt/homebrew/bin/puncover"
       - "/opt/homebrew/sbin/puncover"
@@ -3264,13 +4008,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/puncover"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/puncover"
       - "/Library/Apple/usr/bin/puncover"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/puncover"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/puncover"
     found: false
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -3285,7 +4031,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PROGRAM_PATH:
         - "/bin"
@@ -3310,7 +4056,9 @@ events:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/"
       - "/Users/piperhofstee/csse4011/.venv/bin/"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/"
       - "/opt/homebrew/opt/python/libexec/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -3324,12 +4072,14 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/bin/pahole"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/sbin/pahole"
       - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/pahole"
+      - "/Users/piperhofstee/csse4011/zephyr/scripts/pahole"
       - "/Users/piperhofstee/csse4011/.venv/bin/pahole"
+      - "/opt/homebrew/Caskroom/miniconda/base/condabin/pahole"
       - "/opt/homebrew/opt/python/libexec/bin/pahole"
       - "/opt/homebrew/bin/pahole"
       - "/opt/homebrew/sbin/pahole"
@@ -3343,13 +4093,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/pahole"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/pahole"
       - "/Library/Apple/usr/bin/pahole"
-      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/pahole"
+      - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts/pahole"
     found: false
     search_context:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -3364,7 +4116,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PROGRAM_PATH:
         - "/bin"
@@ -3374,6 +4126,12 @@ events:
       - "CMakeLists.txt:4 (find_package)"
     name: "Zephyr"
     configs:
+      -
+        filename: "Zephyr.cps"
+        kind: "cps"
+      -
+        filename: "zephyr.cps"
+        kind: "cps"
       -
         filename: "ZephyrConfig.cmake"
         kind: "cmake"
@@ -3406,12 +4164,28 @@ events:
         CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
     candidates:
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/pkgRedirects/ZephyrConfig.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/ZephyrConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/CMakeFiles/pkgRedirects/zephyr-config.cmake"
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/zephyr-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/lib/cps/Zephyr.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/lib/cps/zephyr.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/share/cps/Zephyr.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/CMakeFiles/pkgRedirects/share/cps/zephyr.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/zephyr/ZephyrConfig.cmake"
@@ -3428,6 +4202,22 @@ events:
       -
         path: "/Users/piperhofstee/csse4011/zephyr/cmake/zephyr-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/lib/cps/Zephyr.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/lib/cps/zephyr.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/share/cps/Zephyr.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/piperhofstee/csse4011/zephyr/share/cps/zephyr.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "/Users/piperhofstee/csse4011/zephyr/share/zephyrunittest-package/ZephyrConfig.cmake"
@@ -3461,7 +4251,9 @@ events:
       CMAKE_PREFIX_PATH:
         - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
       ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/zephyr/scripts"
         - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
         - "/opt/homebrew/opt/python/libexec/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
@@ -3476,6 +4268,6 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
         - "/opt/homebrew/opt/python/libexec/bin"
-        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
 ...

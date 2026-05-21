@@ -136,6 +136,8 @@ extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_log_filter_set;
 extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_log_frontend_filter_set;
 extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_log_panic;
 extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_log_process;
+extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_spi_release;
+extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_spi_transceive;
 extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_sys_clock_getrtoffset;
 extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_sys_clock_hw_cycles_per_sec_runtime_get;
 extern __weak ALIAS_OF(no_syscall_impl) void * const z_impl_sys_clock_nanosleep;
