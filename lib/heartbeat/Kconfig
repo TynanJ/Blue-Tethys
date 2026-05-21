@@ -1,0 +1,18 @@
+config HEARTBEAT
+	bool "Enable the heartbeat"
+	default n
+	select GPIO
+	help
+	  This option enables the 'heartbeat' library
+
+config HEARTBEAT_DEFAULT_DURATION
+	int "Default duration of the heartbeat timer"
+	depends on HEARTBEAT
+	default 1000
+	help
+	  This specifies the default duration in milliseconds of the heartbeat
+	  timer used during system initialisation
+
+module = HEARTBEAT
+module-str = HEARTBEAT
+source "subsys/logging/Kconfig.template.log_config"

@@ -1,0 +1,8 @@
+config CSSE4011_TMP36
+    bool "CSSE4011 TMP36 temperature sensor driver"
+    default n
+    select SENSOR
+    select ADC
+    help
+      Enable support for the TMP36 analog temperature sensor.
+      This driver uses the ADC subsystem to read temperature values.

@@ -1,0 +1,14 @@
+manifest:
+  remotes:
+    - name: uqembeddedsys 
+      url-base: https://github.com/skwort
+
+  projects:
+    - name: csse4011-sdk 
+      remote: uqembeddedsys 
+      repo-path: csse4011-sdk 
+      revision: main  # keep students up to date with main
+      import: true
+
+  self:
+    path: firmware 

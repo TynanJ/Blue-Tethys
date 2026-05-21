@@ -1,0 +1,27 @@
+# Copyright (c) 2024, Adrien Leravat
+# SPDX-License-Identifier: Apache-2.0
+
+description: TMP36 analog temperature sensor
+
+compatible: "csse4011,tmp36"
+
+include: base.yaml
+
+properties:
+  io-channels:
+    type: phandle-array
+    required: true
+    description: |
+      ADC channel used to read the TMP36 output voltage.
+      This should be of the form <&adc channel>.
+
+  io-channel-names:
+    type: string-array
+    required: false
+
+  channel:
+    type: int
+    required: true
+    description: Particular ADC channel
+
+      

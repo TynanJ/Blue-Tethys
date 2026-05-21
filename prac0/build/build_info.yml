@@ -1,0 +1,54 @@
+cmake:
+  application:
+    configuration-dir: '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/prac0'
+    source-dir: '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/prac0'
+  board:
+    name: 'xiao_ble'
+    path:
+     - '/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble'
+    qualifiers: 'nrf52840/sense'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/Users/piperhofstee/csse4011/firmware/dts/bindings'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/bindings'
+    files:
+     - '/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts'
+    include-dirs:
+     - '/Users/piperhofstee/csse4011/firmware/include'
+     - '/Users/piperhofstee/csse4011/firmware/dts'
+     - '/Users/piperhofstee/csse4011/modules/hal/stm32/dts'
+     - '/Users/piperhofstee/csse4011/zephyr/include'
+     - '/Users/piperhofstee/csse4011/zephyr/include/zephyr'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/common'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/vendor'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/rx'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/x86'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/xtensa'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/sparc'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/riscv'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/posix'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/arm64'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/arm'
+     - '/Users/piperhofstee/csse4011/zephyr/dts/arc'
+     - '/Users/piperhofstee/csse4011/zephyr/dts'
+  kconfig:
+    files:
+     - '/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense_defconfig'
+     - '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/prac0/prj.conf'
+    user-files:
+     - '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/prac0/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/Users/piperhofstee/zephyr-sdk-0.17.4'
+  vendor-specific:
+    nordic:
+      svdfile: '/Users/piperhofstee/csse4011/modules/hal/nordic/nrfx/mdk/nrf52840.svd'
+  zephyr:
+    version: '4.3.0'
+    zephyr-base: '/Users/piperhofstee/csse4011/zephyr'
+version: '0.1.0'
+west:
+  command: '/Users/piperhofstee/csse4011/.venv/bin/west build -p -b xiao_ble/nrf52840/sense -d prac0/build prac0'
+  topdir: '/Users/piperhofstee/csse4011'
+  version: '1.5.0'
