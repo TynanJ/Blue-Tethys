@@ -55,6 +55,41 @@ static atomic_t current_mode = ATOMIC_INIT(MODE_BASE);
 // GLOBAL VARIABLES
 BeaconList anchor_beacons;
 
+#define MAX_NODES 2
+
+struct node_conn {
+    struct bt_conn *conn;
+    uint16_t nus_rx_handle;
+    struct bt_uuid_128 discover_uuid;
+    struct bt_gatt_discover_params discover_params;
+    struct bt_gatt_subscribe_params subscribe_params;
+    struct bt_uuid_128 rx_discover_uuid;
+    struct bt_gatt_discover_params rx_discover_params;
+    struct bt_gatt_write_params write_params;
+    struct bt_gatt_exchange_params mtu_exchange_params;
+};
+
+static struct node_conn nodes[MAX_NODES];
+
+static struct node_conn *get_free_node(void);
+static struct node_conn *get_node(struct bt_conn *conn);
+
+static struct node_conn *get_node(struct bt_conn *conn)
+{
+    for (int i = 0; i < MAX_NODES; i++) {
+        if (nodes[i].conn == conn) return &nodes[i];
+    }
+    return NULL;
+}
+
+static struct node_conn *get_free_node(void)
+{
+    for (int i = 0; i < MAX_NODES; i++) {
+        if (nodes[i].conn == NULL) return &nodes[i];
+    }
+    return NULL;
+}
+
 
 // === POSITIONDATA ===
 // Inner data struct declarations
@@ -976,20 +1011,45 @@ static bool parse_ad_for_nus(struct bt_data *data, void *user_data)
     return true; /* Continue parsing */
 }
 
+static const char *target_names[] = { "MAKING-WAVES-RFID", "IMU"};
+
+struct parse_name_result {
+    bool found;
+    char name[32];
+};
+
 static bool parse_name_cb(struct bt_data *data, void *user_data)
 {
-    bool *found = user_data;
-    const char *target = "46387008";
-    const size_t target_len = strlen(target);
-
-    if (data->type == BT_DATA_NAME_COMPLETE &&
-        data->data_len == target_len &&
-        memcmp(data->data, target, target_len) == 0) {
-        *found = true;
-        return false;
+    struct parse_name_result *result = user_data;
+    if (data->type == BT_DATA_NAME_COMPLETE) {
+        for (int i = 0; i < ARRAY_SIZE(target_names); i++) {
+            size_t len = strlen(target_names[i]);
+            if (data->data_len == len &&
+                memcmp(data->data, target_names[i], len) == 0) {
+                result->found = true;
+                memcpy(result->name, data->data, len);
+                result->name[len] = '\0';
+                return false;
+            }
+        }
     }
     return true;
 }
+
+// static bool parse_name_cb(struct bt_data *data, void *user_data)
+// {
+//     bool *found = user_data;
+//     const char *target = "46387008";
+//     const size_t target_len = strlen(target);
+
+//     if (data->type == BT_DATA_NAME_COMPLETE &&
+//         data->data_len == target_len &&
+//         memcmp(data->data, target, target_len) == 0) {
+//         *found = true;
+//         return false;
+//     }
+//     return true;
+// }
 
 static void device_found(const bt_addr_le_t *addr, int8_t rssi, uint8_t type,
                           struct net_buf_simple *ad)
@@ -997,46 +1057,56 @@ static void device_found(const bt_addr_le_t *addr, int8_t rssi, uint8_t type,
     char addr_str[BT_ADDR_LE_STR_LEN];
     int err;
 
-    if (default_conn) {
-        return;
-    }
-
     if (smf_get_current_executing_state(SMF_CTX(&node_ctx)) == &states[STATE_BASE]) {
 
-        /* Accept connectable adverts and their scan responses */
+        /* Check free slot first */
+        struct node_conn *node = get_free_node();
+        if (!node) {
+            return;  /* all slots full, stop looking */
+        }
+
         if (type != BT_GAP_ADV_TYPE_ADV_IND &&
             type != BT_GAP_ADV_TYPE_ADV_DIRECT_IND &&
             type != BT_GAP_ADV_TYPE_SCAN_RSP) {
             return;
         }
 
-        /* Check if this packet contains the NUS service UUID */
-        //bool has_nus = false;
-        bool found = false;
-
-        // bt_data_parse(ad, parse_ad_for_nus, &has_nus);
-        // if (!has_nus) {
-        //     return;
-        // }
-
-         bt_data_parse(ad, parse_name_cb, &found);
-        if (!found) {
+        struct parse_name_result result = { .found = false, .name = {0} };
+        bt_data_parse(ad, parse_name_cb, &result);
+        if (!result.found) {
             return;
         }
+    
 
-        bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
-        LOG_INF("NUS peripheral found: %s (RSSI %d)", addr_str, rssi);
+bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
+LOG_INF("NUS peripheral found: %s (%s) RSSI %d", addr_str, result.name, rssi);
 
+for (int i = 0; i < MAX_NODES; i++) {
+    if (nodes[i].conn != NULL) {
+        char existing[BT_ADDR_LE_STR_LEN];
+        bt_addr_le_to_str(bt_conn_get_dst(nodes[i].conn),
+                          existing, sizeof(existing));
+        if (strcmp(existing, addr_str) == 0) {
+            return;
+        }
+    }
+}
+
+        /* Stop scan, connect, then restart scan in connected() */
         if (bt_le_scan_stop()) {
             return;
         }
 
         err = bt_conn_le_create(addr, BT_CONN_LE_CREATE_CONN,
-                    BT_LE_CONN_PARAM_DEFAULT, &default_conn);
+                    BT_LE_CONN_PARAM_DEFAULT, &node->conn);
         if (err) {
             LOG_ERR("Create conn to %s failed (%d)", addr_str, err);
+            node->conn = NULL;
             start_scan();
-        }
+        }   else {
+            LOG_INF("Connection initiated to %s", addr_str);
+        }   
+
     } else if (smf_get_current_executing_state(SMF_CTX(&node_ctx)) == &states[STATE_SNIFFER]) {
         bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
         LOG_INF("Device found: %s (RSSI %d)", addr_str, rssi);
@@ -1053,7 +1123,7 @@ static void start_scan(void)
     };
 
     int err = bt_le_scan_start(&scan_params, device_found);
-    if (err) {
+    if (err && err != -EALREADY) {  /* ignore -EALREADY */
         printk("Scanning failed to start (err %d)\n", err);
         return;
     }
@@ -1113,75 +1183,93 @@ static struct bt_gatt_exchange_params mtu_exchange_params = {
  * Connection Callbacks
  * ========================================================================== */
 
+
+ static void scan_restart_work_fn(struct k_work *work)
+{
+    if (get_free_node()) {
+        start_scan();
+    }
+}
+
+ static K_WORK_DELAYABLE_DEFINE(scan_restart_work, scan_restart_work_fn);
+
 static void connected(struct bt_conn *conn, uint8_t conn_err)
 {
+    printk("connected() called err=%u\n", conn_err);
     char addr[BT_ADDR_LE_STR_LEN];
-    int err;
-    default_conn = bt_conn_ref(conn);
     bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 
     if (conn_err) {
         LOG_ERR("Failed to connect to %s (err %u)", addr, conn_err);
-        bt_conn_unref(default_conn);
-        default_conn = NULL;
+        struct node_conn *node = get_node(conn);
+        if (node) {
+            bt_conn_unref(node->conn);
+            memset(node, 0, sizeof(*node));
+        }
         start_scan();
         return;
     }
 
-    LOG_INF("Connected: %s", addr);
-
-    /* Request data length extension (over-the-air packet size) */
-    update_data_length(conn);
-
-    /* Request MTU exchange (GATT payload size) */
-    err = bt_gatt_exchange_mtu(conn, &mtu_exchange_params);
-    if (err) {
-        LOG_WRN("MTU exchange request failed (err %d)", err);
+    /* Count active connections */
+    int count = 0;
+    for (int i = 0; i < MAX_NODES; i++) {
+        if (nodes[i].conn != NULL) count++;
     }
 
-    /* Start discovering NUS service */
-    memcpy(&discover_uuid,
-           BT_UUID_DECLARE_128(BT_UUID_NUS_SRV_VAL),
-           sizeof(discover_uuid));
-    discover_params.uuid = &discover_uuid.uuid;
-    discover_params.func = discover_func;
-    discover_params.start_handle = BT_ATT_FIRST_ATTRIBUTE_HANDLE;
-    discover_params.end_handle = BT_ATT_LAST_ATTRIBUTE_HANDLE;
-    discover_params.type = BT_GATT_DISCOVER_PRIMARY;
+    printk("Connected to %s (%d/%d active)\n", addr, count, MAX_NODES);
 
-    err = bt_gatt_discover(conn, &discover_params);
-    if (err) {
-        LOG_ERR("Service discover failed (err %d)", err);
+    LOG_INF("Connected: %s", addr);
+
+    struct node_conn *node = get_node(conn);
+    if (!node) {
+        LOG_ERR("No node slot found for connection");
+        bt_conn_disconnect(conn, BT_HCI_ERR_REMOTE_USER_TERM_CONN);
         return;
     }
 
-    /* Also discover the RX characteristic for sending data */
+    update_data_length(conn);
+
+    node->mtu_exchange_params.func = mtu_exchange_cb;
+    bt_gatt_exchange_mtu(conn, &node->mtu_exchange_params);
+
+    memcpy(&node->discover_uuid,
+           BT_UUID_DECLARE_128(BT_UUID_NUS_SRV_VAL),
+           sizeof(node->discover_uuid));
+    node->discover_params.uuid = &node->discover_uuid.uuid;
+    node->discover_params.func = discover_func;
+    node->discover_params.start_handle = BT_ATT_FIRST_ATTRIBUTE_HANDLE;
+    node->discover_params.end_handle = BT_ATT_LAST_ATTRIBUTE_HANDLE;
+    node->discover_params.type = BT_GATT_DISCOVER_PRIMARY;
+    bt_gatt_discover(conn, &node->discover_params);
+
     discover_nus_rx(conn);
+
+    /* Keep scanning for more nodes */
+    if (get_free_node()) {
+        k_work_schedule(&scan_restart_work, K_MSEC(1000));
+    }
 }
 
 static void disconnected(struct bt_conn *conn, uint8_t reason)
 {
     char addr[BT_ADDR_LE_STR_LEN];
-
     bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
     LOG_INF("Disconnected: %s (reason 0x%02x)", addr, reason);
 
-    if (default_conn != conn) {
-        return;
-    }
+    struct node_conn *node = get_node(conn);
+    if (!node) return;
 
-    bt_conn_unref(default_conn);
-    default_conn = NULL;
-    nus_rx_handle = 0;
+    bt_conn_unref(node->conn);
+    node->conn = NULL;          /* explicitly NULL after unref */
+    node->nus_rx_handle = 0;
+    memset(node, 0, sizeof(*node));  /* clear everything */
 
-    LOG_INF("Restarting scan...");
-    start_scan();
+    k_work_schedule(&scan_restart_work, K_MSEC(500));
 }
 
 BT_CONN_CB_DEFINE(conn_callbacks) = {
-    .connected = connected,
+    .connected    = connected,
     .disconnected = disconnected,
-    .le_data_len_updated = on_le_data_len_updated,
 };
 
 /* ========================================================================== */
@@ -1258,7 +1346,7 @@ void inital_beacons() {
     //     "4011-L",  "");
 
     /* Print the full list */
-    beacon_list_print(&anchor_beacons);
+    // beacon_list_print(&anchor_beacons);
 
     // /* Find by MAC */
     // puts("\n--- Find by MAC: D4:D2:A0:A4:5C:AC ---");
@@ -1386,6 +1474,10 @@ int main(void)
         return 0;
     }
     LOG_INF("Bluetooth initialised");
+
+
+    /* Schedule periodic rescan in case nodes come online later */
+    k_work_schedule(&scan_restart_work, K_MSEC(5000));
     smf_set_initial(SMF_CTX(&node_ctx), &states[STATE_BASE]);
     k_sem_give(&smf_ready);
 

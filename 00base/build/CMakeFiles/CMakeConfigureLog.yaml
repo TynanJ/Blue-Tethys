@@ -3770,38 +3770,6 @@ events:
       CMAKE_SYSTEM_PROGRAM_PATH:
         - "/bin"
   -
-    kind: "try_compile-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
-      - "/opt/homebrew/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
-      - "/opt/homebrew/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
-      - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/extensions.cmake:2343 (check_c_compiler_flag)"
-      - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/extensions.cmake:1198 (check_compiler_flag)"
-      - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/extensions.cmake:2382 (zephyr_check_compiler_flag)"
-      - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/extensions.cmake:2358 (target_cc_option_fallback)"
-      - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/extensions.cmake:155 (target_cc_option)"
-      - "/Users/piperhofstee/csse4011/zephyr/CMakeLists.txt:660 (zephyr_cc_option)"
-    directories:
-      source: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/build/CMakeFiles/CMakeScratch/TryCompile-bucb4i"
-      binary: "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/build/CMakeFiles/CMakeScratch/TryCompile-bucb4i"
-    cmakeVariables:
-      CMAKE_CXX_STDLIB_MODULES_JSON: ""
-      CMAKE_C_FLAGS: ""
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-      CMAKE_MODULE_PATH: "/Users/piperhofstee/csse4011/zephyr/cmake/modules"
-    buildResult:
-      variable: "check_fmacro_prefix_map__Users_piperhofstee_csse4011_bluetethys_Blue_Tethys_00base_CMAKE_SOURCE_DIR_C__nostartfiles__nostdlib__isystem___Users_piperhofstee_zephyr_sdk_0_17_4_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_2_0_include___isystem___Users_piperhofstee_zephyr_sdk_0_17_4_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_2_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__fuse_ld_bfd"
-      cached: true
-      stdout: |
-        Change Dir: '/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/build/CMakeFiles/CMakeScratch/TryCompile-bucb4i'
-        
-        Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_3f37d
-        [1/2] /Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc -Dcheck_fmacro_prefix_map__Users_piperhofstee_csse4011_bluetethys_Blue_Tethys_00base_CMAKE_SOURCE_DIR_C__nostartfiles__nostdlib__isystem___Users_piperhofstee_zephyr_sdk_0_17_4_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_2_0_include___isystem___Users_piperhofstee_zephyr_sdk_0_17_4_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_2_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__fuse_ld_bfd  -nostartfiles -nostdlib -isystem "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/../lib/gcc/arm-zephyr-eabi/12.2.0/include" -isystem "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/../lib/gcc/arm-zephyr-eabi/12.2.0/include-fixed" -Wl,--unresolved-symbols=ignore-in-object-files -Wl,--entry=0 -fuse-ld=bfd   -fmacro-prefix-map=/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base=CMAKE_SOURCE_DIR -o CMakeFiles/cmTC_3f37d.dir/src.c.obj -c /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/build/CMakeFiles/CMakeScratch/TryCompile-bucb4i/src.c
-        [2/2] : && /Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc -nostartfiles -nostdlib -isystem "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/../lib/gcc/arm-zephyr-eabi/12.2.0/include" -isystem "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/../lib/gcc/arm-zephyr-eabi/12.2.0/include-fixed" -Wl,--unresolved-symbols=ignore-in-object-files -Wl,--entry=0 -fuse-ld=bfd  CMakeFiles/cmTC_3f37d.dir/src.c.obj -o cmTC_3f37d   && :
-        
-      exitCode: 0
-  -
     kind: "find-v1"
     backtrace:
       - "/Users/piperhofstee/csse4011/modules/lib/picolibc/CMakeLists.txt:49 (find_program)"

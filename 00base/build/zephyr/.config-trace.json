@@ -765,7 +765,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
-      20
+      21
     ]
   ],
   [
@@ -1096,7 +1096,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
-      17
+      18
     ]
   ],
   [
@@ -1107,7 +1107,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
-      16
+      17
     ]
   ],
   [
@@ -1118,7 +1118,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
-      18
+      19
     ]
   ],
   [
@@ -9730,7 +9730,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
-      12
+      13
     ]
   ],
   [
@@ -10059,7 +10059,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
-      22
+      23
     ]
   ],
   [
@@ -10270,7 +10270,7 @@
     "CONFIG_BT_MAX_CONN",
     "y",
     "int",
-    "1",
+    "2",
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
@@ -10365,7 +10365,7 @@
     "CONFIG_BT_BUF_ACL_RX_COUNT_EXTRA",
     "y",
     "int",
-    "1",
+    "2",
     "default",
     [
       "/Users/piperhofstee/csse4011/zephyr/subsys/bluetooth/common/Kconfig",
@@ -10648,7 +10648,7 @@
     "CONFIG_BT_CONN_FRAG_COUNT",
     "n",
     "int",
-    "1",
+    "2",
     "default",
     [
       "/Users/piperhofstee/csse4011/zephyr/subsys/bluetooth/host/Kconfig",
@@ -10725,7 +10725,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
-      14
+      15
     ]
   ],
   [
@@ -11241,11 +11241,11 @@
     "CONFIG_BT_MAX_PAIRED",
     "y",
     "int",
-    "1",
-    "default",
+    "2",
+    "assign",
     [
-      "/Users/piperhofstee/csse4011/zephyr/subsys/bluetooth/host/Kconfig",
-      845
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
+      12
     ]
   ],
   [
@@ -11995,7 +11995,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/00base/prj.conf",
-      15
+      16
     ]
   ],
   [
@@ -12232,6 +12232,17 @@
     ]
   ],
   [
+    "CONFIG_BT_CTLR_CHECK_SAME_PEER_CONN",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/bluetooth/controller/Kconfig.ll_sw_split",
+      223
+    ]
+  ],
+  [
     "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL_INHERIT",
     "y",
     "bool",
@@ -12464,7 +12475,7 @@
     "CONFIG_BT_CTLR_LLCP_CONN",
     "n",
     "int",
-    "1",
+    "2",
     "default",
     [
       "/Users/piperhofstee/csse4011/zephyr/subsys/bluetooth/controller/Kconfig.ll_sw_split",
@@ -12512,14 +12523,14 @@
     "default",
     [
       "/Users/piperhofstee/csse4011/zephyr/subsys/bluetooth/controller/Kconfig.ll_sw_split",
-      1065
+      1066
     ]
   ],
   [
     "CONFIG_BT_CTLR_LLCP_REMOTE_PROC_CTX_BUF_NUM",
     "n",
     "int",
-    "1",
+    "2",
     "default",
     [
       "/Users/piperhofstee/csse4011/zephyr/subsys/bluetooth/controller/Kconfig.ll_sw_split",
