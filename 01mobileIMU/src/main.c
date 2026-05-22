@@ -311,7 +311,7 @@ int main(void)
 	struct sensor_value odr_attr;
 	const struct device *const lsm6dsl_dev = DEVICE_DT_GET_ONE(st_lsm6dsl);
     int sample_count = 0;
-    char out_json[128];
+    char out_json[256];
     int json_len;
 
 	float ax_g = 0;
@@ -487,21 +487,21 @@ int main(void)
         /* ── Periodic logging and sending over BLE NUS ──────────────────────────────── */
         if (++sample_count >= LOG_EVERY_N_SAMPLES) {
             sample_count = 0;
-            LOG_INF("Steering angle: %8.2f deg  (raw: %8.2f)  gz: %6.2f deg/s",
+            LOG_INF("Steering angle: %.4f deg  (raw: %.4f)  gz: %.4f deg/s",
                     (double)g_steering_angle_deg,
                     (double)g_cumulative_angle_deg,
                     (double)gz_ds);
 
-            // json_len = snprintf(out_json, sizeof(out_json),
-            //     "{\"SteeringAngle\":%8.2f, \"CumAngle\":%8.2f, \"GyroZ\":%6.2f}",
-            //     (double)g_steering_angle_deg,
-            //     (double)g_cumulative_angle_deg,
-            //     (double)gz_ds);
+            json_len = snprintf(out_json, sizeof(out_json),
+                "{\"SteeringAngle\":%.4f, \"CumAngle\":%.4f, \"GyroZ\":%.4f}",
+                (double)g_steering_angle_deg,
+                (double)g_cumulative_angle_deg,
+                (double)gz_ds);
 
-            // int err = bt_nus_send(NULL, (uint8_t *)out_json, (uint16_t)json_len);
-            // if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
-            //     LOG_INF("bt_nus_send failed: %d\n", err);
-            // }
+            int err = bt_nus_send(NULL, (uint8_t *)out_json, (uint16_t)json_len);
+            if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
+                LOG_INF("bt_nus_send failed: %d\n", err);
+            }
         }
 
 		// Looping stuff

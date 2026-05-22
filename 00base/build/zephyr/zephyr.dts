@@ -171,7 +171,7 @@
 			pinctrl-1 = < &uart0_sleep >;    /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:89 */
 			pinctrl-names = "default",
 			                "sleep";         /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:90 */
-			current-speed = < 0x2580 >;      /* in bluetethys/Blue-Tethys/00base/boards/xiao_ble_nrf52840_sense.overlay:2 */
+			current-speed = < 0x2580 >;      /* in Blue-Tethys/00base/boards/xiao_ble_nrf52840_sense.overlay:2 */
 		};
 
 		/* node '/soc/i2c@40003000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:135 */

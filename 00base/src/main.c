@@ -965,18 +965,20 @@ static struct bt_uuid_128 rx_discover_uuid;
 static struct bt_gatt_discover_params rx_discover_params;
 
 static uint8_t rx_discover_func(struct bt_conn *conn,
-                const struct bt_gatt_attr *attr,
-                struct bt_gatt_discover_params *params)
+                                const struct bt_gatt_attr *attr,
+                                struct bt_gatt_discover_params *params)
 {
     if (!attr) {
         LOG_WRN("NUS RX characteristic not found");
-        (void)memset(params, 0, sizeof(*params));
+        memset(params, 0, sizeof(*params));
         return BT_GATT_ITER_STOP;
     }
 
-    nus_rx_handle = bt_gatt_attr_value_handle(attr);
-    LOG_INF("NUS RX Characteristic found (handle %u) - ready to send",
-        nus_rx_handle);
+    struct node_conn *node = get_node(conn);  /* <-- find the right node */
+    if (!node) return BT_GATT_ITER_STOP;
+
+    node->nus_rx_handle = bt_gatt_attr_value_handle(attr);  /* <-- per-node handle */
+    LOG_INF("NUS RX handle discovered for '%s': %u", node->name, node->nus_rx_handle);
 
     return BT_GATT_ITER_STOP;
 }
@@ -984,18 +986,20 @@ static uint8_t rx_discover_func(struct bt_conn *conn,
 static void discover_nus_rx(struct bt_conn *conn)
 {
     int err;
+    struct node_conn *node = get_node(conn);
+    if (!node) return;
 
-    memcpy(&rx_discover_uuid,
+    memcpy(&node->rx_discover_uuid,                          /* <-- per-node params */
            BT_UUID_DECLARE_128(BT_UUID_NUS_RX_CHAR_VAL),
-           sizeof(rx_discover_uuid));
+           sizeof(node->rx_discover_uuid));
 
-    rx_discover_params.uuid = &rx_discover_uuid.uuid;
-    rx_discover_params.func = rx_discover_func;
-    rx_discover_params.start_handle = BT_ATT_FIRST_ATTRIBUTE_HANDLE;
-    rx_discover_params.end_handle = BT_ATT_LAST_ATTRIBUTE_HANDLE;
-    rx_discover_params.type = BT_GATT_DISCOVER_CHARACTERISTIC;
+    node->rx_discover_params.uuid         = &node->rx_discover_uuid.uuid;
+    node->rx_discover_params.func         = rx_discover_func;
+    node->rx_discover_params.start_handle = BT_ATT_FIRST_ATTRIBUTE_HANDLE;
+    node->rx_discover_params.end_handle   = BT_ATT_LAST_ATTRIBUTE_HANDLE;
+    node->rx_discover_params.type         = BT_GATT_DISCOVER_CHARACTERISTIC;
 
-    err = bt_gatt_discover(conn, &rx_discover_params);
+    err = bt_gatt_discover(conn, &node->rx_discover_params);
     if (err) {
         LOG_ERR("RX discover failed (err %d)", err);
     }
@@ -1130,7 +1134,9 @@ for (int i = 0; i < MAX_NODES; i++) {
             node->conn = NULL;
             start_scan();
         }   else {
-            LOG_INF("Connection initiated to %s", addr_str);
+                strncpy(node->name, result.name, sizeof(node->name) - 1);  /* <-- add this */
+                node->name[sizeof(node->name) - 1] = '\0';
+                LOG_INF("Connection initiated to %s (%s)", addr_str, node->name);
         }   
 
     } else if (smf_get_current_executing_state(SMF_CTX(&node_ctx)) == &states[STATE_SNIFFER]) {
@@ -1156,6 +1162,29 @@ static void start_scan(void)
     printk("Scanning started\n");
 }
 
+static int nus_send_to_node(const char *name, const uint8_t *data, uint16_t len)
+{
+    for (int i = 0; i < MAX_NODES; i++) {
+        if (nodes[i].conn == NULL) continue;
+        if (strcmp(nodes[i].name, name) != 0) continue;
+
+        if (nodes[i].nus_rx_handle == 0) {
+            LOG_ERR("NUS RX handle not yet discovered for %s", name);
+            return -EINVAL;
+        }
+
+        nodes[i].write_params.func   = write_func;
+        nodes[i].write_params.handle = nodes[i].nus_rx_handle;
+        nodes[i].write_params.offset = 0;
+        nodes[i].write_params.data   = data;
+        nodes[i].write_params.length = len;
+
+        return bt_gatt_write(nodes[i].conn, &nodes[i].write_params);
+    }
+
+    LOG_ERR("Node '%s' not connected", name);
+    return -ENOENT;
+}
 
 /* ==========================================================================
  * Data Length Extension and MTU Exchange
@@ -1506,6 +1535,17 @@ int main(void)
     k_work_schedule(&scan_restart_work, K_MSEC(5000));
     smf_set_initial(SMF_CTX(&node_ctx), &states[STATE_BASE]);
     k_sem_give(&smf_ready);
+
+    // Send some test message to the IMU NUS peripheral every 5 seconds
+    while (true) {
+        k_msleep(5000);
+        int err = nus_send_to_node("IMU", (const uint8_t *)"zero", 4);
+        if (err) {
+            LOG_ERR("Failed to send zero to IMU (err %d)", err);
+        } else {
+            LOG_INF("Sent zero command to IMU");
+        }
+    }
 
 
     // TESTING GRAVEYARD

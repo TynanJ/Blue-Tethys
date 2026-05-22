@@ -3393,3 +3393,103 @@ events:
         - "/home/tynan/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/tynan/csse4011/zephyr/cmake/compiler/gcc/target.cmake:8 (find_program)"
+      - "/home/tynan/csse4011/zephyr/cmake/modules/FindTargetTools.cmake:103 (include)"
+      - "/home/tynan/csse4011/zephyr/cmake/modules/kernel.cmake:25 (find_package)"
+      - "/home/tynan/csse4011/zephyr/cmake/modules/zephyr_default.cmake:140 (include)"
+      - "/home/tynan/csse4011/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
+      - "/home/tynan/csse4011/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:97 (include_boilerplate)"
+      - "CMakeLists.txt:4 (find_package)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "/home/tynan/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc"
+    candidate_directories:
+      - "/home/tynan/zephyr-sdk-0.17.4/"
+    found: "/home/tynan/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/tynan/zephyr-sdk-0.17.4/sysroots/x86_64-pokysdk-linux/usr"
+      ENV{PATH}:
+        - "/home/tynan/csse4011/zephyr/scripts"
+        - "/home/tynan/csse4011/.venv/bin"
+        - "/home/tynan/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/tynan/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/snap/bin"
+        - "/home/tynan/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/tynan/csse4011/zephyr/cmake/compiler/gcc/target.cmake:8 (find_program)"
+      - "/home/tynan/csse4011/zephyr/cmake/modules/FindTargetTools.cmake:103 (include)"
+      - "/home/tynan/csse4011/zephyr/cmake/modules/kernel.cmake:25 (find_package)"
+      - "/home/tynan/csse4011/zephyr/cmake/modules/zephyr_default.cmake:140 (include)"
+      - "/home/tynan/csse4011/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
+      - "/home/tynan/csse4011/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:97 (include_boilerplate)"
+      - "CMakeLists.txt:4 (find_package)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "/home/tynan/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc"
+    candidate_directories:
+      - "/home/tynan/zephyr-sdk-0.17.4/"
+    found: "/home/tynan/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/tynan/zephyr-sdk-0.17.4/sysroots/x86_64-pokysdk-linux/usr"
+      ENV{PATH}:
+        - "/home/tynan/csse4011/zephyr/scripts"
+        - "/home/tynan/csse4011/.venv/bin"
+        - "/home/tynan/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/tynan/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/snap/bin"
+        - "/home/tynan/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+...
