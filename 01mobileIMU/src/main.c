@@ -3,17 +3,66 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-
 #include <zephyr/kernel.h>
+#include <zephyr/device.h>
+
+// IMU Related
+#include <zephyr/drivers/sensor.h>
+#include <zephyr/sys/util.h>
+#include <math.h>
+
+// NUS Related
 #include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/bluetooth/services/nus.h>
 #include <zephyr/bluetooth/hci.h>
+
+// Other
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/logging/log.h>
 
+#define LED0_NODE DT_ALIAS(led0) //red
 #define LED1_NODE DT_ALIAS(led1) //green
 #define LED2_NODE DT_ALIAS(led2) //blue
-#define LED0_NODE DT_ALIAS(led0) //red
+
+#define PI 3.1415926543
+
+#define MAX_Y_HEAD_THRESHOLD PI/4
+#define MIN_Y_HEAD_THRESHOLD -PI/4
+
+static int print_samples;
+static int lsm6dsl_trig_cnt;
+
+static struct sensor_value accel_x_out, accel_y_out, accel_z_out;
+
+#ifdef CONFIG_LSM6DSL_TRIGGER
+static void lsm6dsl_trigger_handler(const struct device *dev,
+				    const struct sensor_trigger *trig)
+{
+	static struct sensor_value accel_x, accel_y, accel_z;
+	static struct sensor_value gyro_x, gyro_y, gyro_z;
+	lsm6dsl_trig_cnt++;
+
+	sensor_sample_fetch_chan(dev, SENSOR_CHAN_ACCEL_XYZ);
+	sensor_channel_get(dev, SENSOR_CHAN_ACCEL_X, &accel_x);
+	sensor_channel_get(dev, SENSOR_CHAN_ACCEL_Y, &accel_y);
+	sensor_channel_get(dev, SENSOR_CHAN_ACCEL_Z, &accel_z);
+
+	/* lsm6dsl gyro */
+	sensor_sample_fetch_chan(dev, SENSOR_CHAN_GYRO_XYZ);
+	sensor_channel_get(dev, SENSOR_CHAN_GYRO_X, &gyro_x);
+	sensor_channel_get(dev, SENSOR_CHAN_GYRO_Y, &gyro_y);
+	sensor_channel_get(dev, SENSOR_CHAN_GYRO_Z, &gyro_z);
+
+	if (print_samples) {
+		print_samples = 0;
+
+		accel_x_out = accel_x;
+		accel_y_out = accel_y;
+		accel_z_out = accel_z;
+	}
+
+}
+#endif
 
 static const struct gpio_dt_spec led_green = GPIO_DT_SPEC_GET(LED1_NODE, gpios);
 static const struct gpio_dt_spec led_blue = GPIO_DT_SPEC_GET(LED2_NODE, gpios);
@@ -157,9 +206,37 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
 /* == Entry point ========================================================== */
 int main(void)
 {
-
     int err;
-	printk("Sample - Bluetooth Scanner + Peripheral NUS\n");
+    char out_str[64];
+	struct sensor_value odr_attr;
+	const struct device *const lsm6dsl_dev = DEVICE_DT_GET_ONE(st_lsm6dsl);
+	double current_accel_x = 0;
+	double current_accel_y = 0;
+	double current_accel_z = 0;
+
+	double current_head_yz = 0;
+	double current_head_xz = 0;
+
+	printk("IMU with Bluetooth output\n");
+
+    /* == LED Initialization ============ */
+	if (!gpio_is_ready_dt(&led_red)) {
+		return 0;
+    }
+
+	if (!gpio_is_ready_dt(&led_green)) {
+		return 0;
+    }
+
+	if (!gpio_is_ready_dt(&led_blue)) {
+		return 0;
+    }
+
+    /* == IMU Registration ============ */
+	if (!device_is_ready(lsm6dsl_dev)) {
+		printk("sensor: device not ready.\n");
+		return 0;
+	}
 
     /* == NUS callback registration ============ */
 	err = bt_nus_cb_register(&nus_listener, NULL);
@@ -189,16 +266,90 @@ int main(void)
         return err;
     }
 
+    // Configure LED pins
+	err = gpio_pin_configure_dt(&led_red, GPIO_OUTPUT_ACTIVE);
+    if (err < 0) {
+        return 0;
+    }
+
+	err = gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+    if (err < 0) {
+        return 0;
+    }
+
+	err = gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT_ACTIVE);
+    if (err < 0) {
+        return 0;
+    }
+
+	/* set accel/gyro sampling frequency to 104 Hz */
+	odr_attr.val1 = 104;
+	odr_attr.val2 = 0;
+
+	if (sensor_attr_set(lsm6dsl_dev, SENSOR_CHAN_ACCEL_XYZ,
+			    SENSOR_ATTR_SAMPLING_FREQUENCY, &odr_attr) < 0) {
+		printk("Cannot set sampling frequency for accelerometer.\n");
+		return 0;
+	}
+
+	if (sensor_attr_set(lsm6dsl_dev, SENSOR_CHAN_GYRO_XYZ,
+			    SENSOR_ATTR_SAMPLING_FREQUENCY, &odr_attr) < 0) {
+		printk("Cannot set sampling frequency for gyro.\n");
+		return 0;
+	}
+
+#ifdef CONFIG_LSM6DSL_TRIGGER
+	struct sensor_trigger trig;
+
+	trig.type = SENSOR_TRIG_DATA_READY;
+	trig.chan = SENSOR_CHAN_ACCEL_XYZ;
+
+	if (sensor_trigger_set(lsm6dsl_dev, &trig, lsm6dsl_trigger_handler) != 0) {
+		printk("Could not set sensor type and channel\n");
+		return 0;
+	}
+#endif
+
+	if (sensor_sample_fetch(lsm6dsl_dev) < 0) {
+		printk("Sensor sample update error\n");
+		return 0;
+	}
+
+	// Reset LEDs
+	gpio_pin_set_dt(&led_red, 0);
+	gpio_pin_set_dt(&led_green, 0);
+	gpio_pin_set_dt(&led_blue, 0);
+
 	printk("Initialization complete\n");
 
-    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
-    k_msleep(500);
-    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
 
-    while (1) {
-        // Do nothing for now
-        k_msleep(200);
-}
+	while (1) {
+		// Read accelerometer headings
+		current_accel_x = sensor_value_to_double(&accel_x_out);
+		current_accel_y = sensor_value_to_double(&accel_y_out);
+		current_accel_z = sensor_value_to_double(&accel_z_out);
 
-return 0;
+		// Convert accels to heading
+		current_head_yz = atan(current_accel_y / sqrt(current_accel_x*current_accel_x + current_accel_z*current_accel_z));
+		current_head_xz = atan(current_accel_x / sqrt(current_accel_y*current_accel_y + current_accel_z*current_accel_z));
+		
+		// Print current heading
+		sprintf(out_str, "Current heading: %f",
+						current_head_yz);
+		printk("%s\n", out_str);
+
+		// Change LED Based on Y axis
+		if (current_head_xz > MAX_Y_HEAD_THRESHOLD) {
+			gpio_pin_set_dt(&led_green, 1);
+		} else if (current_head_xz < MIN_Y_HEAD_THRESHOLD) {
+			gpio_pin_set_dt(&led_red, 1);
+		} else {
+			gpio_pin_set_dt(&led_green, 0);
+			gpio_pin_set_dt(&led_red, 0);
+		}
+
+		// Looping stuff
+		print_samples = 1;
+		k_sleep(K_MSEC(10));
+	}
 }

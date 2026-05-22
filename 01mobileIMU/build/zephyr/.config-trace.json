@@ -82,9 +82,12 @@
     "CONFIG_SPI",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "assign",
+    [
+      "/home/tynan/csse4011/Blue-Tethys/01mobileIMU/prj.conf",
+      14
+    ]
   ],
   [
     "CONFIG_MIPI_DSI",
@@ -700,10 +703,9 @@
     "y",
     "bool",
     "y",
-    "assign",
+    "select",
     [
-      "/home/tynan/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense_defconfig",
-      10
+      "SPI_NRFX && SOC_FAMILY_NORDIC_NRF && SPI"
     ]
   ],
   [
@@ -2113,6 +2115,16 @@
     null
   ],
   [
+    "CONFIG_NRFX_SPI",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NRFX_SPI2 && y && SOC_SERIES_NRF52X && HAS_NRFX"
+    ]
+  ],
+  [
     "CONFIG_NRFX_SPI0",
     "y",
     "bool",
@@ -2132,9 +2144,11 @@
     "CONFIG_NRFX_SPI2",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SPI_NRFX_SPI && HAS_HW_NRF_SPI2 && DT_HAS_NORDIC_NRF_SPI_ENABLED && SPI_NRFX && SPI"
+    ]
   ],
   [
     "CONFIG_NRFX_SPIM0",
@@ -2257,6 +2271,16 @@
     null
   ],
   [
+    "CONFIG_NRFX_TWI",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NRFX_TWI1 && y && (SOC_SERIES_NRF51X || SOC_SERIES_NRF52X) && HAS_NRFX"
+    ]
+  ],
+  [
     "CONFIG_NRFX_TWI0",
     "y",
     "bool",
@@ -2268,17 +2292,31 @@
     "CONFIG_NRFX_TWI1",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "I2C_NRFX_TWI && HAS_HW_NRF_TWI1 && DT_HAS_NORDIC_NRF_TWI_ENABLED && I2C_NRFX && I2C"
+    ]
+  ],
+  [
+    "CONFIG_NRFX_TWIM",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NRFX_TWIM0 && y && !SOC_SERIES_NRF51X && HAS_NRFX"
+    ]
   ],
   [
     "CONFIG_NRFX_TWIM0",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "I2C_NRFX_TWIM && HAS_HW_NRF_TWIM0 && DT_HAS_NORDIC_NRF_TWIM_ENABLED && I2C_NRFX && I2C"
+    ]
   ],
   [
     "CONFIG_NRFX_TWIM1",
@@ -3496,6 +3534,14 @@
       "/home/tynan/csse4011/zephyr/soc/nordic/nrf52/Kconfig",
       75
     ]
+  ],
+  [
+    "CONFIG_NRF52_ANOMALY_219_WORKAROUND",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
   ],
   [
     "CONFIG_NRF_RTC_TIMER_USER_CHAN_COUNT",
@@ -5725,9 +5771,98 @@
     "CONFIG_I2C",
     "y",
     "bool",
+    "y",
+    "select",
+    [
+      "LSM6DSL && DT_HAS_ST_LSM6DSL_ENABLED && SENSOR"
+    ]
+  ],
+  [
+    "CONFIG_I2C_CALLBACK",
+    "y",
+    "bool",
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_I2C_RTIO",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_TARGET",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_DW_EXTENDED_SUPPORT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_NRFX",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/i2c/Kconfig.nrfx",
+      8
+    ]
+  ],
+  [
+    "CONFIG_I2C_NRFX_TWI",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/i2c/Kconfig.nrfx",
+      18
+    ]
+  ],
+  [
+    "CONFIG_I2C_NRFX_TWIM",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/i2c/Kconfig.nrfx",
+      24
+    ]
+  ],
+  [
+    "CONFIG_I2C_NRFX_TRANSFER_TIMEOUT",
+    "y",
+    "int",
+    "500",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/i2c/Kconfig.nrfx",
+      48
+    ]
+  ],
+  [
+    "CONFIG_I2C_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/i2c/Kconfig",
+      171
+    ]
   ],
   [
     "CONFIG_I2S",
@@ -5875,7 +6010,9 @@
     "y",
     "select",
     [
-      "UART_NRFX && (DT_HAS_NORDIC_NRF_UART_ENABLED || DT_HAS_NORDIC_NRF_UARTE_ENABLED) && SERIAL"
+      "I2C_NRFX && SOC_FAMILY_NORDIC_NRF && MULTITHREADING && I2C",
+      "UART_NRFX && (DT_HAS_NORDIC_NRF_UART_ENABLED || DT_HAS_NORDIC_NRF_UARTE_ENABLED) && SERIAL",
+      "SPI_NRFX && SOC_FAMILY_NORDIC_NRF && SPI"
     ]
   ],
   [
@@ -6027,9 +6164,155 @@
     "CONFIG_SENSOR",
     "y",
     "bool",
+    "y",
+    "assign",
+    [
+      "/home/tynan/csse4011/Blue-Tethys/01mobileIMU/prj.conf",
+      15
+    ]
+  ],
+  [
+    "CONFIG_SENSOR_INIT_PRIORITY",
+    "y",
+    "int",
+    "90",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/sensor/Kconfig",
+      20
+    ]
+  ],
+  [
+    "CONFIG_SENSOR_ASYNC_API",
+    "y",
+    "bool",
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_SENSOR_INFO",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_TEMP_NRF5",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/sensor/nordic/temp/Kconfig",
+      16
+    ]
+  ],
+  [
+    "CONFIG_LSM6DSL",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/sensor/st/lsm6dsl/Kconfig",
+      9
+    ]
+  ],
+  [
+    "CONFIG_LSM6DSL_TRIGGER_NONE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LSM6DSL_TRIGGER_GLOBAL_THREAD",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    null
+  ],
+  [
+    "CONFIG_LSM6DSL_TRIGGER_OWN_THREAD",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LSM6DSL_TRIGGER",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "LSM6DSL_TRIGGER_GLOBAL_THREAD && GPIO && <choice LSM6DSL_TRIGGER_MODE>"
+    ]
+  ],
+  [
+    "CONFIG_LSM6DSL_ENABLE_TEMP",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LSM6DSL_SENSORHUB",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LSM6DSL_GYRO_FS",
+    "y",
+    "int",
+    "0",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/sensor/st/lsm6dsl/Kconfig",
+      89
+    ]
+  ],
+  [
+    "CONFIG_LSM6DSL_GYRO_ODR",
+    "y",
+    "int",
+    "0",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/sensor/st/lsm6dsl/Kconfig",
+      104
+    ]
+  ],
+  [
+    "CONFIG_LSM6DSL_ACCEL_FS",
+    "y",
+    "int",
+    "0",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/sensor/st/lsm6dsl/Kconfig",
+      122
+    ]
+  ],
+  [
+    "CONFIG_LSM6DSL_ACCEL_ODR",
+    "y",
+    "int",
+    "0",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/sensor/st/lsm6dsl/Kconfig",
+      136
+    ]
   ],
   [
     "CONFIG_SENT",
@@ -6216,6 +6499,93 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_SPI_ASYNC",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_RTIO",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_SLAVE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_EXTENDED_MODES",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/spi/Kconfig",
+      77
+    ]
+  ],
+  [
+    "CONFIG_SPI_COMPLETION_TIMEOUT_TOLERANCE",
+    "y",
+    "int",
+    "200",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/spi/Kconfig",
+      83
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/spi/Kconfig.nrfx",
+      6
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_SPI",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/spi/Kconfig.nrfx",
+      16
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_WAKE_TIMEOUT_US",
+    "y",
+    "int",
+    "200",
+    "default",
+    [
+      "/home/tynan/csse4011/zephyr/drivers/spi/Kconfig.nrfx",
+      115
+    ]
   ],
   [
     "CONFIG_STEPPER",
@@ -6736,30 +7106,19 @@
     "CONFIG_PICOLIBC_IO_FLOAT",
     "y",
     "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_PICOLIBC_IO_LONG_LONG",
-    "y",
-    "bool",
     "y",
     "default",
-    [
-      "/home/tynan/csse4011/zephyr/lib/libc/picolibc/Kconfig",
-      34
-    ]
+    null
   ],
   [
     "CONFIG_STDOUT_CONSOLE",
     "y",
     "bool",
     "y",
-    "default",
+    "assign",
     [
-      "/home/tynan/csse4011/zephyr/lib/libc/Kconfig",
-      173
+      "/home/tynan/csse4011/Blue-Tethys/01mobileIMU/prj.conf",
+      12
     ]
   ],
   [
@@ -7059,9 +7418,12 @@
     "CONFIG_CBPRINTF_FP_SUPPORT",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "assign",
+    [
+      "/home/tynan/csse4011/Blue-Tethys/01mobileIMU/prj.conf",
+      17
+    ]
   ],
   [
     "CONFIG_CBPRINTF_FP_A_SUPPORT",
