@@ -8,9 +8,51 @@
 #include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/bluetooth/services/nus.h>
 #include <zephyr/bluetooth/hci.h>
+#include <zephyr/drivers/gpio.h>
+#include <zephyr/logging/log.h>
+
+#define LED1_NODE DT_ALIAS(led1) //green
+#define LED2_NODE DT_ALIAS(led2) //blue
+#define LED0_NODE DT_ALIAS(led0) //red
+
+static const struct gpio_dt_spec led_green = GPIO_DT_SPEC_GET(LED1_NODE, gpios);
+static const struct gpio_dt_spec led_blue = GPIO_DT_SPEC_GET(LED2_NODE, gpios);
+static const struct gpio_dt_spec led_red = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
+
 
 #define DEVICE_NAME		CONFIG_BT_DEVICE_NAME
 #define DEVICE_NAME_LEN		(sizeof(DEVICE_NAME) - 1)
+LOG_MODULE_REGISTER(rc522, LOG_LEVEL_INF);
+
+
+static void flash_colour(const char *colour)
+{
+    /* Set all off first */
+    gpio_pin_configure_dt(&led_red,   GPIO_OUTPUT_INACTIVE);
+    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
+    gpio_pin_configure_dt(&led_blue,  GPIO_OUTPUT_INACTIVE);
+
+    if (strcmp(colour, "purple") == 0) {
+        gpio_pin_configure_dt(&led_red,  GPIO_OUTPUT_ACTIVE);
+        gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT_ACTIVE);
+    } else if (strcmp(colour, "green") == 0) {
+        gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+    } else if (strcmp(colour, "yellow") == 0) {
+        gpio_pin_configure_dt(&led_red,   GPIO_OUTPUT_ACTIVE);
+        gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+    } else if (strcmp(colour, "white") == 0) {
+        gpio_pin_configure_dt(&led_red,   GPIO_OUTPUT_ACTIVE);
+        gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+        gpio_pin_configure_dt(&led_blue,  GPIO_OUTPUT_ACTIVE);
+    }
+
+    k_msleep(1000);
+
+    gpio_pin_configure_dt(&led_red,   GPIO_OUTPUT_INACTIVE);
+    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
+    gpio_pin_configure_dt(&led_blue,  GPIO_OUTPUT_INACTIVE);
+}
+
 
 /* == Advertising data ===================================================== */
 static const struct bt_data ad[] = {
@@ -44,105 +86,12 @@ struct bt_nus_cb nus_listener = {
 };
 
 /* == Scan callback ======================================================== */
-#define APPLE_COMPANY_ID     0x004C
-#define IBEACON_TYPE         0x02
-#define IBEACON_LENGTH       0x15
-
-static bool extract_ibeacon(struct net_buf_simple *buf,
-                             uint8_t *uuid,      /* 16 bytes out */
-                             uint16_t *major,
-                             uint16_t *minor)
-{
-    *major    = 0;
-    *minor    = 0;
-
-    struct net_buf_simple_state state;
-    net_buf_simple_save(buf, &state);
-
-    while (buf->len > 1) {
-        uint8_t len  = net_buf_simple_pull_u8(buf);
-        if (len == 0 || len > buf->len) break;
-
-        uint8_t type = net_buf_simple_pull_u8(buf);
-        len--;
-
-        if (type == BT_DATA_MANUFACTURER_DATA && len >= 25) {
-            /* Company ID - little-endian uint16 */
-            uint16_t company = net_buf_simple_pull_le16(buf);
-            len -= 2;
-
-            if (company == APPLE_COMPANY_ID) {
-                uint8_t ib_type   = net_buf_simple_pull_u8(buf);
-                uint8_t ib_length = net_buf_simple_pull_u8(buf);
-                len -= 2;
-
-                if (ib_type == IBEACON_TYPE && ib_length == IBEACON_LENGTH && len >= 21) {
-                    /* 16-byte UUID */
-                    memcpy(uuid, net_buf_simple_pull_mem(buf, 16), 16);
-
-                    /* Major / minor are big-endian in iBeacon */
-                    *major    = net_buf_simple_pull_be16(buf);
-                    *minor    = net_buf_simple_pull_be16(buf);
-
-                    net_buf_simple_restore(buf, &state);
-                    return true;
-                }
-            }
-        }
-
-        /* Skip remainder of this AD structure */
-        if (len > 0) {
-            net_buf_simple_pull_mem(buf, len);
-        }
-    }
-
-    net_buf_simple_restore(buf, &state);
-    return false;
-}
-
-
 static void scan_cb(const bt_addr_le_t *addr, int8_t rssi,
                     uint8_t adv_type, struct net_buf_simple *buf)
 {
-    char     addr_str[BT_ADDR_LE_STR_LEN];
-    uint8_t  uuid[16] = {0};
-    uint16_t major    = 0;
-    uint16_t minor    = 0;
-    char     json[512];
-    int      json_len;
-
+    char addr_str[BT_ADDR_LE_STR_LEN];
     bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
 
-    if (extract_ibeacon(buf, uuid, &major, &minor)) {
-        /* iBeacon */
-        json_len = snprintf(json, sizeof(json),
-            "{\"TYPE\":\"ibeacon\","
-             "\"BLEMAC\":\"%s\","
-             "\"BLEMajor\":%u,"
-             "\"BLEMinor\":%u,"
-             "\"RSSI\":%d}\r\n",
-            addr_str, major, minor, rssi);
-    } else {
-        // /* Generic BLE device */
-        // json_len = snprintf(json, sizeof(json),
-        //     "{\"TYPE\":\"ble\","
-        //      "\"BLEMAC\":\"%s\","
-        //      "\"BLEMajor\":0,"
-        //      "\"BLEMinor\":0,"
-        //      "\"RSSI\":%d}\r\n",
-        //     addr_str, rssi);
-        return;
-    }
-
-    printk("%s", json);
-
-    if (json_len > 0 && json_len < sizeof(json)) {
-        int err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
-        if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
-            printk("bt_nus_send failed: %d\n", err);
-        }
-
-    }
 }
 
 /* == Scan parameters ====================================================== */
@@ -181,6 +130,16 @@ static void connected(struct bt_conn *conn, uint8_t err)
     }
 }
 
+static void adv_restart_work_fn(struct k_work *work)
+{
+    int err = bt_le_adv_start(BT_LE_ADV_CONN_FAST_1, ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
+    if (err) {
+        printk("Failed to restart advertising: %d\n", err);
+    } else {
+        printk("Advertising restarted\n");
+    }
+}
+
 static K_WORK_DELAYABLE_DEFINE(adv_restart_work, adv_restart_work_fn);
 
 static void disconnected(struct bt_conn *conn, uint8_t reason)
@@ -198,8 +157,8 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
 /* == Entry point ========================================================== */
 int main(void)
 {
-	int err;
 
+    int err;
 	printk("Sample - Bluetooth Scanner + Peripheral NUS\n");
 
     /* == NUS callback registration ============ */
@@ -231,10 +190,15 @@ int main(void)
     }
 
 	printk("Initialization complete\n");
-    
-	while (true) {
-		k_sleep(K_FOREVER);
-	}
 
-	return 0;
+    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+    k_msleep(500);
+    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
+
+    while (1) {
+        // Do nothing for now
+        k_msleep(200);
+}
+
+return 0;
 }

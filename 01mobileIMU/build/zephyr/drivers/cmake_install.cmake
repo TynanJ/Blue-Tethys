@@ -1,4 +1,4 @@
-# Install script for directory: /Users/piperhofstee/csse4011/zephyr/drivers
+# Install script for directory: /home/tynan/csse4011/zephyr/drivers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,97 +34,97 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
+  set(CMAKE_OBJDUMP "/home/tynan/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/disk/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/disk/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/firmware/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/firmware/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/interrupt_controller/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/interrupt_controller/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/misc/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/misc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/pcie/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/pcie/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/usb/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/usb/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/usb_c/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/usb_c/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/bluetooth/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/bluetooth/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/clock_control/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/clock_control/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/console/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/console/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/entropy/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/entropy/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/gpio/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/gpio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/hwinfo/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/hwinfo/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/pinctrl/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/pinctrl/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/regulator/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/regulator/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/serial/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/serial/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/timer/cmake_install.cmake")
+  include("/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/timer/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/piperhofstee/csse4011/miniproject/CSSE4011-Mini-Project/01mobilestation/build/zephyr/drivers/install_local_manifest.txt"
+  file(WRITE "/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/drivers/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

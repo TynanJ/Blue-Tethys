@@ -1,5 +1,5 @@
 west:
-  command: /Users/piperhofstee/csse4011/.venv/bin/west build -p -b xiao_ble/nrf52840/sense
-    -d 01mobilestation/build 01mobilestation
-  topdir: /Users/piperhofstee/csse4011
+  command: /home/tynan/csse4011/.venv/bin/west build -b xiao_ble/nrf52840/sense -d
+    01mobileIMU/build 01mobileIMU -p
+  topdir: /home/tynan/csse4011
   version: 1.5.0
