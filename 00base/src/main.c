@@ -60,6 +60,7 @@ BeaconList anchor_beacons;
 struct node_conn {
     struct bt_conn *conn;
     uint16_t nus_rx_handle;
+    char name[32];
     struct bt_uuid_128 discover_uuid;
     struct bt_gatt_discover_params discover_params;
     struct bt_gatt_subscribe_params subscribe_params;
@@ -70,6 +71,8 @@ struct node_conn {
 };
 
 static struct node_conn nodes[MAX_NODES];
+
+static void discover_nus_rx(struct bt_conn *conn);
 
 static struct node_conn *get_free_node(void);
 static struct node_conn *get_node(struct bt_conn *conn);
@@ -338,7 +341,7 @@ static void localisation_update(void)
     if (device_mode == MODE_BASE) {
         json_len = snprintf(json, sizeof(json),
                 "{\"MessageType\":\"PositionData\","
-                "\"Timestamp\":%u,"
+                "\"Timestamp\":%lld,"
                 "\"Data\":{" 
                 "\"x\":%f,"
                 "\"y\":%f,"
@@ -691,7 +694,7 @@ static struct bt_conn *default_conn;
 
 static struct bt_uuid_128 discover_uuid;
 static struct bt_gatt_discover_params discover_params;
-static struct bt_gatt_subscribe_params subscribe_params;
+// static struct bt_gatt_subscribe_params subscribe_params;
 
 static uint16_t nus_rx_handle; /* Handle for writing to peripheral's RX */
 
@@ -722,8 +725,10 @@ static uint8_t notify_func(struct bt_conn *conn,
                struct bt_gatt_subscribe_params *params,
                const void *data, uint16_t length)
 {
+
+    printk("notify_func called length=%u\n", length);
     if (!data) {
-        LOG_WRN("Unsubscribed\n");
+        LOG_WRN("Unsubscribed \n");
         params->value_handle = 0U;
         return BT_GATT_ITER_STOP;
     }
@@ -731,26 +736,48 @@ static uint8_t notify_func(struct bt_conn *conn,
     //LOG_INF("Received %u bytes: \n", length);
     //LOG_HEXDUMP_INF(data, length, "NUS RX \n");
 
-    /* Also print as string if it looks like text */
-    const uint8_t *bytes = data; // Was originally const but fucked that off
-    bool printable = true;
+    // char addr[BT_ADDR_LE_STR_LEN];
+    // bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
+    // LOG_INF("[%s] %.*s", addr, length, (const char *)data);
 
-    for (uint16_t i = 0; i < length; i++) {
-        if (bytes[i] < 0x20 && bytes[i] != '\n' && bytes[i] != '\r' &&
-            bytes[i] != '\t') {
-            printable = false;
-            break;
-        }
-    }
+    // /* Also print as string if it looks like text */
+    // const uint8_t *bytes = data; // Was originally const but fucked that off
+    // bool printable = true;
+
+    // for (uint16_t i = 0; i < length; i++) {
+    //     if (bytes[i] < 0x20 && bytes[i] != '\n' && bytes[i] != '\r' &&
+    //         bytes[i] != '\t') {
+    //         printable = false;
+    //         break;
+    //     }
+    // }
 
     // if (printable && length > 0) {
     //     LOG_INF("  \"%.*s\"", length, (const char *)data);
     // }
 
-    uint8_t data_string[length];
-	memcpy(data_string, data, length);
+    // uint8_t data_string[length];
+	// memcpy(data_string, data, length);
 
-    //LOG_INF("SecondGo  \"%.*s\"", length, data_string);
+    // LOG_INF("SecondGo  \"%.*s\"", length, data_string);
+
+     /* Get sender name */
+    struct node_conn *node = get_node(conn);
+    const char *name = (node && node->name[0]) ? node->name : "unknown";
+
+    /* Copy to null-terminated buffer */
+    char data_string[256];
+    uint16_t len = MIN(length, sizeof(data_string) - 1);
+    memcpy(data_string, data, len);
+    data_string[len] = '\0';
+
+    LOG_INF("[%s] %s", name, data_string);
+
+    /* Check if it's an RFID packet */
+    if (strstr(data_string, "\"TYPE\":\"rfid\"") != NULL) {
+        LOG_INF("RFID packet received, skipping beacon parse");
+        return BT_GATT_ITER_CONTINUE;
+    }
 
     // // DECODE JSON
     struct rx_mobile_node_data decoded_ble_data;
@@ -758,7 +785,7 @@ static uint8_t notify_func(struct bt_conn *conn,
                         ARRAY_SIZE(rx_mobile_node_data_descr), &decoded_ble_data);
 
     if (ret < 0) {
-        // LOG_INF("JSON Parse Error: %d\n", ret);
+        LOG_INF("JSON Parse Error: %d\n", ret);
     } else {
         //LOG_INF("BLEMAC: %s, RSSI: %d\n", decoded_ble_data.BLEMAC, decoded_ble_data.RSSI);
     }
@@ -820,71 +847,70 @@ static uint8_t notify_func(struct bt_conn *conn,
  * ========================================================================== */
 
 static uint8_t discover_func(struct bt_conn *conn,
-                 const struct bt_gatt_attr *attr,
-                 struct bt_gatt_discover_params *params)
+                             const struct bt_gatt_attr *attr,
+                             struct bt_gatt_discover_params *params)
 {
     int err;
-
-    if (!attr) {
-        LOG_WRN("Discovery complete (no more attributes)");
-        (void)memset(params, 0, sizeof(*params));
+    struct node_conn *node = get_node(conn);
+    if (!node) {
+        LOG_ERR("discover_func: no node for conn");
         return BT_GATT_ITER_STOP;
     }
 
-    // LOG_INF("[ATTR] handle %u", attr->handle);
+    if (!attr) {
+        LOG_WRN("Discovery complete (no more attributes)");
+        memset(params, 0, sizeof(*params));
+        return BT_GATT_ITER_STOP;
+    }
 
-    /* Stage 1: Found NUS Service -> discover the TX characteristic */
-    if (!bt_uuid_cmp(discover_params.uuid,
-             BT_UUID_DECLARE_128(BT_UUID_NUS_SRV_VAL))) {
+    /* Stage 1: Found NUS Service -> discover TX characteristic */
+    if (!bt_uuid_cmp(node->discover_params.uuid,
+                     BT_UUID_DECLARE_128(BT_UUID_NUS_SRV_VAL))) {
 
-        // LOG_INF("NUS Service found");
-
-        memcpy(&discover_uuid,
+        memcpy(&node->discover_uuid,
                BT_UUID_DECLARE_128(BT_UUID_NUS_TX_CHAR_VAL),
-               sizeof(discover_uuid));
-        discover_params.uuid = &discover_uuid.uuid;
-        discover_params.start_handle = attr->handle + 1;
-        discover_params.type = BT_GATT_DISCOVER_CHARACTERISTIC;
+               sizeof(node->discover_uuid));
+        node->discover_params.uuid = &node->discover_uuid.uuid;
+        node->discover_params.start_handle = attr->handle + 1;
+        node->discover_params.type = BT_GATT_DISCOVER_CHARACTERISTIC;
 
-        err = bt_gatt_discover(conn, &discover_params);
+        err = bt_gatt_discover(conn, &node->discover_params);
         if (err) {
             LOG_ERR("TX char discover failed (err %d)", err);
         }
 
-    /* Stage 2: Found TX characteristic -> discover its CCC descriptor */
-    } else if (!bt_uuid_cmp(discover_params.uuid,
-                BT_UUID_DECLARE_128(BT_UUID_NUS_TX_CHAR_VAL))) {
+    /* Stage 2: Found TX characteristic -> discover CCC descriptor */
+    } else if (!bt_uuid_cmp(node->discover_params.uuid,
+                            BT_UUID_DECLARE_128(BT_UUID_NUS_TX_CHAR_VAL))) {
 
-        // LOG_INF("NUS TX Characteristic found");
+        node->subscribe_params.value_handle = bt_gatt_attr_value_handle(attr);
 
-        subscribe_params.value_handle =
-            bt_gatt_attr_value_handle(attr);
-
-        /* Now find the CCC descriptor */
-        memcpy(&discover_uuid, BT_UUID_GATT_CCC,
+        memcpy(&node->discover_uuid, BT_UUID_GATT_CCC,
                sizeof(struct bt_uuid_16));
-        discover_params.uuid = &discover_uuid.uuid;
-        discover_params.start_handle = attr->handle + 2;
-        discover_params.type = BT_GATT_DISCOVER_DESCRIPTOR;
+        node->discover_params.uuid = &node->discover_uuid.uuid;
+        node->discover_params.start_handle = attr->handle + 2;
+        node->discover_params.type = BT_GATT_DISCOVER_DESCRIPTOR;
 
-        err = bt_gatt_discover(conn, &discover_params);
+        err = bt_gatt_discover(conn, &node->discover_params);
         if (err) {
             LOG_ERR("CCC discover failed (err %d)", err);
         }
 
-    /* Stage 3: Found CCC descriptor -> subscribe to notifications */
+    /* Stage 3: Found CCC -> subscribe */
     } else {
         LOG_INF("CCC found, subscribing to notifications");
 
-        subscribe_params.notify = notify_func;
-        subscribe_params.value = BT_GATT_CCC_NOTIFY;
-        subscribe_params.ccc_handle = attr->handle;
+        node->subscribe_params.notify = notify_func;
+        node->subscribe_params.value = BT_GATT_CCC_NOTIFY;
+        node->subscribe_params.ccc_handle = attr->handle;
 
-        err = bt_gatt_subscribe(conn, &subscribe_params);
+        err = bt_gatt_subscribe(conn, &node->subscribe_params);  /* use node-> */
         if (err && err != -EALREADY) {
             LOG_ERR("Subscribe failed (err %d)", err);
         } else {
             LOG_INF("Subscribed to NUS TX notifications");
+            /* Now discover RX */
+            discover_nus_rx(conn);
         }
     }
 
