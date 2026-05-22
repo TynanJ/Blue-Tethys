@@ -181,9 +181,12 @@ static void connected(struct bt_conn *conn, uint8_t err)
     }
 }
 
+static K_WORK_DELAYABLE_DEFINE(adv_restart_work, adv_restart_work_fn);
+
 static void disconnected(struct bt_conn *conn, uint8_t reason)
 {
     printk("Disconnected, reason: %d\n", reason);
+    k_work_schedule(&adv_restart_work, K_MSEC(500));
 }
 
 BT_CONN_CB_DEFINE(conn_callbacks) = {
