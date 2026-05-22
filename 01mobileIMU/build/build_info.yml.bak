@@ -1,5 +1,54 @@
+cmake:
+  application:
+    configuration-dir: '/home/tynan/csse4011/Blue-Tethys/01mobileIMU'
+    source-dir: '/home/tynan/csse4011/Blue-Tethys/01mobileIMU'
+  board:
+    name: 'xiao_ble'
+    path:
+     - '/home/tynan/csse4011/zephyr/boards/seeed/xiao_ble'
+    qualifiers: 'nrf52840/sense'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/tynan/csse4011/firmware/dts/bindings'
+     - '/home/tynan/csse4011/zephyr/dts/bindings'
+    files:
+     - '/home/tynan/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts'
+    include-dirs:
+     - '/home/tynan/csse4011/firmware/include'
+     - '/home/tynan/csse4011/firmware/dts'
+     - '/home/tynan/csse4011/modules/hal/stm32/dts'
+     - '/home/tynan/csse4011/zephyr/include'
+     - '/home/tynan/csse4011/zephyr/include/zephyr'
+     - '/home/tynan/csse4011/zephyr/dts/common'
+     - '/home/tynan/csse4011/zephyr/dts/vendor'
+     - '/home/tynan/csse4011/zephyr/dts/rx'
+     - '/home/tynan/csse4011/zephyr/dts/x86'
+     - '/home/tynan/csse4011/zephyr/dts/xtensa'
+     - '/home/tynan/csse4011/zephyr/dts/sparc'
+     - '/home/tynan/csse4011/zephyr/dts/riscv'
+     - '/home/tynan/csse4011/zephyr/dts/posix'
+     - '/home/tynan/csse4011/zephyr/dts/arm64'
+     - '/home/tynan/csse4011/zephyr/dts/arm'
+     - '/home/tynan/csse4011/zephyr/dts/arc'
+     - '/home/tynan/csse4011/zephyr/dts'
+  kconfig:
+    files:
+     - '/home/tynan/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense_defconfig'
+     - '/home/tynan/csse4011/Blue-Tethys/01mobileIMU/prj.conf'
+    user-files:
+     - '/home/tynan/csse4011/Blue-Tethys/01mobileIMU/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/tynan/zephyr-sdk-0.17.4'
+  vendor-specific:
+    nordic:
+      svdfile: '/home/tynan/csse4011/modules/hal/nordic/nrfx/mdk/nrf52840.svd'
+  zephyr:
+    version: '4.3.0'
+    zephyr-base: '/home/tynan/csse4011/zephyr'
+version: '0.1.0'
 west:
-  command: /home/tynan/csse4011/.venv/bin/west build -b xiao_ble/nrf52840/sense -d
-    01mobileIMU/build 01mobileIMU -p
-  topdir: /home/tynan/csse4011
-  version: 1.5.0
+  command: '/home/tynan/csse4011/.venv/bin/west build -b xiao_ble/nrf52840/sense -d 01mobileIMU/build 01mobileIMU -p'
+  topdir: '/home/tynan/csse4011'
+  version: '1.5.0'

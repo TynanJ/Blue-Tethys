@@ -11,7 +11,7 @@
 		"/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/arch/arch/arm/core/mpu/cmake_install.cmake",
 		"/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/cmake_install.cmake",
 		"/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/cmake_install.cmake",
-		"/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/picolibc/cmake_install.cmake",
+		"/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/newlib/cmake_install.cmake",
 		"/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/common/cmake_install.cmake",
 		"/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/posix/cmake_install.cmake",
 		"/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/posix/c_lang_support_r/cmake_install.cmake",

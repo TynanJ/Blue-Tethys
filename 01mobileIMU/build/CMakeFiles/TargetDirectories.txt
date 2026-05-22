@@ -57,9 +57,9 @@
 /home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/CMakeFiles/rebuild_cache.dir
 /home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/CMakeFiles/edit_cache.dir
 /home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/CMakeFiles/rebuild_cache.dir
-/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir
-/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/picolibc/CMakeFiles/edit_cache.dir
-/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/picolibc/CMakeFiles/rebuild_cache.dir
+/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/newlib/CMakeFiles/lib__libc__newlib.dir
+/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/newlib/CMakeFiles/edit_cache.dir
+/home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/newlib/CMakeFiles/rebuild_cache.dir
 /home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir
 /home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/common/CMakeFiles/edit_cache.dir
 /home/tynan/csse4011/Blue-Tethys/01mobileIMU/build/zephyr/lib/libc/common/CMakeFiles/rebuild_cache.dir
