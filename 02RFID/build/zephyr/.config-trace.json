@@ -8483,7 +8483,7 @@
     "CONFIG_BT_DEVICE_NAME",
     "y",
     "string",
-    "46387008",
+    "MAKING-WAVES-RFID",
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",

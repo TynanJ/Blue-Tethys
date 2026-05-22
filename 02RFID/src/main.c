@@ -83,6 +83,20 @@ static const struct gpio_dt_spec rc522_rst =
 #define PICC_ANTICOLL            0x93
 #define PICC_HALT                0x50
 
+
+uint8_t id[5];
+
+typedef struct {
+    uint8_t uid[4];
+    const char *colour;
+} rfid_card_t;
+
+static const rfid_card_t known_cards[] = {
+    { {0x4d, 0x4e, 0xc0, 0x01}, "purple" },
+    { {0x4e, 0xe5, 0xc0, 0x01}, "green"  },
+    { {0xb2, 0x7c, 0xc7, 0x01}, "yellow" },
+};
+
 /* -----------------------------------------------------------------------
  * Low-level SPI read/write
  * --------------------------------------------------------------------- */
@@ -402,6 +416,34 @@ bool rc522_checkCard(uint8_t *id)
     return status;
 }
 
+static void flash_colour(const char *colour)
+{
+    /* Set all off first */
+    gpio_pin_configure_dt(&led_red,   GPIO_OUTPUT_INACTIVE);
+    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
+    gpio_pin_configure_dt(&led_blue,  GPIO_OUTPUT_INACTIVE);
+
+    if (strcmp(colour, "purple") == 0) {
+        gpio_pin_configure_dt(&led_red,  GPIO_OUTPUT_ACTIVE);
+        gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT_ACTIVE);
+    } else if (strcmp(colour, "green") == 0) {
+        gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+    } else if (strcmp(colour, "yellow") == 0) {
+        gpio_pin_configure_dt(&led_red,   GPIO_OUTPUT_ACTIVE);
+        gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+    } else if (strcmp(colour, "white") == 0) {
+        gpio_pin_configure_dt(&led_red,   GPIO_OUTPUT_ACTIVE);
+        gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
+        gpio_pin_configure_dt(&led_blue,  GPIO_OUTPUT_ACTIVE);
+    }
+
+    k_msleep(1000);
+
+    gpio_pin_configure_dt(&led_red,   GPIO_OUTPUT_INACTIVE);
+    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
+    gpio_pin_configure_dt(&led_blue,  GPIO_OUTPUT_INACTIVE);
+}
+
 
 /* == Advertising data ===================================================== */
 static const struct bt_data ad[] = {
@@ -504,36 +546,36 @@ static void scan_cb(const bt_addr_le_t *addr, int8_t rssi,
 
     bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
 
-    if (extract_ibeacon(buf, uuid, &major, &minor)) {
-        /* iBeacon */
-        json_len = snprintf(json, sizeof(json),
-            "{\"TYPE\":\"ibeacon\","
-             "\"BLEMAC\":\"%s\","
-             "\"BLEMajor\":%u,"
-             "\"BLEMinor\":%u,"
-             "\"RSSI\":%d}\r\n",
-            addr_str, major, minor, rssi);
-    } else {
-        // /* Generic BLE device */
-        // json_len = snprintf(json, sizeof(json),
-        //     "{\"TYPE\":\"ble\","
-        //      "\"BLEMAC\":\"%s\","
-        //      "\"BLEMajor\":0,"
-        //      "\"BLEMinor\":0,"
-        //      "\"RSSI\":%d}\r\n",
-        //     addr_str, rssi);
-        return;
-    }
+    // if (extract_ibeacon(buf, uuid, &major, &minor)) {
+    //     /* iBeacon */
+    //     json_len = snprintf(json, sizeof(json),
+    //         "{\"TYPE\":\"ibeacon\","
+    //          "\"BLEMAC\":\"%s\","
+    //          "\"BLEMajor\":%u,"
+    //          "\"BLEMinor\":%u,"
+    //          "\"RSSI\":%d}\r\n",
+    //         addr_str, major, minor, rssi);
+    // } else {
+    //     // /* Generic BLE device */
+    //     // json_len = snprintf(json, sizeof(json),
+    //     //     "{\"TYPE\":\"ble\","
+    //     //      "\"BLEMAC\":\"%s\","
+    //     //      "\"BLEMajor\":0,"
+    //     //      "\"BLEMinor\":0,"
+    //     //      "\"RSSI\":%d}\r\n",
+    //     //     addr_str, rssi);
+    //     return;
+    // }
 
-    printk("%s", json);
+    // printk("%s", json);
 
-    if (json_len > 0 && json_len < sizeof(json)) {
-        int err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
-        if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
-            printk("bt_nus_send failed: %d\n", err);
-        }
+    // if (json_len > 0 && json_len < sizeof(json)) {
+    //     int err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
+    //     if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
+    //         printk("bt_nus_send failed: %d\n", err);
+    //     }
 
-    }
+    // }
 }
 
 /* == Scan parameters ====================================================== */
@@ -572,9 +614,22 @@ static void connected(struct bt_conn *conn, uint8_t err)
     }
 }
 
+static void adv_restart_work_fn(struct k_work *work)
+{
+    int err = bt_le_adv_start(BT_LE_ADV_CONN_FAST_1, ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
+    if (err) {
+        printk("Failed to restart advertising: %d\n", err);
+    } else {
+        printk("Advertising restarted\n");
+    }
+}
+
+static K_WORK_DELAYABLE_DEFINE(adv_restart_work, adv_restart_work_fn);
+
 static void disconnected(struct bt_conn *conn, uint8_t reason)
 {
     printk("Disconnected, reason: %d\n", reason);
+    k_work_schedule(&adv_restart_work, K_MSEC(500));
 }
 
 BT_CONN_CB_DEFINE(conn_callbacks) = {
@@ -587,6 +642,44 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
 int main(void)
 {
 
+     k_msleep(2000);
+
+     int err;
+
+	printk("Sample - Bluetooth Scanner + Peripheral NUS\n");
+
+    /* == NUS callback registration ============ */
+	err = bt_nus_cb_register(&nus_listener, NULL);
+	if (err) {
+		printk("Failed to register NUS callback: %d\n", err);
+		return err;
+	}
+
+    /* == Bluetooth init =================================================== */
+	err = bt_enable(NULL);
+	if (err) {
+		printk("Failed to enable bluetooth: %d\n", err);
+		return err;
+	}
+
+    /* == Advertise so a NUS central can connect =========================== */
+	err = bt_le_adv_start(BT_LE_ADV_CONN_FAST_1, ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
+	if (err) {
+		printk("Failed to start advertising: %d\n", err);
+		return err;
+	}
+
+    /* == Start scanning simultaneously ==================================== */
+    err = bt_le_scan_start(&scan_params, scan_cb);
+    if (err) {
+        printk("Failed to start scanning: %d\n", err);
+        return err;
+    }
+
+	printk("Initialization complete\n");
+
+    char json[128];
+
     if (rc522_init() != 0) {
         LOG_ERR("RC522 init failed, halting");
         gpio_pin_configure_dt(&led_red, GPIO_OUTPUT_ACTIVE);
@@ -598,55 +691,54 @@ int main(void)
     k_msleep(500);
     gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
 
-    uint8_t id[5];
-    while (1) {
+        while (1) {
         if (rc522_checkCard(id)) {
-            printk("Card UID: %02x %02x %02x %02x\n",
-                id[0], id[1], id[2], id[3]);
-            gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT_ACTIVE);
-            k_msleep(1000);
-            gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT_INACTIVE);
+            /* Build and send JSON over NUS */
+
+            // char json[128];
+            // int json_len = snprintf(json, sizeof(json),
+            //     "{\"TYPE\":\"rfid\","
+            //      "\"UID\":\"%02x:%02x:%02x:%02x\"}\r\n",
+            //     id[0], id[1], id[2], id[3]);
+
+            // printk("%s", json);
+
+            // if (json_len > 0 && json_len < sizeof(json)) {
+            //     err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
+            //     if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
+            //         printk("bt_nus_send failed: %d\n", err);
+            //     }
+            // }
+
+            /* Match card and flash LED */
+            const char *colour = NULL;
+            for (int i = 0; i < ARRAY_SIZE(known_cards); i++) {
+                if (memcmp(id, known_cards[i].uid, 4) == 0) {
+                    colour = known_cards[i].colour;
+
+            int json_len = snprintf(json, sizeof(json),
+                "{\"TYPE\":\"rfid\","
+                 "\"SCANNED\":\"%s\"}\r\n",
+                colour);
+
+            printk("%s", json);
+
+            if (json_len > 0 && json_len < sizeof(json)) {
+                err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
+                if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
+                    printk("bt_nus_send failed: %d\n", err);
+                }
+            }
+                    break;
+                }
+            }
+            flash_colour(colour != NULL ? colour : "white");
+
+            k_msleep(200);
         }
+
         k_msleep(200);
-    }
+}
 
-	// int err;
-
-	// printk("Sample - Bluetooth Scanner + Peripheral NUS\n");
-
-    // /* == NUS callback registration ============ */
-	// err = bt_nus_cb_register(&nus_listener, NULL);
-	// if (err) {
-	// 	printk("Failed to register NUS callback: %d\n", err);
-	// 	return err;
-	// }
-
-    // /* == Bluetooth init =================================================== */
-	// err = bt_enable(NULL);
-	// if (err) {
-	// 	printk("Failed to enable bluetooth: %d\n", err);
-	// 	return err;
-	// }
-
-    // /* == Advertise so a NUS central can connect =========================== */
-	// err = bt_le_adv_start(BT_LE_ADV_CONN_FAST_1, ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
-	// if (err) {
-	// 	printk("Failed to start advertising: %d\n", err);
-	// 	return err;
-	// }
-
-    // /* == Start scanning simultaneously ==================================== */
-    // err = bt_le_scan_start(&scan_params, scan_cb);
-    // if (err) {
-    //     printk("Failed to start scanning: %d\n", err);
-    //     return err;
-    // }
-
-	// printk("Initialization complete\n");
-    
-	// while (true) {
-	// 	k_sleep(K_FOREVER);
-	// }
-
-	return 0;
+return 0;
 }
