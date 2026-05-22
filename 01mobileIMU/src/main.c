@@ -23,6 +23,7 @@
 // Other
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/logging/log.h>
+#include <stdio.h>
 
 LOG_MODULE_REGISTER(mobileIMU, LOG_LEVEL_INF);
 
@@ -307,18 +308,19 @@ static float angle_diff_deg(float target, float current)
 int main(void)
 {
     int err;
-    char out_str[64];
 	struct sensor_value odr_attr;
 	const struct device *const lsm6dsl_dev = DEVICE_DT_GET_ONE(st_lsm6dsl);
     int sample_count = 0;
+    char out_json[128];
+    int json_len;
 
-	double ax_g = 0;
-	double ay_g = 0;
-	double az_g = 0;
+	float ax_g = 0;
+	float ay_g = 0;
+	float az_g = 0;
 
-	double gx_rs = 0;
-	double gy_rs = 0;
-	double gz_rs = 0;
+	float gx_rs = 0;
+	float gy_rs = 0;
+	float gz_rs = 0;
 
 	LOG_INF("IMU with Bluetooth output\n");
 
@@ -433,18 +435,15 @@ int main(void)
     const float dt_s = SAMPLE_INTERVAL_MS / 1000.0f;
 
 	while (1) {
-        int64_t t_start = k_uptime_get();
-
-
 		// Read accelerometer headings
-		ax_g = sensor_value_to_double(&accel_x_out) / 9.81f;
-		ay_g = sensor_value_to_double(&accel_y_out) / 9.81f;
-		az_g = sensor_value_to_double(&accel_z_out) / 9.81f;
+		ax_g = sensor_value_to_float(&accel_x_out) / 9.81f;
+		ay_g = sensor_value_to_float(&accel_y_out) / 9.81f;
+		az_g = sensor_value_to_float(&accel_z_out) / 9.81f;
 
         // Read gyroscope headings
-        gx_rs = sensor_value_to_double(&gyro_x_out);
-        gy_rs = sensor_value_to_double(&gyro_y_out);
-        gz_rs = sensor_value_to_double(&gyro_z_out);
+        gx_rs = sensor_value_to_float(&gyro_x_out);
+        gy_rs = sensor_value_to_float(&gyro_y_out);
+        gz_rs = sensor_value_to_float(&gyro_z_out);
 
 
         /* Convert gyro Z to degrees/s */
@@ -485,34 +484,25 @@ int main(void)
                                       -MAX_STEERING_ANGLE_DEG,
                                        MAX_STEERING_ANGLE_DEG);
  
-        /* ── Periodic logging ──────────────────────────────── */
+        /* ── Periodic logging and sending over BLE NUS ──────────────────────────────── */
         if (++sample_count >= LOG_EVERY_N_SAMPLES) {
             sample_count = 0;
             LOG_INF("Steering angle: %8.2f deg  (raw: %8.2f)  gz: %6.2f deg/s",
                     (double)g_steering_angle_deg,
                     (double)g_cumulative_angle_deg,
                     (double)gz_ds);
+
+            // json_len = snprintf(out_json, sizeof(out_json),
+            //     "{\"SteeringAngle\":%8.2f, \"CumAngle\":%8.2f, \"GyroZ\":%6.2f}",
+            //     (double)g_steering_angle_deg,
+            //     (double)g_cumulative_angle_deg,
+            //     (double)gz_ds);
+
+            // int err = bt_nus_send(NULL, (uint8_t *)out_json, (uint16_t)json_len);
+            // if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
+            //     LOG_INF("bt_nus_send failed: %d\n", err);
+            // }
         }
-
-
-		// // Convert accels to heading
-		// current_head_yz = atan(current_accel_y / sqrt(current_accel_x*current_accel_x + current_accel_z*current_accel_z));
-		// current_head_xz = atan(current_accel_x / sqrt(current_accel_y*current_accel_y + current_accel_z*current_accel_z));
-		
-		// // Print current heading
-		// sprintf(out_str, "Current heading: %f",
-		// 				current_head_yz);
-		// LOG_INF("%s\n", out_str);
-
-		// // Change LED Based on Y axis
-		// if (current_head_xz > MAX_Y_HEAD_THRESHOLD) {
-		// 	gpio_pin_set_dt(&led_green, 1);
-		// } else if (current_head_xz < MIN_Y_HEAD_THRESHOLD) {
-		// 	gpio_pin_set_dt(&led_red, 1);
-		// } else {
-		// 	gpio_pin_set_dt(&led_green, 0);
-		// 	gpio_pin_set_dt(&led_red, 0);
-		// }
 
 		// Looping stuff
 		print_samples = 1;
