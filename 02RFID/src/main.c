@@ -729,6 +729,20 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
     .disconnected = disconnected,
 };
 
+static void flash_difficulty_led(void)
+{
+    if (strcmp(g_difficulty, "esy") == 0) {
+        flash_colour("yellow");
+    } else if (strcmp(g_difficulty, "med") == 0) {
+        flash_colour("yellow");
+        flash_colour("green");
+    } else{
+        flash_colour("yellow");
+        flash_colour("green");
+        flash_colour("purple");
+    }
+}
+
 
 /* == Entry point ========================================================== */
 int main(void)
@@ -783,9 +797,7 @@ int main(void)
     }
 
     printk("RC522 ready, waiting for card...\n");
-    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_ACTIVE);
-    k_msleep(500);
-    gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
+    flash_difficulty_led();
 
         while (1) {
     if (rc522_checkCard(id)) {
