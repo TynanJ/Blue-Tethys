@@ -23,77 +23,19 @@ import sys
 import re
 import collections
 import random
-import array
-import math as _math
 
-# ── Music ─────────────────────────────────────────────────────────────────────
-_MUSIC_RATE  = 22050
-_music_sound = None
-_music_idx   = 0
 
-def _build_tone(freq, dur, vol=0.25):
-    n   = int(_MUSIC_RATE * dur)
-    buf = array.array('h')
-    for i in range(n):
-        t   = i / _MUSIC_RATE
-        env = min(1.0, min(i / (_MUSIC_RATE * 0.01), (n - i) / (_MUSIC_RATE * 0.08)))
-        buf.append(int(vol * env * 32767 * _math.sin(2 * _math.pi * freq * t)))
-    stereo = array.array('h')
-    for s in buf:
-        stereo.append(s)
-        stereo.append(s)
-    import numpy as np
-    arr = np.frombuffer(stereo, dtype=np.int16).reshape(-1, 2)
-    return pygame.sndarray.make_sound(arr)
 
-def _note(name):
-    notes = {'C':0,'C#':1,'D':2,'D#':3,'E':4,'F':5,'F#':6,'G':7,'G#':8,'A':9,'A#':10,'B':11}
-    n = name[:-1] if name[-2] not in '#b' else name[:-1]
-    oct = int(name[-1])
-    st  = notes[n] + (oct - 4) * 12
-    return 440.0 * (2 ** (st / 12.0))
-
-_MELODY = [
-    ('E4',0.25),('F#4',0.25),('G4',0.25),('A4',0.25),
-    ('B4',0.375),('A4',0.125),('B4',0.5),
-    ('G4',0.25),('A4',0.25),('B4',0.25),('C5',0.25),
-    ('D5',0.375),('C5',0.125),('D5',0.5),
-    ('E5',0.375),('D5',0.125),('C5',0.25),('B4',0.25),
-    ('A4',0.375),('G4',0.125),('F#4',0.25),('E4',0.25),
-    ('F#4',0.25),('G4',0.25),('A4',0.5),('B4',0.5),
-]
-_melody_sounds = []
-_melody_built  = False
-
-MUSIC_NOTE_EVENT = pygame.USEREVENT + 1
+MUSIC_FILE = "ode.mp3"
 
 def init_music():
-    """Call after pygame.init() — builds tones on main thread."""
-    global _melody_sounds, _melody_built
     try:
-        pygame.mixer.init(frequency=_MUSIC_RATE, size=-16, channels=2, buffer=256)
-        _melody_sounds = [_build_tone(_note(n), d) for n, d in _MELODY]
-        _melody_built  = True
-        _schedule_next(0)
+        pygame.mixer.init()
+        pygame.mixer.music.load(MUSIC_FILE)
+        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.play(loops=-1)
     except Exception as e:
-        print(f"Music init failed: {e}")
-
-def _schedule_next(idx):
-    if not _melody_built:
-        return
-    _, dur = _MELODY[idx % len(_MELODY)]
-    pygame.time.set_timer(MUSIC_NOTE_EVENT, int(dur * 1000), loops=1)
-
-def handle_music_event(idx_ref):
-    """Call from event loop when event.type == MUSIC_NOTE_EVENT."""
-    if not _melody_built:
-        return idx_ref[0]
-    i = idx_ref[0] % len(_MELODY)
-    _melody_sounds[i].play()
-    idx_ref[0] = i + 1
-    _schedule_next(idx_ref[0])
-    return idx_ref[0]
-
+        print(f"Music failed (put song in the same folder): {e}")
 
 
 # ── Config ───────────────────────────────────────────────────────────────────
@@ -493,7 +435,7 @@ def draw_raw_panel(surf, raw_lines, font_sm, font_lbl, oy):
             break
 
 
-def draw_startup_screen(surf, scanned, tick, font_title, font_med, font_sm):
+def draw_startup_screen(surf, scanned, required, tick, font_title, font_med, font_sm):
     surf.fill((8, 16, 32))
     for y in range(0, HEIGHT, 40):
         offset = int(10 * math.sin(tick * 0.03 + y * 0.05))
@@ -502,8 +444,8 @@ def draw_startup_screen(surf, scanned, tick, font_title, font_med, font_sm):
     title = font_title.render("MAKING WAVES", True, (180, 220, 255))
     surf.blit(title, title.get_rect(center=(WIDTH//2, HEIGHT//4)))
 
-    n_req = 3
-    sub = font_med.render("scan all cards to begin", True, (80, 120, 160))
+    n_req = len(required)
+    sub = font_med.render(f"scan {n_req} card{'s' if n_req>1 else ''} to begin", True, (80, 120, 160))
     surf.blit(sub, sub.get_rect(center=(WIDTH//2, HEIGHT//4 + 50)))
 
     all_cards = [
@@ -511,36 +453,43 @@ def draw_startup_screen(surf, scanned, tick, font_title, font_med, font_sm):
         ("green",  ( 60, 200,  80), (15,  60, 20)),
         ("purple", (160,  80, 220), (50,  20, 70)),
     ]
-    cards = all_cards
 
     slot_w, slot_h = 200, 120
     spacing = 60
-    total_w = len(cards) * slot_w + (len(cards)-1) * spacing
+    total_w = len(all_cards) * slot_w + (len(all_cards)-1) * spacing
     start_x = WIDTH//2 - total_w//2
     cy      = HEIGHT//2 + 20
 
-    for i, (colour, rgb, dark) in enumerate(cards):
-        x    = start_x + i * (slot_w + spacing)
-        done = colour in scanned
-        bg   = rgb if done else dark
-        s    = pygame.Surface((slot_w, slot_h), pygame.SRCALPHA)
-        pygame.draw.rect(s, (*bg, 180 if done else 60),   (0, 0, slot_w, slot_h), border_radius=12)
-        pygame.draw.rect(s, (*rgb, 255 if done else 180), (0, 0, slot_w, slot_h), 2, border_radius=12)
-        surf.blit(s, (x, cy - slot_h//2))
-        mark = font_title.render("checkmark" if done else "?", True, (255,255,255) if done else rgb)
-        if done:
-            mark = font_title.render("v", True, (255, 255, 255))
-        else:
-            mark = font_title.render("?", True, rgb)
-        surf.blit(mark, mark.get_rect(center=(x + slot_w//2, cy - 10)))
-        lbl = font_med.render(colour, True, (220, 220, 220) if done else (120, 120, 120))
-        surf.blit(lbl, lbl.get_rect(center=(x + slot_w//2, cy + slot_h//2 - 18)))
+    for i, (colour, rgb, dark) in enumerate(all_cards):
+        x        = start_x + i * (slot_w + spacing)
+        needed   = colour in required
+        done     = colour in scanned and needed
+        s        = pygame.Surface((slot_w, slot_h), pygame.SRCALPHA)
 
-    n_scanned = len(scanned)
+        if not needed:
+            # greyed out — not required for this difficulty
+            pygame.draw.rect(s, (30, 35, 45, 120), (0, 0, slot_w, slot_h), border_radius=12)
+            pygame.draw.rect(s, (50, 55, 65, 100), (0, 0, slot_w, slot_h), 1, border_radius=12)
+            surf.blit(s, (x, cy - slot_h//2))
+            mark = font_title.render("-", True, (50, 55, 65))
+            surf.blit(mark, mark.get_rect(center=(x + slot_w//2, cy - 10)))
+            lbl = font_med.render(colour, True, (50, 55, 65))
+            surf.blit(lbl, lbl.get_rect(center=(x + slot_w//2, cy + slot_h//2 - 18)))
+        else:
+            bg = rgb if done else dark
+            pygame.draw.rect(s, (*bg, 180 if done else 60),   (0, 0, slot_w, slot_h), border_radius=12)
+            pygame.draw.rect(s, (*rgb, 255 if done else 180), (0, 0, slot_w, slot_h), 2, border_radius=12)
+            surf.blit(s, (x, cy - slot_h//2))
+            mark = font_title.render("v" if done else "?", True, (255,255,255) if done else rgb)
+            surf.blit(mark, mark.get_rect(center=(x + slot_w//2, cy - 10)))
+            lbl = font_med.render(colour, True, (220,220,220) if done else (120,120,120))
+            surf.blit(lbl, lbl.get_rect(center=(x + slot_w//2, cy + slot_h//2 - 18)))
+
+    n_scanned = len(scanned & required)
     prog = font_sm.render(f"{n_scanned}/{n_req} cards scanned", True, (100, 160, 200))
     surf.blit(prog, prog.get_rect(center=(WIDTH//2, cy + slot_h//2 + 30)))
 
-    if len(scanned) >= 3:
+    if scanned >= required:
         go = font_med.render("ALL CARDS SCANNED - starting...", True, (100, 255, 140))
         surf.blit(go, go.get_rect(center=(WIDTH//2, cy + slot_h//2 + 60)))
 
@@ -586,7 +535,6 @@ def main():
     font_med  = pygame.font.SysFont("monospace", 20, bold=True)
     font_title= pygame.font.SysFont("monospace", 40, bold=True)
     print("DEBUG: fonts done")
-    music_idx = [0]
     init_music()
 
     ship          = Ship(OCEAN_W / 2, OCEAN_H / 2)
@@ -613,6 +561,18 @@ def main():
         conn_dropdown_open = False
         connecting         = True
         tick               = 0
+        difficulty         = "hard"
+
+        DIFF_REQUIRED = {
+            "easy":   {"yellow"},
+            "medium": {"yellow", "green"},
+            "hard":   {"yellow", "green", "purple"},
+        }
+        DIFF_COLORS = {
+            "easy":   (80, 200, 120),
+            "medium": (220, 180, 50),
+            "hard":   (220, 80,  80),
+        }
 
         while connecting:
             tick += 1
@@ -620,8 +580,6 @@ def main():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit(); sys.exit()
-                if event.type == MUSIC_NOTE_EVENT:
-                    handle_music_event(music_idx)
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         pygame.quit(); sys.exit()
@@ -657,6 +615,19 @@ def main():
                             pygame.time.wait(600)
                             if reader.connected:
                                 connecting = False
+
+                    elif conn_btns.get("easy") and conn_btns["easy"].collidepoint(mx, my):
+                        difficulty = "easy"
+                        if reader and reader.connected:
+                            reader.send_raw(b'{"Command":"difficulty","Mode":"easy"}\r\n')
+                    elif conn_btns.get("medium") and conn_btns["medium"].collidepoint(mx, my):
+                        difficulty = "medium"
+                        if reader and reader.connected:
+                            reader.send_raw(b'{"Command":"difficulty","Mode":"medium"}\r\n')
+                    elif conn_btns.get("hard") and conn_btns["hard"].collidepoint(mx, my):
+                        difficulty = "hard"
+                        if reader and reader.connected:
+                            reader.send_raw(b'{"Command":"difficulty","Mode":"hard"}\r\n')
 
             # draw
             screen.fill((8, 16, 32))
@@ -707,6 +678,35 @@ def main():
                     pygame.draw.rect(screen, (50, 90, 140), ir, 1, border_radius=4)
                     screen.blit(font_med.render(port, True, (180, 210, 240)), (ir.x + 10, ir.y + 4))
 
+            # ── difficulty selector ──────────────────────────────────────────
+            diff_y = HEIGHT//2 + 110
+            dlbl = font_med.render("difficulty", True, (70, 110, 150))
+            screen.blit(dlbl, dlbl.get_rect(center=(WIDTH//2, diff_y)))
+
+            diff_opts = ["easy", "medium", "hard"]
+            dw, dh = 110, 34
+            dgap   = 14
+            dtotal = len(diff_opts) * dw + (len(diff_opts)-1) * dgap
+            dx0    = WIDTH//2 - dtotal//2
+            for i, opt in enumerate(diff_opts):
+                dx = dx0 + i * (dw + dgap)
+                dy = diff_y + 28
+                sel   = (difficulty == opt)
+                col   = DIFF_COLORS[opt]
+                bg    = tuple(c//2 for c in col) if sel else tuple(c//5 for c in col)
+                bdr   = col if sel else tuple(c//3 for c in col)
+                pygame.draw.rect(screen, bg,  (dx, dy, dw, dh), border_radius=6)
+                pygame.draw.rect(screen, bdr, (dx, dy, dw, dh), 2 if sel else 1, border_radius=6)
+                tc  = (255,255,255) if sel else tuple(c*2//3 for c in col)
+                t   = font_sm.render(opt, True, tc)
+                screen.blit(t, t.get_rect(center=(dx + dw//2, dy + dh//2)))
+                conn_btns[opt] = pygame.Rect(dx, dy, dw, dh)
+
+            nreq = len(DIFF_REQUIRED[difficulty])
+            req  = font_sm.render(f"{nreq} card{'s' if nreq>1 else ''} required",
+                                   True, DIFF_COLORS[difficulty])
+            screen.blit(req, req.get_rect(center=(WIDTH//2, diff_y + 28 + dh + 12)))
+
             hint = font_sm.render("SPACE to skip (demo)   ESC to quit", True, (40, 60, 80))
             screen.blit(hint, hint.get_rect(center=(WIDTH//2, HEIGHT - 30)))
 
@@ -714,7 +714,7 @@ def main():
             clock.tick(FPS)
 
     # ── Startup screen — wait for 3 RFID cards ──────────────────────────────
-        REQUIRED = {"yellow", "green", "purple"}
+        REQUIRED = DIFF_REQUIRED[difficulty]
         startup  = True
 
         while startup:
@@ -724,8 +724,6 @@ def main():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit(); sys.exit()
-                if event.type == MUSIC_NOTE_EVENT:
-                    handle_music_event(music_idx)
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         pygame.quit(); sys.exit()
@@ -733,12 +731,12 @@ def main():
                         startup = False
 
             if scanned >= REQUIRED:
-                draw_startup_screen(screen, scanned, tick, font_title, font_med, font_sm)
+                draw_startup_screen(screen, scanned, REQUIRED, tick, font_title, font_med, font_sm)
                 pygame.display.flip()
                 pygame.time.wait(1200)
                 startup = False
 
-            draw_startup_screen(screen, scanned, tick, font_title, font_med, font_sm)
+            draw_startup_screen(screen, scanned, REQUIRED, tick, font_title, font_med, font_sm)
             pygame.display.flip()
             clock.tick(FPS)
 
@@ -802,7 +800,7 @@ def main():
             if not connected:
                 keys = pygame.key.get_pressed()
                 demo_angle = -30.0 if keys[pygame.K_LEFT] else 30.0 if keys[pygame.K_RIGHT] else 0.0
-                delta_deg  = demo_angle * 0.1
+                delta_deg  = demo_angle * 1
                 cum_angle  = 0.0
                 gyro       = 0.0
                 raw_lines  = [("demo mode — connect UART to receive data", "other")]
