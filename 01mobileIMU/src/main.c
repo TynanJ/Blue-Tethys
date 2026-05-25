@@ -61,7 +61,7 @@ LOG_MODULE_REGISTER(mobileIMU, LOG_LEVEL_INF);
 #define GYRO_DEADBAND_DEG_S      0.3f
 
 /* How often to log the angle (every N samples) */
-#define LOG_EVERY_N_SAMPLES      50
+#define LOG_EVERY_N_SAMPLES      5
 
 static int print_samples;
 static int lsm6dsl_trig_cnt;

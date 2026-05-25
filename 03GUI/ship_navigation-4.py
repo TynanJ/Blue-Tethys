@@ -26,7 +26,7 @@ import random
 
 
 
-MUSIC_FILE = "ode.mp3"
+MUSIC_FILE = "lowrider.mp3"
 
 def init_music():
     try:
@@ -39,7 +39,7 @@ def init_music():
 
 
 # ── Config ───────────────────────────────────────────────────────────────────
-OCEAN_W  = 1100
+OCEAN_W  = 1400
 OCEAN_H  = 580
 CTRL_H   = 50
 RAW_H    = 180
@@ -48,7 +48,7 @@ HEIGHT   = OCEAN_H + CTRL_H + RAW_H
 FPS      = 60
 MARGIN   = 20
 SHIP_SPEED  = 0.8
-TURN_RATE   = 0.015
+TURN_RATE   = 0.1
 TRAIL_LEN   = 120
 RAW_LOG_MAX = 12
 
@@ -260,8 +260,10 @@ class Ship:
         self.heading = -math.pi / 2
         self.trail   = []
 
-    def update(self, delta_deg):
-        self.heading -= math.radians(delta_deg) * TURN_RATE
+    def update(self, delta_deg, gyro_z=0.0):
+        gyro_scale = min(abs(gyro_z) / 2.0, 3.0) if gyro_z != 0.0 else 1.0
+        self.heading -= math.radians(delta_deg) * TURN_RATE * gyro_scale
+        #self.heading -= math.radians(delta_deg) * TURN_RATE
         self.x += math.cos(self.heading) * SHIP_SPEED
         self.y += math.sin(self.heading) * SHIP_SPEED
         self._clamp()
@@ -857,7 +859,7 @@ def main():
                 gyro      = reader.gyro_z
                 raw_lines = reader.get_raw_lines()
 
-            ship.update(delta_deg)
+            ship.update(delta_deg, gyro)
             if check_obstacle_collision(ship, OBSTACLES):
                 now = pygame.time.get_ticks()
                 if now - last_collision_ms > 2000:  # 2 second cooldown
