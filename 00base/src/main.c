@@ -77,6 +77,8 @@ static void discover_nus_rx(struct bt_conn *conn);
 static struct node_conn *get_free_node(void);
 static struct node_conn *get_node(struct bt_conn *conn);
 
+static int nus_send_to_node(const char *name, const uint8_t *data, uint16_t len);
+
 static struct node_conn *get_node(struct bt_conn *conn)
 {
     for (int i = 0; i < MAX_NODES; i++) {
@@ -493,104 +495,157 @@ static void uart_rx_thread(void *a, void *b, void *c)
             // printk("Entered");
         }
 
-        if (strcmp(decoded_msg.Command, "list_beacons") == 0) {
-            // printk("list size: %d\n", anchor_beacons.size);
-            // beacon_list_print(&anchor_beacons);
+        if (strcmp(decoded_msg.Command, "zero") == 0) {
+            int err = nus_send_to_node("IMU", (const uint8_t *)"zero", 4);
+        if (err) {
+            LOG_ERR("Failed to send zero to IMU (err %d)", err);
+        } else {
+            LOG_INF("Sent zero command to IMU");
+        }
+        }
 
-            // Package into a little JSON packet
-            char beacon_packet[256];
-            int json_len2;
+        if (strcmp(decoded_msg.Command, "collision") == 0) {
+            int err = nus_send_to_node("IMU", (const uint8_t *)"collision", 7);
+        if (err) {
+            LOG_ERR("Failed to send collision to IMU (err %d)", err);
+        } else {
+            LOG_INF("Sent collision command to IMU");
+        }
+        }
 
-            BeaconNode *current_beacon = anchor_beacons.head;
-            
-            // printk("I am about to print some beacons\n");
-            
-            // for (int i = 0; i < anchor_beacons.size; i++) {
-            k_msleep(100);
-            while (current_beacon) {
-                // printk("This is gonna be a beacon\n");
-                
-                json_len2 = snprintf(beacon_packet, sizeof(beacon_packet),
-                        "{\"MessageType\":\"SavedBeacon\","
-                        "\"Data\":{"
-                        "\"BLEName\":\"%s\","
-                        "\"BLEMAC\":\"%s\","
-                        "\"BLEMajor\":\"%u\","
-                        "\"BLEMinor\":\"%u\"}}\r\n",
-                        // "\"X\":\"%f\","
-                        // "\"Y\":\"%f\","
-                        // "\"RSSICal\":\"%d\","
-                        // "\"LeftNeighbour\":\"%s\","
-                        // "\"RightNeighbour\":\"%s\"}}\r\n",
-                    current_beacon->name, current_beacon->mac, current_beacon->major, current_beacon->minor); 
-                    // current_beacon->x, current_beacon->y, current_beacon->rssi_ref, 
-                    // current_beacon->left_name[0] ? current_beacon->left_name : "(none)",
-                    // current_beacon->right_name[0] ? current_beacon->right_name : "(none)");
-                    
-                printk("%s", beacon_packet);
-                current_beacon = current_beacon->next;
-                k_msleep(20);
-                    
+        if (strcmp(decoded_msg.Command, "difficulty") == 0) {
+
+            if (strcmp(decoded_msg.Mode, "easy") == 0) {
+
+                int err = nus_send_to_node("MAKING-WAVES-RFID", (const uint8_t *)"esy", 3);
+
+                if (err) {
+                LOG_ERR("Failed to send collision to RFID (err %d)", err);
+            } else {
+                LOG_INF("Sent difficulty setting to RFID");
             }
 
-        } else if (strcmp(decoded_msg.Command, "add_beacon") == 0) {
-            // printk("RAW: %s\n", msg);
-            struct rx_beacon_add add_msg = {0};
-            ret = json_obj_parse(msg_copy, strlen(msg_copy), rx_beacon_add_descr,
-                         ARRAY_SIZE(rx_beacon_add_descr), &add_msg);
-            // printk("add ret=%d expected=%d\n", ret, (1 << ARRAY_SIZE(rx_beacon_add_descr)) - 1);
-            // printk("Command=%s Mode=%s name=%s mac=%s\n",
-                //    add_msg.Command ? add_msg.Command : "NULL", add_msg.Mode ? add_msg.Mode : "NULL",
-                //    add_msg.name ? add_msg.name : "NULL", add_msg.mac ? add_msg.mac : "NULL");
-            // printk("major=%d minor=%d rssi=%d\n", add_msg.major, add_msg.minor, add_msg.rssi_ref);
-            // printk("left=%s right=%s\n", add_msg.left_name ? add_msg.left_name : "NULL",
-                //    add_msg.right_name ? add_msg.right_name : "NULL");
-            if (ret < 0) {
-                // printk("add_beacon parse error: %d\n", ret);
+            } else if (strcmp(decoded_msg.Mode, "medium") == 0) {
+
+                int err = nus_send_to_node("MAKING-WAVES-RFID", (const uint8_t *)"med", 3);
+
+                if (err) {
+                LOG_ERR("Failed to send collision to RFID (err %d)", err);
             } else {
-                BeaconNode *n = beacon_list_push_back(
-                    &anchor_beacons, add_msg.name, add_msg.mac, (uint16_t)add_msg.major,
-                    (uint16_t)add_msg.minor, add_msg.X / 100, add_msg.Y / 100, /* x, y - add to JSON if needed */
-                    (int8_t)add_msg.rssi_ref, add_msg.left_name, add_msg.right_name);
-                if (n) {
-                    // printk("{\"status\":\"ok\",\"msg\":\"beacon added: %s\"}\n", add_msg.name);
-                } else {
-                    // printk("{\"status\":\"error\",\"msg\":\"failed to add beacon\"}\n");
-                }
+                LOG_INF("Sent difficulty setting to RFID");
             }
 
-        } else if (strcmp(decoded_msg.Command, "remove_beacon") == 0) {
-            // printk("Entered");
-            // printk("RAW: %s\n", msg);
-            struct rx_beacon_remove rem_msg = {0};
-            ret = json_obj_parse(msg_copy, strlen(msg_copy), rx_beacon_remove_descr,
-                                 ARRAY_SIZE(rx_beacon_remove_descr), &rem_msg);
-            if (ret < 0) {
-                // printk("remove_beacon parse error: %d\n", ret);
+            } else if (strcmp(decoded_msg.Mode, "hard") == 0){
+
+                int err = nus_send_to_node("MAKING-WAVES-RFID", (const uint8_t *)"hrd", 3);
+
+                if (err) {
+                LOG_ERR("Failed to send collision to RFID (err %d)", err);
             } else {
-                BeaconNode *node = beacon_list_find_mac(&anchor_beacons, rem_msg.mac);
-                if (node) {
-                    beacon_list_remove(&anchor_beacons, node);
-                    // printk("{\"status\":\"ok\",\"msg\":\"beacon removed: %s\"}\n", rem_msg.mac);
-                } else {
-                    // printk("{\"status\":\"error\",\"msg\":\"beacon not found: %s\"}\n",
-                        //    rem_msg.mac);
-                }
+                LOG_INF("Sent difficulty setting to RFID");
             }
 
-        } else if (strcmp(decoded_msg.Command, "set_mode") == 0) {
-            // printk("Entered");
-
-            if (strcmp(decoded_msg.Mode, "base") == 0) {
-                atomic_set(&current_mode, MODE_BASE);
-                // printk("{\"status\":\"ok\",\"msg\":\"switched to base mode\"}\n");
-            } else if (strcmp(decoded_msg.Mode, "sniffer") == 0) {
-                atomic_set(&current_mode, MODE_SNIFFER);
-                // printk("{\"status\":\"ok\",\"msg\":\"switched to sniffer mode\"}\n");
-            } else {
-                // printk("{\"status\":\"error\",\"msg\":\"unknown mode\"}\n");
             }
         }
+
+        // if (strcmp(decoded_msg.Command, "list_beacons") == 0) {
+        //     // printk("list size: %d\n", anchor_beacons.size);
+        //     // beacon_list_print(&anchor_beacons);
+
+        //     // Package into a little JSON packet
+        //     char beacon_packet[256];
+        //     int json_len2;
+
+        //     BeaconNode *current_beacon = anchor_beacons.head;
+            
+        //     // printk("I am about to print some beacons\n");
+            
+        //     // for (int i = 0; i < anchor_beacons.size; i++) {
+        //     k_msleep(100);
+        //     while (current_beacon) {
+        //         // printk("This is gonna be a beacon\n");
+                
+        //         json_len2 = snprintf(beacon_packet, sizeof(beacon_packet),
+        //                 "{\"MessageType\":\"SavedBeacon\","
+        //                 "\"Data\":{"
+        //                 "\"BLEName\":\"%s\","
+        //                 "\"BLEMAC\":\"%s\","
+        //                 "\"BLEMajor\":\"%u\","
+        //                 "\"BLEMinor\":\"%u\"}}\r\n",
+        //                 // "\"X\":\"%f\","
+        //                 // "\"Y\":\"%f\","
+        //                 // "\"RSSICal\":\"%d\","
+        //                 // "\"LeftNeighbour\":\"%s\","
+        //                 // "\"RightNeighbour\":\"%s\"}}\r\n",
+        //             current_beacon->name, current_beacon->mac, current_beacon->major, current_beacon->minor); 
+        //             // current_beacon->x, current_beacon->y, current_beacon->rssi_ref, 
+        //             // current_beacon->left_name[0] ? current_beacon->left_name : "(none)",
+        //             // current_beacon->right_name[0] ? current_beacon->right_name : "(none)");
+                    
+        //         printk("%s", beacon_packet);
+        //         current_beacon = current_beacon->next;
+        //         k_msleep(20);
+                    
+        //     }
+
+        // } else if (strcmp(decoded_msg.Command, "add_beacon") == 0) {
+        //     // printk("RAW: %s\n", msg);
+        //     struct rx_beacon_add add_msg = {0};
+        //     ret = json_obj_parse(msg_copy, strlen(msg_copy), rx_beacon_add_descr,
+        //                  ARRAY_SIZE(rx_beacon_add_descr), &add_msg);
+        //     // printk("add ret=%d expected=%d\n", ret, (1 << ARRAY_SIZE(rx_beacon_add_descr)) - 1);
+        //     // printk("Command=%s Mode=%s name=%s mac=%s\n",
+        //         //    add_msg.Command ? add_msg.Command : "NULL", add_msg.Mode ? add_msg.Mode : "NULL",
+        //         //    add_msg.name ? add_msg.name : "NULL", add_msg.mac ? add_msg.mac : "NULL");
+        //     // printk("major=%d minor=%d rssi=%d\n", add_msg.major, add_msg.minor, add_msg.rssi_ref);
+        //     // printk("left=%s right=%s\n", add_msg.left_name ? add_msg.left_name : "NULL",
+        //         //    add_msg.right_name ? add_msg.right_name : "NULL");
+        //     if (ret < 0) {
+        //         // printk("add_beacon parse error: %d\n", ret);
+        //     } else {
+        //         BeaconNode *n = beacon_list_push_back(
+        //             &anchor_beacons, add_msg.name, add_msg.mac, (uint16_t)add_msg.major,
+        //             (uint16_t)add_msg.minor, add_msg.X / 100, add_msg.Y / 100, /* x, y - add to JSON if needed */
+        //             (int8_t)add_msg.rssi_ref, add_msg.left_name, add_msg.right_name);
+        //         if (n) {
+        //             // printk("{\"status\":\"ok\",\"msg\":\"beacon added: %s\"}\n", add_msg.name);
+        //         } else {
+        //             // printk("{\"status\":\"error\",\"msg\":\"failed to add beacon\"}\n");
+        //         }
+        //     }
+
+        // } else if (strcmp(decoded_msg.Command, "remove_beacon") == 0) {
+        //     // printk("Entered");
+        //     // printk("RAW: %s\n", msg);
+        //     struct rx_beacon_remove rem_msg = {0};
+        //     ret = json_obj_parse(msg_copy, strlen(msg_copy), rx_beacon_remove_descr,
+        //                          ARRAY_SIZE(rx_beacon_remove_descr), &rem_msg);
+        //     if (ret < 0) {
+        //         // printk("remove_beacon parse error: %d\n", ret);
+        //     } else {
+        //         BeaconNode *node = beacon_list_find_mac(&anchor_beacons, rem_msg.mac);
+        //         if (node) {
+        //             beacon_list_remove(&anchor_beacons, node);
+        //             // printk("{\"status\":\"ok\",\"msg\":\"beacon removed: %s\"}\n", rem_msg.mac);
+        //         } else {
+        //             // printk("{\"status\":\"error\",\"msg\":\"beacon not found: %s\"}\n",
+        //                 //    rem_msg.mac);
+        //         }
+        //     }
+
+        // } else if (strcmp(decoded_msg.Command, "set_mode") == 0) {
+        //     // printk("Entered");
+
+        //     if (strcmp(decoded_msg.Mode, "base") == 0) {
+        //         atomic_set(&current_mode, MODE_BASE);
+        //         // printk("{\"status\":\"ok\",\"msg\":\"switched to base mode\"}\n");
+        //     } else if (strcmp(decoded_msg.Mode, "sniffer") == 0) {
+        //         atomic_set(&current_mode, MODE_SNIFFER);
+        //         // printk("{\"status\":\"ok\",\"msg\":\"switched to sniffer mode\"}\n");
+        //     } else {
+        //         // printk("{\"status\":\"error\",\"msg\":\"unknown mode\"}\n");
+        //     }
+        // }
     }
 }
 
@@ -726,7 +781,7 @@ static uint8_t notify_func(struct bt_conn *conn,
                const void *data, uint16_t length)
 {
 
-    printk("notify_func called length=%u\n", length);
+    //printk("notify_func called length=%u\n", length);
     if (!data) {
         LOG_WRN("Unsubscribed \n");
         params->value_handle = 0U;
@@ -773,11 +828,19 @@ static uint8_t notify_func(struct bt_conn *conn,
 
     LOG_INF("[%s] %s", name, data_string);
 
+    printk("%s", data_string);
+
     /* Check if it's an RFID packet */
     if (strstr(data_string, "\"TYPE\":\"rfid\"") != NULL) {
         LOG_INF("RFID packet received, skipping beacon parse");
         return BT_GATT_ITER_CONTINUE;
     }
+
+    /* Forward IMU steering data to GUI */
+if (strstr(data_string, "\"SteeringAngle\"") != NULL) {
+    printk("%s\n", data_string);  /* Python GUI reads this */
+    return BT_GATT_ITER_CONTINUE;
+}
 
     // // DECODE JSON
     struct rx_mobile_node_data decoded_ble_data;
@@ -1537,15 +1600,15 @@ int main(void)
     k_sem_give(&smf_ready);
 
     // Send some test message to the IMU NUS peripheral every 5 seconds
-    while (true) {
-        k_msleep(5000);
-        int err = nus_send_to_node("IMU", (const uint8_t *)"zero", 4);
-        if (err) {
-            LOG_ERR("Failed to send zero to IMU (err %d)", err);
-        } else {
-            LOG_INF("Sent zero command to IMU");
-        }
-    }
+    // while (true) {
+    //     k_msleep(5000);
+    //     int err = nus_send_to_node("IMU", (const uint8_t *)"zero", 4);
+    //     if (err) {
+    //         LOG_ERR("Failed to send zero to IMU (err %d)", err);
+    //     } else {
+    //         LOG_INF("Sent zero command to IMU");
+    //     }
+    // }
 
 
     // TESTING GRAVEYARD

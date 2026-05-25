@@ -168,6 +168,9 @@ def check_obstacle_collision(ship, obstacles):
                 math.sin(ship.heading) - 2 * dot * ny,
                 math.cos(ship.heading) - 2 * dot * nx
             )
+            
+            return True
+    return False
 
 
 # ── Serial reader ─────────────────────────────────────────────────────────────
@@ -258,7 +261,7 @@ class Ship:
         self.trail   = []
 
     def update(self, delta_deg):
-        self.heading += math.radians(delta_deg) * TURN_RATE
+        self.heading -= math.radians(delta_deg) * TURN_RATE
         self.x += math.cos(self.heading) * SHIP_SPEED
         self.y += math.sin(self.heading) * SHIP_SPEED
         self._clamp()
@@ -589,20 +592,20 @@ def main():
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                     mx, my = event.pos
 
-                    if conn_dropdown_open:
-                        item_rects = [pygame.Rect(WIDTH//2 - 200, HEIGHT//2 - 20 + (i+1)*34, 400, 28)
-                                      for i in range(len(ports))]
-                        clicked = False
-                        for i, rect in enumerate(item_rects):
-                            if rect.collidepoint(mx, my):
-                                selected_idx = i
-                                conn_dropdown_open = False
-                                clicked = True
-                                break
-                        if not clicked:
-                            conn_dropdown_open = False
+                    # if conn_dropdown_open:
+                    #     item_rects = [pygame.Rect(WIDTH//2 - 200, HEIGHT//2 - 20 + (i+1)*34, 400, 28)
+                    #                   for i in range(len(ports))]
+                    #     clicked = False
+                    #     for i, rect in enumerate(item_rects):
+                    #         if rect.collidepoint(mx, my):
+                    #             selected_idx = i
+                    #             conn_dropdown_open = False
+                    #             clicked = True
+                    #             break
+                    #     if not clicked:
+                    #         conn_dropdown_open = False
 
-                    elif conn_btns.get("dropdown") and conn_btns["dropdown"].collidepoint(mx, my):
+                    if conn_btns.get("dropdown") and conn_btns["dropdown"].collidepoint(mx, my):
                         conn_dropdown_open = not conn_dropdown_open
 
                     elif conn_btns.get("refresh") and conn_btns["refresh"].collidepoint(mx, my):
@@ -614,20 +617,34 @@ def main():
                             reader = SerialReader(ports[selected_idx], baud)
                             pygame.time.wait(600)
                             if reader.connected:
+                                diff_json = f'{{"Command":"difficulty","Mode":"{difficulty}"}}\r\n'
+                                reader.send_raw(diff_json.encode())
                                 connecting = False
 
                     elif conn_btns.get("easy") and conn_btns["easy"].collidepoint(mx, my):
                         difficulty = "easy"
-                        if reader and reader.connected:
-                            reader.send_raw(b'{"Command":"difficulty","Mode":"easy"}\r\n')
+                        # if reader and reader.connected:
+                        #     r#eader.send_raw(b'{"Command":"difficulty","Mode":"easy"}\r\n')
                     elif conn_btns.get("medium") and conn_btns["medium"].collidepoint(mx, my):
                         difficulty = "medium"
-                        if reader and reader.connected:
-                            reader.send_raw(b'{"Command":"difficulty","Mode":"medium"}\r\n')
+                        # if reader and reader.connected:
+                        #     #reader.send_raw(b'{"Command":"difficulty","Mode":"medium"}\r\n')
                     elif conn_btns.get("hard") and conn_btns["hard"].collidepoint(mx, my):
                         difficulty = "hard"
-                        if reader and reader.connected:
-                            reader.send_raw(b'{"Command":"difficulty","Mode":"hard"}\r\n')
+                        # if reader and reader.connected:
+                        #     reader.send_raw(b'{"Command":"difficulty","Mode":"hard"}\r\n')
+                    elif conn_dropdown_open:
+                        item_rects = [pygame.Rect(WIDTH//2 - 200, HEIGHT//2 - 20 + (i+1)*34, 400, 28)
+                                      for i in range(len(ports))]
+                        clicked = False
+                        for i, rect in enumerate(item_rects):
+                            if rect.collidepoint(mx, my):
+                                selected_idx = i
+                                conn_dropdown_open = False
+                                clicked = True
+                                break
+                        if not clicked:
+                            conn_dropdown_open = False
 
             # draw
             screen.fill((8, 16, 32))
@@ -679,7 +696,7 @@ def main():
                     screen.blit(font_med.render(port, True, (180, 210, 240)), (ir.x + 10, ir.y + 4))
 
             # ── difficulty selector ──────────────────────────────────────────
-            diff_y = HEIGHT//2 + 110
+            diff_y = btn_y + 90
             dlbl = font_med.render("difficulty", True, (70, 110, 150))
             screen.blit(dlbl, dlbl.get_rect(center=(WIDTH//2, diff_y)))
 
@@ -703,12 +720,18 @@ def main():
                 conn_btns[opt] = pygame.Rect(dx, dy, dw, dh)
 
             nreq = len(DIFF_REQUIRED[difficulty])
-            req  = font_sm.render(f"{nreq} card{'s' if nreq>1 else ''} required",
+            req  = font_sm.render(f"{nreq} card{'s' if nreq>1 else ''} required - connect first to send",
                                    True, DIFF_COLORS[difficulty])
             screen.blit(req, req.get_rect(center=(WIDTH//2, diff_y + 28 + dh + 12)))
 
             hint = font_sm.render("SPACE to skip (demo)   ESC to quit", True, (40, 60, 80))
             screen.blit(hint, hint.get_rect(center=(WIDTH//2, HEIGHT - 30)))
+            
+            music_ok = pygame.mixer.get_init() and pygame.mixer.music.get_busy()
+            music_txt = font_sm.render(
+                f"Music: {'Ode To The Mets - The Strokes' if music_ok else 'off (add ode.mp3)'}",
+                True, (60, 160, 80) if music_ok else (140, 80, 60))
+            screen.blit(music_txt, (WIDTH - music_txt.get_width() - 12, 12))
 
             pygame.display.flip()
             clock.tick(FPS)
@@ -739,10 +762,34 @@ def main():
             draw_startup_screen(screen, scanned, REQUIRED, tick, font_title, font_med, font_sm)
             pygame.display.flip()
             clock.tick(FPS)
+            
+        # ── Ready to sail countdown ──────────────────────────────────────────
+        for count in range(3, 0, -1):
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit(); sys.exit()
+            screen.fill((8, 16, 32))
+            for y in range(0, HEIGHT, 40):
+                offset = int(10 * math.sin(tick * 0.03 + y * 0.05))
+                pygame.draw.line(screen, (15, 35, 60), (0, y + offset), (WIDTH, y + offset), 1)
+            ready = font_title.render("READY TO SAIL?", True, (180, 220, 255))
+            screen.blit(ready, ready.get_rect(center=(WIDTH//2, HEIGHT//2 - 40)))
+            num = font_title.render(str(count), True, (100, 200, 255))
+            screen.blit(num, num.get_rect(center=(WIDTH//2, HEIGHT//2 + 40)))
+            pygame.display.flip()
+            pygame.time.wait(1000)
+            tick += 60
+
+        screen.fill((8, 16, 32))
+        go_txt = font_title.render("GO!", True, (100, 255, 140))
+        screen.blit(go_txt, go_txt.get_rect(center=(WIDTH//2, HEIGHT//2)))
+        pygame.display.flip()
+        pygame.time.wait(600)
 
         # ── Main game loop ───────────────────────────────────────────────────────
         running  = True
         go_home  = False
+        last_collision_ms = 0
 
         while running:
             tick += 1
@@ -811,7 +858,13 @@ def main():
                 raw_lines = reader.get_raw_lines()
 
             ship.update(delta_deg)
-            check_obstacle_collision(ship, OBSTACLES)
+            if check_obstacle_collision(ship, OBSTACLES):
+                now = pygame.time.get_ticks()
+                if now - last_collision_ms > 2000:  # 2 second cooldown
+                    last_collision_ms = now
+                    if reader and reader.connected:
+                        reader.send_raw(b'{"Command":"collision"}\r\n')
+                        print("Sent collision command")
 
             # ── draw ──
             draw_water(screen)
@@ -838,6 +891,12 @@ def main():
 
         if not go_home:
             break  # ESC or window close — exit entirely
+        if reader:
+            try:
+                if reader._ser and reader._ser.is_open:
+                    reader._ser.close()
+            except Exception:
+                pass
         reader = None
         ship   = Ship(OCEAN_W / 2, OCEAN_H / 2)
 

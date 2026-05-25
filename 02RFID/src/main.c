@@ -12,6 +12,15 @@
 #include <zephyr/drivers/spi.h>
 #include <zephyr/device.h>
 #include <zephyr/logging/log.h>
+#include <zephyr/fs/nvs.h>
+#include <zephyr/storage/flash_map.h>
+#include <zephyr/drivers/flash.h>
+
+#define NVS_PARTITION        storage_partition
+#define NVS_PARTITION_DEVICE FIXED_PARTITION_DEVICE(NVS_PARTITION)
+#define NVS_PARTITION_OFFSET FIXED_PARTITION_OFFSET(NVS_PARTITION)
+
+#define NVS_KEY_DIFFICULTY   1  /* unique ID for difficulty entry */
 
 #define LED1_NODE DT_ALIAS(led1) //green
 #define LED2_NODE DT_ALIAS(led2) //blue
@@ -20,6 +29,11 @@
 static const struct gpio_dt_spec led_green = GPIO_DT_SPEC_GET(LED1_NODE, gpios);
 static const struct gpio_dt_spec led_blue = GPIO_DT_SPEC_GET(LED2_NODE, gpios);
 static const struct gpio_dt_spec led_red = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
+
+static struct nvs_fs nvs;
+
+#define DIFFICULTY_MAX_LEN 4
+static char g_difficulty[DIFFICULTY_MAX_LEN] = "hrd";  /* default */
 
 
 #define DEVICE_NAME		CONFIG_BT_DEVICE_NAME
@@ -100,6 +114,57 @@ static const rfid_card_t known_cards[] = {
 /* -----------------------------------------------------------------------
  * Low-level SPI read/write
  * --------------------------------------------------------------------- */
+
+ static void nvs_init(void)
+{
+    struct flash_pages_info info;
+    int err;
+
+    nvs.flash_device = NVS_PARTITION_DEVICE;
+    if (!device_is_ready(nvs.flash_device)) {
+        LOG_ERR("NVS flash device not ready");
+        return;
+    }
+
+    nvs.offset = NVS_PARTITION_OFFSET;
+    err = flash_get_page_info_by_offs(nvs.flash_device, nvs.offset, &info);
+    if (err) {
+        LOG_ERR("NVS flash page info error: %d", err);
+        return;
+    }
+
+    nvs.sector_size  = info.size;
+    nvs.sector_count = 2;
+
+    err = nvs_mount(&nvs);
+    if (err) {
+        LOG_ERR("NVS mount failed: %d", err);
+        return;
+    }
+
+    LOG_INF("NVS mounted");
+}
+
+static void save_difficulty(const char *mode)
+{
+    int err = nvs_write(&nvs, NVS_KEY_DIFFICULTY, mode, strlen(mode) + 1);
+    if (err < 0) {
+        LOG_ERR("Failed to save difficulty: %d", err);
+    } else {
+        LOG_INF("Difficulty saved: %s", mode);
+    }
+}
+
+static void load_difficulty(char *buf, size_t len)
+{
+    int err = nvs_read(&nvs, NVS_KEY_DIFFICULTY, buf, len);
+    if (err < 0) {
+        LOG_WRN("No saved difficulty, defaulting to hard");
+        strncpy(buf, "hrd", len);
+    } else {
+        LOG_INF("Loaded difficulty: %s", buf);
+    }
+}
 
 static int rc522_write_reg(uint8_t reg, uint8_t val)
 {
@@ -469,6 +534,33 @@ static void received(struct bt_conn *conn, const void *data, uint16_t len, void 
 	ARG_UNUSED(ctx);
 
 	printk("%s() - Len: %d, Message: %.*s\n", __func__, len, len, (char *)data);
+
+    if (len == 3 && strncmp((const char *)data, "esy", 3) == 0) {
+        strncpy(g_difficulty, "esy", sizeof(g_difficulty));
+        save_difficulty("esy");
+        LOG_INF("Difficulty set to easy");
+        flash_colour("yellow");
+        return;
+    }
+
+    if (len == 3 && strncmp((const char *)data, "med", 3) == 0) {
+        strncpy(g_difficulty, "med", sizeof(g_difficulty));
+        save_difficulty("med");
+        LOG_INF("Difficulty set to medium");
+        flash_colour("yellow");
+        flash_colour("green");
+        return;
+    }
+
+    if (len == 3 && strncmp((const char *)data, "hrd", 3) == 0) {
+        strncpy(g_difficulty, "hrd", sizeof(g_difficulty));
+        save_difficulty("hrd");
+        LOG_INF("Difficulty set to hard");
+        flash_colour("yellow");
+        flash_colour("green");
+        flash_colour("purple");
+        return;
+    }
 }
 
 struct bt_nus_cb nus_listener = {
@@ -642,11 +734,15 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
 int main(void)
 {
 
-     k_msleep(2000);
+    //  k_msleep(2000);
 
      int err;
 
-	printk("Sample - Bluetooth Scanner + Peripheral NUS\n");
+	printk("RFID Scanner Peripheral\n");
+
+    nvs_init();
+    load_difficulty(g_difficulty, sizeof(g_difficulty));
+    LOG_INF("Starting with difficulty: %s", g_difficulty);
 
     /* == NUS callback registration ============ */
 	err = bt_nus_cb_register(&nus_listener, NULL);
@@ -692,52 +788,55 @@ int main(void)
     gpio_pin_configure_dt(&led_green, GPIO_OUTPUT_INACTIVE);
 
         while (1) {
-        if (rc522_checkCard(id)) {
-            /* Build and send JSON over NUS */
+    if (rc522_checkCard(id)) {
+        const char *colour = NULL;
+        for (int i = 0; i < ARRAY_SIZE(known_cards); i++) {
+            if (memcmp(id, known_cards[i].uid, 4) == 0) {
+                colour = known_cards[i].colour;
 
-            // char json[128];
-            // int json_len = snprintf(json, sizeof(json),
-            //     "{\"TYPE\":\"rfid\","
-            //      "\"UID\":\"%02x:%02x:%02x:%02x\"}\r\n",
-            //     id[0], id[1], id[2], id[3]);
-
-            // printk("%s", json);
-
-            // if (json_len > 0 && json_len < sizeof(json)) {
-            //     err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
-            //     if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
-            //         printk("bt_nus_send failed: %d\n", err);
-            //     }
-            // }
-
-            /* Match card and flash LED */
-            const char *colour = NULL;
-            for (int i = 0; i < ARRAY_SIZE(known_cards); i++) {
-                if (memcmp(id, known_cards[i].uid, 4) == 0) {
-                    colour = known_cards[i].colour;
-
-            int json_len = snprintf(json, sizeof(json),
-                "{\"TYPE\":\"rfid\","
-                 "\"SCANNED\":\"%s\"}\r\n",
-                colour);
-
-            printk("%s", json);
-
-            if (json_len > 0 && json_len < sizeof(json)) {
-                err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
-                if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
-                    printk("bt_nus_send failed: %d\n", err);
+                int json_len = snprintf(json, sizeof(json),
+                    "{\"TYPE\":\"rfid\","
+                    "\"SCANNED\":\"%s\"}\r\n",
+                    colour);
+                printk("%s", json);
+                if (json_len > 0 && json_len < sizeof(json)) {
+                    err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
+                    if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
+                        printk("bt_nus_send failed: %d\n", err);
+                    }
                 }
+                break;
             }
-                    break;
-                }
-            }
-            flash_colour(colour != NULL ? colour : "white");
-
-            k_msleep(200);
         }
 
-        k_msleep(200);
+        /* Determine flash colour based on difficulty */
+        const char *flash = "white";  /* default — unknown card */
+        if (colour != NULL) {
+            if (strcmp(g_difficulty, "esy") == 0) {
+                /* easy: only yellow flashes colour */
+                if (strcmp(colour, "yellow") == 0) {
+                    flash = "yellow";
+                } else {
+                    flash = "white";
+                }
+            } else if (strcmp(g_difficulty, "med") == 0) {
+                /* medium: yellow and green flash colour */
+                if (strcmp(colour, "yellow") == 0 ||
+                    strcmp(colour, "green")  == 0) {
+                    flash = colour;
+                } else {
+                    flash = "white";
+                }
+            } else {
+                /* hard: all cards flash their colour */
+                flash = colour;
+            }
+        }
+
+        flash_colour(flash);
+        k_msleep(100);
+    }
+    k_msleep(100);
 }
 
 return 0;

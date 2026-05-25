@@ -57,9 +57,9 @@
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/CMakeFiles/rebuild_cache.dir
-/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir
-/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/picolibc/CMakeFiles/edit_cache.dir
-/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/picolibc/CMakeFiles/rebuild_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/newlib/CMakeFiles/lib__libc__newlib.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/newlib/CMakeFiles/edit_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/newlib/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/common/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/common/CMakeFiles/rebuild_cache.dir
@@ -114,6 +114,8 @@
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/fb/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/fs/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/fs/CMakeFiles/rebuild_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/fs/nvs/CMakeFiles/edit_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/fs/nvs/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/gnss/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/gnss/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/instrumentation/CMakeFiles/edit_cache.dir
@@ -151,6 +153,8 @@
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/stats/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/storage/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/storage/CMakeFiles/rebuild_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/storage/flash_map/CMakeFiles/edit_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/storage/flash_map/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/task_wdt/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/task_wdt/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/testsuite/CMakeFiles/edit_cache.dir
@@ -185,6 +189,9 @@
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/bluetooth/controller/ll_sw/nordic/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/bluetooth/lib/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/bluetooth/lib/CMakeFiles/rebuild_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/crc/CMakeFiles/subsys__crc.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/crc/CMakeFiles/edit_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/subsys/crc/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/disk/CMakeFiles/edit_cache.dir
@@ -226,6 +233,9 @@
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/entropy/CMakeFiles/drivers__entropy.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/entropy/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/entropy/CMakeFiles/rebuild_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/flash/CMakeFiles/drivers__flash.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/flash/CMakeFiles/edit_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/flash/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/gpio/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/drivers/gpio/CMakeFiles/rebuild_cache.dir

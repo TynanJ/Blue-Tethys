@@ -169,6 +169,24 @@ static void received(struct bt_conn *conn, const void *data, uint16_t len, void 
 	ARG_UNUSED(ctx);
 
 	LOG_INF("%s() - Len: %d, Message: %.*s\n", __func__, len, len, (char *)data);
+
+    /* Check for collision command */
+    if (len >= 7 && strncmp((const char *)data, "collision", len) == 0) {
+        LOG_INF("Collision received — flashing red");
+        gpio_pin_configure_dt(&led_red, GPIO_OUTPUT_ACTIVE);
+        k_msleep(250);
+        gpio_pin_configure_dt(&led_red, GPIO_OUTPUT_INACTIVE);
+        return;
+    }
+
+    /* Check for zero command */
+    if (len >= 4 && strncmp((const char *)data, "zero", len) == 0) {
+        LOG_INF("Zero command received");
+        g_cumulative_angle_deg = 0.0f;
+        g_steering_angle_deg   = 0.0f;
+        g_gyro_z_filtered      = 0.0f;
+        return;
+    }
 }
 
 struct bt_nus_cb nus_listener = {

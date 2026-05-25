@@ -91,6 +91,70 @@ uintptr_t z_mrsh_entropy_get_entropy(uintptr_t arg1, uintptr_t arg2, uintptr_t a
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_nrf_qspi_nor_xip_enable(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_read(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_write(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_erase(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_get_size(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_fill(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_flatten(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_get_page_info_by_offs(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_get_page_info_by_idx(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_get_page_count(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_sfdp_read(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_read_jedec_id(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_get_write_block_size(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_get_parameters(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_ex_op(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_copy(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
 uintptr_t z_mrsh_gpio_pin_interrupt_configure(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
@@ -649,6 +713,10 @@ uintptr_t z_mrsh_k_object_alloc_size(uintptr_t arg1, uintptr_t arg2, uintptr_t a
 __weak ALIAS_OF(handler_no_syscall)
 uintptr_t z_mrsh_sys_clock_hw_cycles_per_sec_runtime_get(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_z_errno(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 extern uintptr_t z_mrsh_k_object_release(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 extern uintptr_t z_mrsh_k_object_access_grant(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 extern uintptr_t z_mrsh_k_object_alloc(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
@@ -675,6 +743,22 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_SYS_RAND_GET] = z_mrsh_sys_rand_get,
 	[K_SYSCALL_SYS_CSRAND_GET] = z_mrsh_sys_csrand_get,
 	[K_SYSCALL_ENTROPY_GET_ENTROPY] = z_mrsh_entropy_get_entropy,
+	[K_SYSCALL_NRF_QSPI_NOR_XIP_ENABLE] = z_mrsh_nrf_qspi_nor_xip_enable,
+	[K_SYSCALL_FLASH_READ] = z_mrsh_flash_read,
+	[K_SYSCALL_FLASH_WRITE] = z_mrsh_flash_write,
+	[K_SYSCALL_FLASH_ERASE] = z_mrsh_flash_erase,
+	[K_SYSCALL_FLASH_GET_SIZE] = z_mrsh_flash_get_size,
+	[K_SYSCALL_FLASH_FILL] = z_mrsh_flash_fill,
+	[K_SYSCALL_FLASH_FLATTEN] = z_mrsh_flash_flatten,
+	[K_SYSCALL_FLASH_GET_PAGE_INFO_BY_OFFS] = z_mrsh_flash_get_page_info_by_offs,
+	[K_SYSCALL_FLASH_GET_PAGE_INFO_BY_IDX] = z_mrsh_flash_get_page_info_by_idx,
+	[K_SYSCALL_FLASH_GET_PAGE_COUNT] = z_mrsh_flash_get_page_count,
+	[K_SYSCALL_FLASH_SFDP_READ] = z_mrsh_flash_sfdp_read,
+	[K_SYSCALL_FLASH_READ_JEDEC_ID] = z_mrsh_flash_read_jedec_id,
+	[K_SYSCALL_FLASH_GET_WRITE_BLOCK_SIZE] = z_mrsh_flash_get_write_block_size,
+	[K_SYSCALL_FLASH_GET_PARAMETERS] = z_mrsh_flash_get_parameters,
+	[K_SYSCALL_FLASH_EX_OP] = z_mrsh_flash_ex_op,
+	[K_SYSCALL_FLASH_COPY] = z_mrsh_flash_copy,
 	[K_SYSCALL_GPIO_PIN_INTERRUPT_CONFIGURE] = z_mrsh_gpio_pin_interrupt_configure,
 	[K_SYSCALL_GPIO_PIN_CONFIGURE] = z_mrsh_gpio_pin_configure,
 	[K_SYSCALL_GPIO_PORT_GET_DIRECTION] = z_mrsh_gpio_port_get_direction,
@@ -818,5 +902,6 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_K_OBJECT_ALLOC] = z_mrsh_k_object_alloc,
 	[K_SYSCALL_K_OBJECT_ALLOC_SIZE] = z_mrsh_k_object_alloc_size,
 	[K_SYSCALL_SYS_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_GET] = z_mrsh_sys_clock_hw_cycles_per_sec_runtime_get,
+	[K_SYSCALL_Z_ERRNO] = z_mrsh_z_errno,
 	[K_SYSCALL_BAD] = handler_bad_syscall
 };

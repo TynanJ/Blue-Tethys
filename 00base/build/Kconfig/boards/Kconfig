@@ -1,2 +1,2 @@
 # Load Zephyr board Kconfig descriptions.
-osource "/home/tynan/csse4011/zephyr/boards/seeed/xiao_ble/Kconfig"
+osource "/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/Kconfig"

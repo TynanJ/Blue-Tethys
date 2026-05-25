@@ -41,15 +41,26 @@
     "CONFIG_MAIN_STACK_SIZE",
     "y",
     "int",
-    "1024",
-    "default",
+    "2048",
+    "assign",
     [
-      "/Users/piperhofstee/csse4011/zephyr/kernel/Kconfig",
-      161
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      26
     ]
   ],
   [
     "CONFIG_FPU",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      21
+    ]
+  ],
+  [
+    "CONFIG_LIBLC3",
     "y",
     "bool",
     null,
@@ -211,6 +222,17 @@
     [
       "/Users/piperhofstee/csse4011/zephyr/boards/common/usb/Kconfig.cdc_acm_serial.defconfig",
       30
+    ]
+  ],
+  [
+    "CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS",
+    "y",
+    "int",
+    "4000",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/boards/common/usb/Kconfig.cdc_acm_serial.defconfig",
+      44
     ]
   ],
   [
@@ -615,6 +637,17 @@
     null
   ],
   [
+    "CONFIG_FLASH_FILL_BUFFER_SIZE",
+    "y",
+    "int",
+    "32",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig",
+      128
+    ]
+  ],
+  [
     "CONFIG_ARCH_HAS_CUSTOM_BUSY_WAIT",
     "n",
     "bool",
@@ -629,9 +662,12 @@
     "CONFIG_FLASH",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      29
+    ]
   ],
   [
     "CONFIG_HW_STACK_PROTECTION",
@@ -744,9 +780,12 @@
     "CONFIG_LOG",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      24
+    ]
   ],
   [
     "CONFIG_CMSIS_CORE_HAS_SYSTEM_CORE_CLOCK",
@@ -805,12 +844,34 @@
     ]
   ],
   [
+    "CONFIG_LOG_DOMAIN_NAME",
+    "y",
+    "string",
+    "",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.misc",
+      124
+    ]
+  ],
+  [
     "CONFIG_ASSERT",
     "y",
     "bool",
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_LOG_PROCESS_THREAD_STACK_SIZE",
+    "y",
+    "int",
+    "768",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.processing",
+      91
+    ]
   ],
   [
     "CONFIG_DEVICE_DEPS",
@@ -864,17 +925,6 @@
     null
   ],
   [
-    "CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE",
-    "y",
-    "int",
-    "-1",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/lib/libc/common/Kconfig",
-      64
-    ]
-  ],
-  [
     "CONFIG_GEN_SW_ISR_TABLE",
     "y",
     "bool",
@@ -892,6 +942,17 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_FLASH_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig",
+      160
+    ]
   ],
   [
     "CONFIG_GEN_IRQ_START_VECTOR",
@@ -1613,6 +1674,68 @@
     null
   ],
   [
+    "CONFIG_HEARTBEAT_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HEARTBEAT_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HEARTBEAT_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HEARTBEAT_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HEARTBEAT_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HEARTBEAT_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_HEARTBEAT_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_CSSE4011_TMP36",
     "y",
     "bool",
@@ -1803,6 +1926,62 @@
     [
       "SOC_SERIES_NRF52X && SOC_FAMILY_NORDIC_NRF"
     ]
+  ],
+  [
+    "CONFIG_NRFX_CLOCK_LOG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRFX_GPIOTE_LOG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRFX_NVMC_LOG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRFX_POWER_LOG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRFX_PPI_LOG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRFX_QSPI_LOG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRFX_SPIM_LOG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
   ],
   [
     "CONFIG_NRFX_CLOCK",
@@ -2004,9 +2183,11 @@
     "CONFIG_NRFX_NVMC",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SOC_FLASH_NRF && (DT_HAS_NORDIC_NRF51_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF52_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF53_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF91_FLASH_CONTROLLER_ENABLED) && !FLASH_NRF_FORCE_ALT && FLASH"
+    ]
   ],
   [
     "CONFIG_NRFX_PDM0",
@@ -2081,9 +2262,11 @@
     "CONFIG_NRFX_QSPI",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "NORDIC_QSPI_NOR && DT_HAS_NORDIC_QSPI_NOR_ENABLED && FLASH"
+    ]
   ],
   [
     "CONFIG_NRFX_RNG",
@@ -3594,6 +3777,68 @@
     ]
   ],
   [
+    "CONFIG_SOC_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_SOC_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_ARCH",
     "n",
     "string",
@@ -3636,20 +3881,22 @@
     "CONFIG_ARM_MPU_REGION_MIN_ALIGN_AND_SIZE",
     "n",
     "int",
-    "32",
+    "128",
     "default",
     [
       "/Users/piperhofstee/csse4011/zephyr/arch/arm/core/mpu/Kconfig",
-      14
+      12
     ]
   ],
   [
     "CONFIG_MPU_ALLOW_FLASH_WRITE",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SOC_FLASH_NRF && ARM_MPU && (DT_HAS_NORDIC_NRF51_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF52_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF53_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF91_FLASH_CONTROLLER_ENABLED) && !FLASH_NRF_FORCE_ALT && FLASH"
+    ]
   ],
   [
     "CONFIG_CPU_CORTEX_M",
@@ -3749,6 +3996,36 @@
       "/Users/piperhofstee/csse4011/zephyr/arch/arm/core/Kconfig",
       203
     ]
+  ],
+  [
+    "CONFIG_ARM_STORE_EXC_RETURN",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/arch/arm/core/Kconfig",
+      271
+    ]
+  ],
+  [
+    "CONFIG_FP_HARDABI",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/arch/arm/core/Kconfig",
+      279
+    ]
+  ],
+  [
+    "CONFIG_FP_SOFTABI",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
   ],
   [
     "CONFIG_FP16",
@@ -3930,6 +4207,17 @@
     ]
   ],
   [
+    "CONFIG_MPU_STACK_GUARD_MIN_SIZE_FLOAT",
+    "n",
+    "int",
+    "128",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/arch/arm/core/mpu/Kconfig",
+      33
+    ]
+  ],
+  [
     "CONFIG_MPU_DISABLE_BACKGROUND_MAP",
     "y",
     "bool",
@@ -4014,6 +4302,68 @@
     [
       "/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense_defconfig",
       4
+    ]
+  ],
+  [
+    "CONFIG_ARCH_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ARCH_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ARCH_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ARCH_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ARCH_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ARCH_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_ARCH_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
     ]
   ],
   [
@@ -4357,6 +4707,68 @@
     ]
   ],
   [
+    "CONFIG_MPU_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_MPU_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_MPU_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_MPU_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_MPU_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_MPU_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_MPU_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_MPU_REQUIRES_POWER_OF_TWO_ALIGNMENT",
     "n",
     "bool",
@@ -4374,6 +4786,17 @@
     "select",
     [
       "ARM_MPU && CPU_HAS_MPU"
+    ]
+  ],
+  [
+    "CONFIG_FPU_SHARING",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      22
     ]
   ],
   [
@@ -4395,6 +4818,68 @@
     "select",
     [
       "CPU_CORTEX_M && ARM"
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_KERNEL_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_KERNEL_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_KERNEL_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_KERNEL_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_KERNEL_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_KERNEL_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
     ]
   ],
   [
@@ -4549,16 +5034,6 @@
     ]
   ],
   [
-    "CONFIG_LIBC_ERRNO",
-    "n",
-    "bool",
-    "y",
-    "select",
-    [
-      "PICOLIBC && THREAD_LOCAL_STORAGE && PICOLIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
-    ]
-  ],
-  [
     "CONFIG_ERRNO",
     "y",
     "bool",
@@ -4567,17 +5042,6 @@
     [
       "/Users/piperhofstee/csse4011/zephyr/kernel/Kconfig",
       406
-    ]
-  ],
-  [
-    "CONFIG_CURRENT_THREAD_USE_TLS",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/kernel/Kconfig",
-      430
     ]
   ],
   [
@@ -4822,10 +5286,9 @@
     "y",
     "bool",
     "y",
-    "default",
+    "select",
     [
-      "/Users/piperhofstee/csse4011/zephyr/kernel/Kconfig",
-      852
+      "MPSC_PBUF"
     ]
   ],
   [
@@ -4893,11 +5356,9 @@
     "CONFIG_THREAD_LOCAL_STORAGE",
     "y",
     "bool",
-    "y",
-    "select",
-    [
-      "PICOLIBC_USE_TOOLCHAIN && ARCH_HAS_THREAD_LOCAL_STORAGE && TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE && y = y && <choice PICOLIBC_SOURCE>"
-    ]
+    null,
+    "unset",
+    null
   ],
   [
     "CONFIG_TOOLCHAIN_SUPPORTS_STATIC_INIT_GNU",
@@ -5176,6 +5637,68 @@
     null
   ],
   [
+    "CONFIG_CLOCK_CONTROL_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CLOCK_CONTROL_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CLOCK_CONTROL_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CLOCK_CONTROL_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CLOCK_CONTROL_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CLOCK_CONTROL_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_CLOCK_CONTROL_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_CLOCK_CONTROL_NRF",
     "y",
     "bool",
@@ -5423,6 +5946,68 @@
     null
   ],
   [
+    "CONFIG_UART_CONSOLE_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_CONSOLE_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_CONSOLE_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_CONSOLE_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_CONSOLE_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_CONSOLE_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_UART_CONSOLE_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_EFI_CONSOLE",
     "y",
     "bool",
@@ -5537,6 +6122,68 @@
     ]
   ],
   [
+    "CONFIG_ENTROPY_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ENTROPY_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ENTROPY_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ENTROPY_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ENTROPY_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_ENTROPY_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_ENTROPY_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_ENTROPY_INIT_PRIORITY",
     "y",
     "int",
@@ -5640,6 +6287,258 @@
     null
   ],
   [
+    "CONFIG_FLASH_HAS_DRIVER_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NORDIC_QSPI_NOR && DT_HAS_NORDIC_QSPI_NOR_ENABLED && FLASH",
+      "SOC_FLASH_NRF && (DT_HAS_NORDIC_NRF51_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF52_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF53_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF91_FLASH_CONTROLLER_ENABLED) && !FLASH_NRF_FORCE_ALT && FLASH"
+    ]
+  ],
+  [
+    "CONFIG_FLASH_HAS_EXPLICIT_ERASE",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NORDIC_QSPI_NOR && DT_HAS_NORDIC_QSPI_NOR_ENABLED && FLASH",
+      "SOC_FLASH_NRF && (DT_HAS_NORDIC_NRF51_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF52_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF53_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF91_FLASH_CONTROLLER_ENABLED) && !FLASH_NRF_FORCE_ALT && FLASH"
+    ]
+  ],
+  [
+    "CONFIG_FLASH_HAS_PAGE_LAYOUT",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NORDIC_QSPI_NOR && DT_HAS_NORDIC_QSPI_NOR_ENABLED && FLASH",
+      "SOC_FLASH_NRF && (DT_HAS_NORDIC_NRF51_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF52_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF53_FLASH_CONTROLLER_ENABLED || DT_HAS_NORDIC_NRF91_FLASH_CONTROLLER_ENABLED) && !FLASH_NRF_FORCE_ALT && FLASH"
+    ]
+  ],
+  [
+    "CONFIG_FLASH_JESD216",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NORDIC_QSPI_NOR && DT_HAS_NORDIC_QSPI_NOR_ENABLED && FLASH"
+    ]
+  ],
+  [
+    "CONFIG_FLASH_JESD216_API",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_PAGE_LAYOUT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig",
+      144
+    ]
+  ],
+  [
+    "CONFIG_NORDIC_QSPI_NOR",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig.nordic_qspi_nor",
+      6
+    ]
+  ],
+  [
+    "CONFIG_NORDIC_QSPI_NOR_INIT_PRIORITY",
+    "y",
+    "int",
+    "41",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig.nordic_qspi_nor",
+      21
+    ]
+  ],
+  [
+    "CONFIG_NORDIC_QSPI_NOR_FLASH_LAYOUT_PAGE_SIZE",
+    "y",
+    "int",
+    "65536",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig.nordic_qspi_nor",
+      27
+    ]
+  ],
+  [
+    "CONFIG_NORDIC_QSPI_NOR_STACK_WRITE_BUFFER_SIZE",
+    "y",
+    "int",
+    "4",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig.nordic_qspi_nor",
+      35
+    ]
+  ],
+  [
+    "CONFIG_NORDIC_QSPI_NOR_TIMEOUT_MS",
+    "y",
+    "int",
+    "500",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig.nordic_qspi_nor",
+      57
+    ]
+  ],
+  [
+    "CONFIG_SOC_FLASH_NRF_CUSTOM_CONTEXT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_FLASH_NRF",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig.nrf",
+      19
+    ]
+  ],
+  [
+    "CONFIG_SOC_FLASH_NRF_RADIO_SYNC_TICKER",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig.nrf",
+      37
+    ]
+  ],
+  [
+    "CONFIG_SOC_FLASH_NRF_RADIO_SYNC_NONE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_FLASH_NRF_PARTIAL_ERASE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_FLASH_NRF_TIMEOUT_MULTIPLIER",
+    "y",
+    "int",
+    "10",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/flash/Kconfig.nrf",
+      82
+    ]
+  ],
+  [
+    "CONFIG_SOC_FLASH_NRF_UICR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_FLASH_NRF_EMULATE_ONE_BYTE_WRITE_ACCESS",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_FLASH_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_FPGA",
     "y",
     "bool",
@@ -5662,6 +6561,68 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_GPIO_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_GPIO_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_GPIO_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_GPIO_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_GPIO_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_GPIO_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_GPIO_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
   ],
   [
     "CONFIG_GPIO_GET_DIRECTION",
@@ -5716,6 +6677,68 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_HWINFO_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HWINFO_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HWINFO_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HWINFO_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HWINFO_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_HWINFO_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_HWINFO_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
   ],
   [
     "CONFIG_HWINFO_HAS_DRIVER",
@@ -5779,6 +6802,68 @@
     [
       "/Users/piperhofstee/csse4011/zephyr/drivers/interrupt_controller/Kconfig",
       51
+    ]
+  ],
+  [
+    "CONFIG_INTC_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_INTC_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_INTC_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_INTC_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_INTC_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_INTC_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_INTC_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
     ]
   ],
   [
@@ -5900,8 +6985,71 @@
     "y",
     "select",
     [
+      "NORDIC_QSPI_NOR && DT_HAS_NORDIC_QSPI_NOR_ENABLED && FLASH",
       "UART_NRFX && (DT_HAS_NORDIC_NRF_UART_ENABLED || DT_HAS_NORDIC_NRF_UARTE_ENABLED) && SERIAL",
       "SPI_NRFX && SOC_FAMILY_NORDIC_NRF && SPI"
+    ]
+  ],
+  [
+    "CONFIG_PINCTRL_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PINCTRL_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PINCTRL_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PINCTRL_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PINCTRL_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_PINCTRL_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_PINCTRL_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
     ]
   ],
   [
@@ -6001,6 +7149,68 @@
     [
       "/Users/piperhofstee/csse4011/zephyr/drivers/regulator/Kconfig",
       14
+    ]
+  ],
+  [
+    "CONFIG_REGULATOR_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_REGULATOR_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_REGULATOR_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_REGULATOR_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_REGULATOR_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_REGULATOR_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_REGULATOR_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
     ]
   ],
   [
@@ -6105,6 +7315,68 @@
     "default",
     [
       "/Users/piperhofstee/csse4011/zephyr/drivers/serial/Kconfig",
+      36
+    ]
+  ],
+  [
+    "CONFIG_UART_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UART_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_UART_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
       36
     ]
   ],
@@ -6295,6 +7567,68 @@
     [
       "/Users/piperhofstee/csse4011/zephyr/drivers/spi/Kconfig",
       83
+    ]
+  ],
+  [
+    "CONFIG_SPI_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_SPI_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
     ]
   ],
   [
@@ -6518,6 +7852,68 @@
     null
   ],
   [
+    "CONFIG_UDC_DRIVER_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UDC_DRIVER_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UDC_DRIVER_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UDC_DRIVER_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UDC_DRIVER_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_UDC_DRIVER_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_UDC_DRIVER_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_UDC_NRF",
     "y",
     "bool",
@@ -6582,6 +7978,68 @@
     [
       "/Users/piperhofstee/csse4011/zephyr/drivers/usb/common/nrf_usbd_common/Kconfig",
       13
+    ]
+  ],
+  [
+    "CONFIG_NRF_USBD_COMMON_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRF_USBD_COMMON_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRF_USBD_COMMON_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRF_USBD_COMMON_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRF_USBD_COMMON_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NRF_USBD_COMMON_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_NRF_USBD_COMMON_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
     ]
   ],
   [
@@ -6728,19 +8186,16 @@
     "CONFIG_PICOLIBC",
     "y",
     "bool",
-    "y",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/lib/libc/Kconfig",
-      81
-    ]
+    null,
+    "unset",
+    null
   ],
   [
     "CONFIG_NEWLIB_LIBC",
     "y",
     "bool",
-    null,
-    "unset",
+    "y",
+    "assign",
     null
   ],
   [
@@ -6768,7 +8223,7 @@
     "y",
     "select",
     [
-      "PICOLIBC && PICOLIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
+      "NEWLIB_LIBC && NEWLIB_LIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
     ]
   ],
   [
@@ -6794,40 +8249,16 @@
     "y",
     "imply",
     [
-      "PICOLIBC && PICOLIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
+      "NEWLIB_LIBC && NEWLIB_LIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
     ]
   ],
   [
     "CONFIG_COMMON_LIBC_MALLOC",
     "y",
     "bool",
-    "y",
-    "imply",
-    [
-      "PICOLIBC && PICOLIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
-    ]
-  ],
-  [
-    "CONFIG_COMMON_LIBC_CALLOC",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/lib/libc/common/Kconfig",
-      88
-    ]
-  ],
-  [
-    "CONFIG_COMMON_LIBC_REALLOCARRAY",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/lib/libc/common/Kconfig",
-      97
-    ]
+    null,
+    "unset",
+    null
   ],
   [
     "CONFIG_COMMON_LIBC_REMOVE",
@@ -6838,7 +8269,7 @@
     null
   ],
   [
-    "CONFIG_PICOLIBC_USE_MODULE",
+    "CONFIG_NEWLIB_LIBC_NANO",
     "y",
     "bool",
     null,
@@ -6846,18 +8277,29 @@
     null
   ],
   [
-    "CONFIG_PICOLIBC_USE_TOOLCHAIN",
+    "CONFIG_NEWLIB_LIBC_MIN_REQUIRED_HEAP_SIZE",
     "y",
-    "bool",
-    "y",
+    "int",
+    "8192",
     "default",
     [
-      "/Users/piperhofstee/csse4011/zephyr/lib/libc/picolibc/Kconfig",
-      8
+      "/Users/piperhofstee/csse4011/zephyr/lib/libc/newlib/Kconfig",
+      27
     ]
   ],
   [
-    "CONFIG_PICOLIBC_IO_FLOAT",
+    "CONFIG_NEWLIB_LIBC_FLOAT_PRINTF",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      20
+    ]
+  ],
+  [
+    "CONFIG_NEWLIB_LIBC_FLOAT_SCANF",
     "y",
     "bool",
     null,
@@ -6865,14 +8307,30 @@
     null
   ],
   [
-    "CONFIG_PICOLIBC_IO_LONG_LONG",
+    "CONFIG_NEWLIB_LIBC_HEAP_LISTENER",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NEWLIB_LIBC_CUSTOM_SBRK",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NEWLIB_LIBC_USE_POSIX_LIMITS_H",
     "y",
     "bool",
     "y",
     "default",
     [
-      "/Users/piperhofstee/csse4011/zephyr/lib/libc/picolibc/Kconfig",
-      34
+      "/Users/piperhofstee/csse4011/zephyr/lib/libc/newlib/Kconfig",
+      75
     ]
   ],
   [
@@ -6880,10 +8338,10 @@
     "y",
     "bool",
     "y",
-    "default",
+    "assign",
     [
-      "/Users/piperhofstee/csse4011/zephyr/lib/libc/Kconfig",
-      173
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      16
     ]
   ],
   [
@@ -6893,8 +8351,7 @@
     "y",
     "select",
     [
-      "PICOLIBC && PICOLIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>",
-      "COMMON_LIBC_MALLOC && COMMON_LIBC_MALLOC_ARENA_SIZE != 0"
+      "NEWLIB_LIBC && NEWLIB_LIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
     ]
   ],
   [
@@ -7054,6 +8511,68 @@
     null
   ],
   [
+    "CONFIG_NET_BUF_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NET_BUF_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NET_BUF_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NET_BUF_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NET_BUF_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NET_BUF_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_NET_BUF_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
     "CONFIG_NET_BUF_POOL_USAGE",
     "y",
     "bool",
@@ -7111,12 +8630,22 @@
     "CONFIG_MPSC_PBUF",
     "y",
     "bool",
+    "y",
+    "select",
+    [
+      "LOG_MODE_DEFERRED && <choice LOG_MODE>"
+    ]
+  ],
+  [
+    "CONFIG_SPSC_PBUF",
+    "y",
+    "bool",
     null,
     "unset",
     null
   ],
   [
-    "CONFIG_SPSC_PBUF",
+    "CONFIG_MPSC_CLEAR_ALLOCATED",
     "y",
     "bool",
     null,
@@ -7183,9 +8712,12 @@
     "CONFIG_CBPRINTF_FP_SUPPORT",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/lib/os/Kconfig.cbprintf",
+      68
+    ]
   ],
   [
     "CONFIG_CBPRINTF_FP_A_SUPPORT",
@@ -7196,6 +8728,25 @@
     null
   ],
   [
+    "CONFIG_CBPRINTF_FP_ALWAYS_A",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CBPRINTF_N_SPECIFIER",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/lib/os/Kconfig.cbprintf",
+      107
+    ]
+  ],
+  [
     "CONFIG_CBPRINTF_LIBC_SUBSTS",
     "y",
     "bool",
@@ -7204,7 +8755,7 @@
     null
   ],
   [
-    "CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE",
+    "CONFIG_CBPRINTF_PACKAGE_LOG_LEVEL_OFF",
     "y",
     "bool",
     null,
@@ -7212,7 +8763,61 @@
     null
   ],
   [
-    "CONFIG_CBPRINTF_STATIC_PACKAGE_CHECK_ALIGNMENT",
+    "CONFIG_CBPRINTF_PACKAGE_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CBPRINTF_PACKAGE_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CBPRINTF_PACKAGE_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CBPRINTF_PACKAGE_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CBPRINTF_PACKAGE_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_CBPRINTF_PACKAGE_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
+    "CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE",
     "y",
     "bool",
     null,
@@ -7245,6 +8850,68 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_CPU_LOAD_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CPU_LOAD_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CPU_LOAD_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CPU_LOAD_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CPU_LOAD_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CPU_LOAD_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_CPU_LOAD_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
   ],
   [
     "CONFIG_POSIX_SYSTEM_INTERFACES",
@@ -7320,7 +8987,7 @@
     "y",
     "select",
     [
-      "PICOLIBC && PICOLIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
+      "NEWLIB_LIBC && NEWLIB_LIBC_SUPPORTED && <choice LIBC_IMPLEMENTATION>"
     ]
   ],
   [
@@ -9347,6 +11014,76 @@
     ]
   ],
   [
+    "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CTLR_ISOAL_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_BT_CTLR_TEST",
     "y",
     "bool",
@@ -9707,6 +11444,709 @@
     null
   ],
   [
+    "CONFIG_BT_LOG",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/bluetooth/Kconfig.logging",
+      9
+    ]
+  ],
+  [
+    "CONFIG_BT_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_BT_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
+    "CONFIG_BT_HCI_DRIVER_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_HCI_DRIVER_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_HCI_DRIVER_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_DRIVER_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_DRIVER_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_DRIVER_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_DRIVER_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_DRIVER_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_RPA_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_RPA_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_RPA_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_RPA_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_RPA_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_RPA_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_RPA_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_RPA_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_ATT_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_ATT_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_ATT_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_ATT_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_ATT_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_ATT_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_ATT_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_ATT_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_GATT_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_GATT_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_GATT_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_GATT_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_GATT_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_GATT_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_GATT_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_GATT_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_L2CAP_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_L2CAP_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_L2CAP_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_L2CAP_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_L2CAP_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_L2CAP_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_L2CAP_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_L2CAP_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_CORE_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_HCI_CORE_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_HCI_CORE_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_CORE_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_CORE_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_CORE_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_CORE_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_HCI_CORE_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CONN_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_CONN_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_CONN_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CONN_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CONN_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CONN_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CONN_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_CONN_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_KEYS_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_KEYS_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_KEYS_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_KEYS_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_KEYS_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_KEYS_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_KEYS_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_KEYS_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_SERVICE_LOG_LEVEL_INHERIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      16
+    ]
+  ],
+  [
+    "CONFIG_BT_SERVICE_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config_inherit",
+      24
+    ]
+  ],
+  [
+    "CONFIG_BT_SERVICE_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_SERVICE_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_SERVICE_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_SERVICE_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_SERVICE_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_BT_SERVICE_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_BT_SHELL",
     "y",
     "bool",
@@ -9743,6 +12183,86 @@
   ],
   [
     "CONFIG_CRC",
+    "y",
+    "bool",
+    "y",
+    "select",
+    [
+      "NVS && FLASH && FLASH_PAGE_LAYOUT"
+    ]
+  ],
+  [
+    "CONFIG_CRC_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CRC_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CRC_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CRC_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CRC_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CRC_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_CRC_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
+    "CONFIG_CRC_HW_HANDLER",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_CRC32_K_4_2_TABLE_256",
     "y",
     "bool",
     null,
@@ -9917,6 +12437,17 @@
     null
   ],
   [
+    "CONFIG_CPU_LOAD_LOG_PERIODICALLY",
+    "y",
+    "int",
+    "0",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/debug/Kconfig",
+      374
+    ]
+  ],
+  [
     "CONFIG_DISK_ACCESS",
     "y",
     "bool",
@@ -9963,6 +12494,111 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_FCB",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      28
+    ]
+  ],
+  [
+    "CONFIG_NVS_LOOKUP_CACHE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS_DATA_CRC",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS_INIT_BAD_MEMORY_REGION",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_NVS_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_NVS_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
   ],
   [
     "CONFIG_ZMS",
@@ -10037,12 +12673,618 @@
     null
   ],
   [
-    "CONFIG_LOG_OUTPUT",
+    "CONFIG_LOG_CORE_INIT_PRIORITY",
+    "y",
+    "int",
+    "0",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig",
+      18
+    ]
+  ],
+  [
+    "CONFIG_LOG_MODE_DEFERRED",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.mode",
+      9
+    ]
+  ],
+  [
+    "CONFIG_LOG_MODE_IMMEDIATE",
     "y",
     "bool",
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_LOG_MODE_MINIMAL",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FRONTEND",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FRONTEND_OPT_API",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_CUSTOM_HEADER",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_MULTIDOMAIN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FLUSH_SLEEP_US",
+    "y",
+    "int",
+    "10000",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.mode",
+      83
+    ]
+  ],
+  [
+    "CONFIG_LOG_RUNTIME_FILTERING",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_DEFAULT_LEVEL",
+    "y",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.filtering",
+      15
+    ]
+  ],
+  [
+    "CONFIG_LOG_OVERRIDE_LEVEL",
+    "y",
+    "int",
+    "0",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.filtering",
+      30
+    ]
+  ],
+  [
+    "CONFIG_LOG_MAX_LEVEL",
+    "y",
+    "int",
+    "4",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.filtering",
+      47
+    ]
+  ],
+  [
+    "CONFIG_LOG_PRINTK",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.processing",
+      10
+    ]
+  ],
+  [
+    "CONFIG_LOG_MODE_OVERFLOW",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.processing",
+      19
+    ]
+  ],
+  [
+    "CONFIG_LOG_BLOCK_IN_THREAD",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_PROCESS_TRIGGER_THRESHOLD",
+    "y",
+    "int",
+    "10",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.processing",
+      44
+    ]
+  ],
+  [
+    "CONFIG_LOG_PROCESS_THREAD",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.processing",
+      55
+    ]
+  ],
+  [
+    "CONFIG_LOG_PROCESS_THREAD_SLEEP_MS",
+    "y",
+    "int",
+    "1000",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.processing",
+      73
+    ]
+  ],
+  [
+    "CONFIG_LOG_PROCESS_THREAD_CUSTOM_PRIORITY",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_BUFFER_SIZE",
+    "y",
+    "int",
+    "1024",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.processing",
+      123
+    ]
+  ],
+  [
+    "CONFIG_LOG_TRACE_SHORT_TIMESTAMP",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.processing",
+      152
+    ]
+  ],
+  [
+    "CONFIG_LOG_TIMESTAMP_64BIT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_TIMESTAMP_USE_REALTIME",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_SPEED",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FUNC_NAME_PREFIX_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FUNC_NAME_PREFIX_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FUNC_NAME_PREFIX_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FUNC_NAME_PREFIX_DBG",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.formatting",
+      20
+    ]
+  ],
+  [
+    "CONFIG_LOG_MIPI_SYST_ENABLE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_THREAD_ID_PREFIX",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_CUSTOM_FORMAT_SUPPORT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_BACKEND_SHOW_TIMESTAMP",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.formatting",
+      137
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_SHOW_LEVEL",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.formatting",
+      143
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_SHOW_COLOR",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.formatting",
+      150
+    ]
+  ],
+  [
+    "CONFIG_LOG_INFO_COLOR_GREEN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_DBG_COLOR_BLUE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_TAG_MAX_LEN",
+    "y",
+    "int",
+    "0",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.formatting",
+      166
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_SUPPORTS_FORMAT_TIMESTAMP",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "LOG_BACKEND_UART && UART_CONSOLE && !LOG_FRONTEND_ONLY && !LOG_MODE_MINIMAL && LOG"
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_FORMAT_TIMESTAMP",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.formatting",
+      187
+    ]
+  ],
+  [
+    "CONFIG_LOG_OUTPUT_FORMAT_TIME_TIMESTAMP",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.formatting",
+      194
+    ]
+  ],
+  [
+    "CONFIG_LOG_OUTPUT_FORMAT_DATE_TIMESTAMP",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_OUTPUT_FORMAT_ISO8601_TIMESTAMP",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_OUTPUT_FORMAT_LINUX_TIMESTAMP",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_OUTPUT_FORMAT_CUSTOM_TIMESTAMP",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_BACKEND_SWO",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_BACKEND_UART",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/backends/Kconfig.uart",
+      7
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_UART_BUFFER_SIZE",
+    "y",
+    "int",
+    "1",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/backends/Kconfig.uart",
+      22
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_UART_AUTOSTART",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/backends/Kconfig.uart",
+      33
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_UART_OUTPUT_TEXT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_format_config",
+      6
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_UART_OUTPUT_DICTIONARY",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_BACKEND_UART_OUTPUT_CUSTOM",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_BACKEND_UART_OUTPUT_DEFAULT",
+    "n",
+    "int",
+    "0",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_format_config",
+      42
+    ]
+  ],
+  [
+    "CONFIG_LOG_BACKEND_IPC_SERVICE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_USE_VLA",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.misc",
+      21
+    ]
+  ],
+  [
+    "CONFIG_LOG_SIMPLE_MSG_OPTIMIZE",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.misc",
+      31
+    ]
+  ],
+  [
+    "CONFIG_LOG_ALWAYS_RUNTIME",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FMT_SECTION",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FMT_STRING_VALIDATE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_USE_TAGGED_ARGUMENTS",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_MEM_UTILIZATION",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_LOG_FAILURE_REPORT_PERIOD",
+    "y",
+    "int",
+    "1000",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.misc",
+      115
+    ]
+  ],
+  [
+    "CONFIG_LOG_RATELIMIT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig",
+      54
+    ]
+  ],
+  [
+    "CONFIG_LOG_RATELIMIT_INTERVAL_MS",
+    "y",
+    "int",
+    "5000",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig",
+      65
+    ]
+  ],
+  [
+    "CONFIG_LOG_OUTPUT",
+    "y",
+    "bool",
+    "y",
+    "select",
+    [
+      "LOG_BACKEND_UART_OUTPUT_TEXT && <choice LOG_BACKEND_UART_OUTPUT>"
+    ]
   ],
   [
     "CONFIG_MEM_ATTR",
@@ -10260,6 +13502,41 @@
     null
   ],
   [
+    "CONFIG_FLASH_MAP",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/prj.conf",
+      30
+    ]
+  ],
+  [
+    "CONFIG_FLASH_MAP_CUSTOM",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_AREA_CHECK_INTEGRITY",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_FLASH_MAP_LABELS",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_STREAM_FLASH",
     "y",
     "bool",
@@ -10357,6 +13634,68 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_USBD_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/boards/common/usb/Kconfig.cdc_acm_serial.defconfig",
+      39
+    ]
+  ],
+  [
+    "CONFIG_USBD_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_LOG_LEVEL",
+    "n",
+    "int",
+    "0",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      31
+    ]
   ],
   [
     "CONFIG_USBD_MAX_SPEED_FULL",
@@ -10513,6 +13852,68 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_USBD_CDC_ACM_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/boards/common/usb/Kconfig.cdc_acm_serial.defconfig",
+      35
+    ]
+  ],
+  [
+    "CONFIG_USBD_CDC_ACM_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_CDC_ACM_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_CDC_ACM_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_CDC_ACM_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_CDC_ACM_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_USBD_CDC_ACM_LOG_LEVEL",
+    "n",
+    "int",
+    "0",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      31
+    ]
   ],
   [
     "CONFIG_USBD_BT_HCI",

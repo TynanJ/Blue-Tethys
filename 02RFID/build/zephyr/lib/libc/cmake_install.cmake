@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/picolibc/cmake_install.cmake")
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/02RFID/build/zephyr/lib/libc/newlib/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

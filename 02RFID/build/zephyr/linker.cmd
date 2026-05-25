@@ -1,5 +1,5 @@
  OUTPUT_FORMAT("elf32-littlearm")
-_region_min_align = 32;
+_region_min_align = 128;
 MEMORY
     {
     FLASH (rx) : ORIGIN = (0x0 + 0x27000), LENGTH = (0xc5000 - 0x0)
@@ -114,6 +114,7 @@ KEEP(*(SORT(.__device_deps_pass2*)));
 __device_deps_end = .;
  } > FLASH
 entropy_driver_api_area : { _entropy_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._entropy_driver_api.static.*))); _entropy_driver_api_list_end = .;; } > FLASH
+flash_driver_api_area : { _flash_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._flash_driver_api.static.*))); _flash_driver_api_list_end = .;; } > FLASH
 gpio_driver_api_area : { _gpio_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._gpio_driver_api.static.*))); _gpio_driver_api_list_end = .;; } > FLASH
 spi_driver_api_area : { _spi_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._spi_driver_api.static.*))); _spi_driver_api_list_end = .;; } > FLASH
 shared_irq_driver_api_area : { _shared_irq_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._shared_irq_driver_api.static.*))); _shared_irq_driver_api_list_end = .;; } > FLASH
@@ -141,7 +142,6 @@ fuel_gauge_emul_driver_api_area : { _fuel_gauge_emul_driver_api_list_start = .; 
 emul_sensor_driver_api_area : { _emul_sensor_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._emul_sensor_driver_api.static.*))); _emul_sensor_driver_api_list_end = .;; } > FLASH
 espi_driver_api_area : { _espi_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._espi_driver_api.static.*))); _espi_driver_api_list_end = .;; } > FLASH
 espi_saf_driver_api_area : { _espi_saf_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._espi_saf_driver_api.static.*))); _espi_saf_driver_api_list_end = .;; } > FLASH
-flash_driver_api_area : { _flash_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._flash_driver_api.static.*))); _flash_driver_api_list_end = .;; } > FLASH
 fpga_driver_api_area : { _fpga_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._fpga_driver_api.static.*))); _fpga_driver_api_list_end = .;; } > FLASH
 fuel_gauge_driver_api_area : { _fuel_gauge_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._fuel_gauge_driver_api.static.*))); _fuel_gauge_driver_api_list_end = .;; } > FLASH
 gnss_driver_api_area : { _gnss_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._gnss_driver_api.static.*))); _gnss_driver_api_list_end = .;; } > FLASH
@@ -243,25 +243,6 @@ ztest :
  shell_subcmds_area : { _shell_subcmds_list_start = .; KEEP(*(SORT_BY_NAME(._shell_subcmds.static.*))); _shell_subcmds_list_end = .;; } > FLASH
  shell_dynamic_subcmds_area : { _shell_dynamic_subcmds_list_start = .; KEEP(*(SORT_BY_NAME(._shell_dynamic_subcmds.static.*))); _shell_dynamic_subcmds_list_end = .;; } > FLASH
  cfb_font_area : { _cfb_font_list_start = .; KEEP(*(SORT_BY_NAME(._cfb_font.static.*))); _cfb_font_list_end = .;; } > FLASH
- tdata : ALIGN_WITH_INPUT
- {
-  *(.tdata .tdata.* .gnu.linkonce.td.*);
- } > FLASH
- tbss (NOLOAD) : ALIGN_WITH_INPUT
- {
-  *(.tbss .tbss.* .gnu.linkonce.tb.* .tcommon);
- } > FLASH
- PROVIDE(__tdata_start = LOADADDR(tdata));
- PROVIDE(__tdata_align = ALIGNOF(tdata));
- PROVIDE(__tdata_size = (SIZEOF(tdata) + __tdata_align - 1) & ~(__tdata_align - 1));
- PROVIDE(__tdata_end = __tdata_start + __tdata_size);
- PROVIDE(__tbss_align = ALIGNOF(tbss));
- PROVIDE(__tbss_start = ADDR(tbss));
- PROVIDE(__tbss_size = (SIZEOF(tbss) + __tbss_align - 1) & ~(__tbss_align - 1));
- PROVIDE(__tbss_end = __tbss_start + __tbss_size);
- PROVIDE(__tls_start = __tdata_start);
- PROVIDE(__tls_end = __tbss_end);
- PROVIDE(__tls_size = __tbss_end - __tdata_start);
     rodata :
  {
  *(.rodata)

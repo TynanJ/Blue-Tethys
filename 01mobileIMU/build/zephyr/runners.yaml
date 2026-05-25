@@ -16,17 +16,17 @@ debug-runner: jlink
 
 # Common runner configuration values.
 config:
-  board_dir: /home/tynan/csse4011/zephyr/boards/seeed/xiao_ble
+  board_dir: /Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble
   # Build outputs:
   elf_file: zephyr.elf
   hex_file: zephyr.hex
   bin_file: zephyr.bin
   uf2_file: zephyr.uf2
   # Host tools:
-  gdb: /home/tynan/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb
-  openocd: /home/tynan/zephyr-sdk-0.17.4/sysroots/x86_64-pokysdk-linux/usr/bin/openocd
+  gdb: /Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb
+  openocd: /opt/homebrew/bin/openocd
   openocd_search:
-    - /home/tynan/zephyr-sdk-0.17.4/sysroots/x86_64-pokysdk-linux/usr/share/openocd/scripts
+    - /Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/share/openocd/scripts
 
 # Runner specific arguments
 args:
