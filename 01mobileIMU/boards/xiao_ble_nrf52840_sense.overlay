@@ -1,0 +1,91 @@
+/* == SPI buses not used for the IMU ====================================== */
+&spi0 {
+	status = "disabled";
+};
+
+&spi2 {
+	status = "disabled";
+};
+
+&spi3 {
+	status = "disabled";
+};
+
+/* == Second I2C bus ======================================================== */
+&i2c1 {
+	status = "disabled";
+};
+
+/* == PWM =================================================================== */
+&pwm0 {
+	status = "disabled";
+};
+
+&pwm1 {
+	status = "disabled";
+};
+
+&pwm2 {
+	status = "disabled";
+};
+
+&pwm3 {
+	status = "disabled";
+};
+
+/* == ADC / SAADC =========================================================== */
+&adc {
+	status = "disabled";
+};
+
+/* == Quadrature decoder ==================================================== */
+&qdec {
+	status = "disabled";
+};
+
+/* == I2S audio ============================================================= */
+&i2s0 {
+	status = "disabled";
+};
+
+/* == PDM microphone ======================================================== */
+&pdm0 {
+	status = "disabled";
+};
+
+/* == NFC =================================================================== */
+&nfct {
+	status = "disabled";
+};
+
+/* == QSPI (external flash, e.g. MX25R6435F on the DK) ===================== */
+&qspi {
+	status = "disabled";
+};
+
+/* == Analog comparators ==================================================== */
+&comp {
+	status = "disabled";
+};
+
+/* == TIMER peripherals ===================================================== */
+&timer1 {
+	status = "disabled";
+};
+
+&timer2 {
+	status = "disabled";
+};
+
+&timer3 {
+	status = "disabled";
+};
+
+&timer4 {
+	status = "disabled";
+};
+
+/* == RTC peripherals ======================================================= */
+&rtc2 {
+	status = "disabled";
+};
