@@ -1,5 +1,0 @@
-west:
-  command: /Users/piperhofstee/csse4011/.venv/bin/west build -p -b xiao_ble/nrf52840/sense
-    -d prac0/build prac0
-  topdir: /Users/piperhofstee/csse4011
-  version: 1.5.0
