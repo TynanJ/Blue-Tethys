@@ -26,7 +26,7 @@ import random
 
 
 
-MUSIC_FILE = "lowrider.mp3"
+MUSIC_FILE = "kids.mp3"
 
 def init_music():
     try:
@@ -450,7 +450,7 @@ def draw_startup_screen(surf, scanned, required, tick, font_title, font_med, fon
     surf.blit(title, title.get_rect(center=(WIDTH//2, HEIGHT//4)))
 
     n_req = len(required)
-    sub = font_med.render(f"scan {n_req} card{'s' if n_req>1 else ''} to begin", True, (80, 120, 160))
+    sub = font_med.render(f"collect {n_req} keepsafe{'s' if n_req>1 else ''} to begin your journey!", True, (80, 120, 160))
     surf.blit(sub, sub.get_rect(center=(WIDTH//2, HEIGHT//4 + 50)))
 
     all_cards = [
@@ -491,11 +491,11 @@ def draw_startup_screen(surf, scanned, required, tick, font_title, font_med, fon
             surf.blit(lbl, lbl.get_rect(center=(x + slot_w//2, cy + slot_h//2 - 18)))
 
     n_scanned = len(scanned & required)
-    prog = font_sm.render(f"{n_scanned}/{n_req} cards scanned", True, (100, 160, 200))
+    prog = font_sm.render(f"{n_scanned}/{n_req} keepsafes collected", True, (100, 160, 200))
     surf.blit(prog, prog.get_rect(center=(WIDTH//2, cy + slot_h//2 + 30)))
 
     if scanned >= required:
-        go = font_med.render("ALL CARDS SCANNED - starting...", True, (100, 255, 140))
+        go = font_med.render("ALL KEEPSAFES COLLECTED - preparing ship...", True, (100, 255, 140))
         surf.blit(go, go.get_rect(center=(WIDTH//2, cy + slot_h//2 + 60)))
 
     hint = font_sm.render("press SPACE to skip (demo mode)", True, (40, 60, 80))
@@ -581,6 +581,7 @@ def main():
 
         while connecting:
             tick += 1
+            box_x, box_y, box_w, box_h = WIDTH//2 - 200, HEIGHT//2 - 60, 400, 34
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -594,20 +595,20 @@ def main():
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                     mx, my = event.pos
 
-                    # if conn_dropdown_open:
-                    #     item_rects = [pygame.Rect(WIDTH//2 - 200, HEIGHT//2 - 20 + (i+1)*34, 400, 28)
-                    #                   for i in range(len(ports))]
-                    #     clicked = False
-                    #     for i, rect in enumerate(item_rects):
-                    #         if rect.collidepoint(mx, my):
-                    #             selected_idx = i
-                    #             conn_dropdown_open = False
-                    #             clicked = True
-                    #             break
-                    #     if not clicked:
-                    #         conn_dropdown_open = False
+                    if conn_dropdown_open:
+                        item_rects = [pygame.Rect(box_x, box_y + (i+1)*34, box_w, 32)
+                                      for i in range(len(ports))]
+                        clicked = False
+                        for i, rect in enumerate(item_rects):
+                            if rect.collidepoint(mx, my):
+                                selected_idx = i
+                                conn_dropdown_open = False
+                                clicked = True
+                                break
+                        if not clicked:
+                            conn_dropdown_open = False
 
-                    if conn_btns.get("dropdown") and conn_btns["dropdown"].collidepoint(mx, my):
+                    elif conn_btns.get("dropdown") and conn_btns["dropdown"].collidepoint(mx, my):
                         conn_dropdown_open = not conn_dropdown_open
 
                     elif conn_btns.get("refresh") and conn_btns["refresh"].collidepoint(mx, my):
@@ -635,18 +636,18 @@ def main():
                         difficulty = "hard"
                         # if reader and reader.connected:
                         #     reader.send_raw(b'{"Command":"difficulty","Mode":"hard"}\r\n')
-                    elif conn_dropdown_open:
-                        item_rects = [pygame.Rect(WIDTH//2 - 200, HEIGHT//2 - 20 + (i+1)*34, 400, 28)
-                                      for i in range(len(ports))]
-                        clicked = False
-                        for i, rect in enumerate(item_rects):
-                            if rect.collidepoint(mx, my):
-                                selected_idx = i
-                                conn_dropdown_open = False
-                                clicked = True
-                                break
-                        if not clicked:
-                            conn_dropdown_open = False
+                    # elif conn_dropdown_open:
+                    #     item_rects = [pygame.Rect(box_x, box_y + (i+1)*34, box_w, 28)
+                    #                   for i in range(len(ports))]
+                    #     clicked = False
+                    #     for i, rect in enumerate(item_rects):
+                    #         if rect.collidepoint(mx, my):
+                    #             selected_idx = i
+                    #             conn_dropdown_open = False
+                    #             clicked = True
+                    #             break
+                    #     if not clicked:
+                    #         conn_dropdown_open = False
 
             # draw
             screen.fill((8, 16, 32))
@@ -654,14 +655,14 @@ def main():
                 offset = int(10 * math.sin(tick * 0.03 + y * 0.05))
                 pygame.draw.line(screen, (15, 35, 60), (0, y + offset), (WIDTH, y + offset), 1)
 
-            title = font_title.render("MAKING WAVES", True, (180, 220, 255))
+            title = font_title.render("MAKING WAVES - FIRMWARE DEMO", True, (180, 220, 255))
             screen.blit(title, title.get_rect(center=(WIDTH//2, HEIGHT//5)))
 
-            sub = font_med.render("select serial port to connect", True, (80, 120, 160))
+            sub = font_med.render("developed by piper and tynan for the qld maritime museum", True, (80, 120, 160))
             screen.blit(sub, sub.get_rect(center=(WIDTH//2, HEIGHT//5 + 50)))
 
             # port dropdown
-            box_x, box_y = WIDTH//2 - 200, HEIGHT//2 - 20
+            box_x, box_y = WIDTH//2 - 200, HEIGHT//2 - 60
             box_w, box_h = 400, 34
             pygame.draw.rect(screen, (20, 30, 50),  (box_x, box_y, box_w, box_h), border_radius=6)
             pygame.draw.rect(screen, (60, 100, 160), (box_x, box_y, box_w, box_h), 1, border_radius=6)
@@ -689,13 +690,13 @@ def main():
                 screen.blit(font_med.render(status_text, True, status_color),
                             font_med.render(status_text, True, (0,0,0)).get_rect(center=(WIDTH//2, btn_y + 60)))
 
-            if conn_dropdown_open and ports:
-                for i, port in enumerate(ports):
-                    ir = pygame.Rect(box_x, box_y + (i+1)*34, box_w, 28)
-                    bg = (30, 60, 100) if i == selected_idx else (18, 28, 48)
-                    pygame.draw.rect(screen, bg, ir, border_radius=4)
-                    pygame.draw.rect(screen, (50, 90, 140), ir, 1, border_radius=4)
-                    screen.blit(font_med.render(port, True, (180, 210, 240)), (ir.x + 10, ir.y + 4))
+            # if conn_dropdown_open and ports:
+            #     for i, port in enumerate(ports):
+            #         ir = pygame.Rect(box_x, box_y + (i+1)*34, box_w, 28)
+            #         bg = (30, 60, 100) if i == selected_idx else (18, 28, 48)
+            #         pygame.draw.rect(screen, bg, ir, border_radius=4)
+            #         pygame.draw.rect(screen, (50, 90, 140), ir, 1, border_radius=4)
+            #         screen.blit(font_med.render(port, True, (180, 210, 240)), (ir.x + 10, ir.y + 4))
 
             # ── difficulty selector ──────────────────────────────────────────
             diff_y = btn_y + 90
@@ -722,7 +723,7 @@ def main():
                 conn_btns[opt] = pygame.Rect(dx, dy, dw, dh)
 
             nreq = len(DIFF_REQUIRED[difficulty])
-            req  = font_sm.render(f"{nreq} card{'s' if nreq>1 else ''} required - connect first to send",
+            req  = font_sm.render(f"{nreq} keepsafe{'s' if nreq>1 else ''} required to sail - connect first to send",
                                    True, DIFF_COLORS[difficulty])
             screen.blit(req, req.get_rect(center=(WIDTH//2, diff_y + 28 + dh + 12)))
 
@@ -731,9 +732,64 @@ def main():
             
             music_ok = pygame.mixer.get_init() and pygame.mixer.music.get_busy()
             music_txt = font_sm.render(
-                f"Music: {'Ode To The Mets - The Strokes' if music_ok else 'off (add ode.mp3)'}",
+                f"Music: {'Kids - MGMT' if music_ok else 'off (add kids.mp3)'}",
                 True, (60, 160, 80) if music_ok else (140, 80, 60))
             screen.blit(music_txt, (WIDTH - music_txt.get_width() - 12, 12))
+            line2 = font_sm.render("Album: Jessica Watson - Songs from the Pink Lady", True, (100, 140, 180))
+            screen.blit(line2, (WIDTH - line2.get_width() - 12, 28))
+
+        # ── plot description textbox with images either side ─────────────
+            plot_lines = [
+                "Step into the world of brave young sailor Jessica",
+                "Watson as she sets off on her yacht (The Pink",
+                "Lady) to circumnavigate the world! Use your ship's",
+                "wheel to steer through obstacles, and don't forget",
+                "to take the presents from your friends and family",
+                "with you before you set out to sea.",
+            ]
+            img_w, img_h = 140, 100
+            box_pw = 400
+            box_ph = len(plot_lines) * 20 + 20
+            box_py = diff_y + 28 + dh + 40
+            gap    = 16
+
+            img1_x = WIDTH//2 - box_pw//2 - img_w - gap
+            img2_x = WIDTH//2 + box_pw//2 + gap
+            img_y  = box_py + box_ph//2 - img_h//2
+
+            # text box
+            box_px = WIDTH//2 - box_pw//2
+            pygame.draw.rect(screen, (14, 22, 40), (box_px, box_py, box_pw, box_ph), border_radius=8)
+            pygame.draw.rect(screen, (40, 70, 110), (box_px, box_py, box_pw, box_ph), 1, border_radius=8)
+            for li, line in enumerate(plot_lines):
+                lt = font_sm.render(line, True, (160, 190, 220))
+                screen.blit(lt, lt.get_rect(center=(WIDTH//2, box_py + 14 + li * 20)))
+
+            # images either side
+            for ix, label in [(img1_x, "jessica.jpg"), (img2_x, "pinklady.jpg")]:
+                try:
+                    img = pygame.image.load(label)
+                    img = pygame.transform.scale(img, (img_w, img_h))
+                    screen.blit(img, (ix, img_y))
+                    pygame.draw.rect(screen, (40, 70, 110), (ix, img_y, img_w, img_h), 1, border_radius=6)
+                except Exception:
+                    pygame.draw.rect(screen, (18, 28, 45), (ix, img_y, img_w, img_h), border_radius=6)
+                    pygame.draw.rect(screen, (40, 70, 110), (ix, img_y, img_w, img_h), 1, border_radius=6)
+                    ph = font_sm.render(label, True, (50, 80, 120))
+                    screen.blit(ph, ph.get_rect(center=(ix + img_w//2, img_y + img_h//2 - 8)))
+                    ph2 = font_sm.render("(same folder)", True, (40, 60, 90))
+                    screen.blit(ph2, ph2.get_rect(center=(ix + img_w//2, img_y + img_h//2 + 10)))   
+
+            # hint = font_sm.render("SPACE to skip (demo)   ESC to quit", True, (40, 60, 80))
+            
+            if conn_dropdown_open and ports:
+                for i, port in enumerate(ports):
+                    ir = pygame.Rect(box_x, box_y + (i+1)*34, box_w, 32)
+                    bg = (30, 60, 100) if i == selected_idx else (18, 28, 48)
+                    pygame.draw.rect(screen, bg, ir, border_radius=4)
+                    pygame.draw.rect(screen, (50, 90, 140), ir, 1, border_radius=4)
+                    screen.blit(font_med.render(port, True, (180, 210, 240)), (ir.x + 10, ir.y + 4))
+
 
             pygame.display.flip()
             clock.tick(FPS)
