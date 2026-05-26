@@ -333,6 +333,9 @@
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/timer/CMakeFiles/drivers__timer.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/timer/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/timer/CMakeFiles/rebuild_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/watchdog/CMakeFiles/drivers__watchdog.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/watchdog/CMakeFiles/edit_cache.dir
+/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/watchdog/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/modules/firmware/CMakeFiles/edit_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/modules/firmware/CMakeFiles/rebuild_cache.dir
 /Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/modules/firmware/lib/CMakeFiles/edit_cache.dir

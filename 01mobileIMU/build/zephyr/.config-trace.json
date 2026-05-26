@@ -415,6 +415,17 @@
     null
   ],
   [
+    "CONFIG_TASK_WDT_HW_FALLBACK_DELAY",
+    "y",
+    "int",
+    "20",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/task_wdt/Kconfig",
+      57
+    ]
+  ],
+  [
     "CONFIG_CPU_HAS_ARM_MPU",
     "n",
     "bool",
@@ -925,9 +936,11 @@
     "CONFIG_REBOOT",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "TASK_WDT"
+    ]
   ],
   [
     "CONFIG_GEN_IRQ_START_VECTOR",
@@ -1045,9 +1058,12 @@
     "CONFIG_WATCHDOG",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
+      29
+    ]
   ],
   [
     "CONFIG_ICACHE_LINE_SIZE",
@@ -1948,6 +1964,14 @@
     null
   ],
   [
+    "CONFIG_NRFX_WDT_LOG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_NRFX_CLOCK",
     "y",
     "bool",
@@ -2521,12 +2545,24 @@
     null
   ],
   [
+    "CONFIG_NRFX_WDT",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NRFX_WDT0 && HAS_NRFX"
+    ]
+  ],
+  [
     "CONFIG_NRFX_WDT0",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "WDT_NRFX && HAS_HW_NRF_WDT0 && DT_HAS_NORDIC_NRF_WDT_ENABLED && WATCHDOG"
+    ]
   ],
   [
     "CONFIG_NRFX_PRS_BOX_0",
@@ -8185,6 +8221,87 @@
     null
   ],
   [
+    "CONFIG_WDT_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_WDT_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_WDT_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_WDT_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_WDT_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_WDT_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_WDT_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
+  ],
+  [
+    "CONFIG_WDT_NRFX",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/drivers/watchdog/Kconfig.nrfx",
+      8
+    ]
+  ],
+  [
+    "CONFIG_WDT_NRFX_NO_IRQ",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_TEE",
     "y",
     "bool",
@@ -13412,6 +13529,58 @@
   ],
   [
     "CONFIG_TASK_WDT",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
+      30
+    ]
+  ],
+  [
+    "CONFIG_TASK_WDT_DUMMY",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_TASK_WDT_CHANNELS",
+    "y",
+    "int",
+    "5",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/task_wdt/Kconfig",
+      26
+    ]
+  ],
+  [
+    "CONFIG_TASK_WDT_HW_FALLBACK",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/Users/piperhofstee/csse4011/zephyr/subsys/task_wdt/Kconfig",
+      34
+    ]
+  ],
+  [
+    "CONFIG_TASK_WDT_MIN_TIMEOUT",
+    "y",
+    "int",
+    "5000",
+    "assign",
+    [
+      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
+      31
+    ]
+  ],
+  [
+    "CONFIG_TASK_WDT_HW_FALLBACK_PAUSE_IN_SLEEP",
     "y",
     "bool",
     null,

@@ -134,6 +134,7 @@
 		"/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/spi/cmake_install.cmake",
 		"/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/spi/spi_nxp_lpspi/cmake_install.cmake",
 		"/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/timer/cmake_install.cmake",
+		"/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/watchdog/cmake_install.cmake",
 		"/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/modules/firmware/cmake_install.cmake",
 		"/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/modules/firmware/lib/cmake_install.cmake",
 		"/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/modules/firmware/drivers/cmake_install.cmake",

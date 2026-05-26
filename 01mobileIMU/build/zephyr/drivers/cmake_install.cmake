@@ -137,6 +137,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/timer/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/build/zephyr/drivers/watchdog/cmake_install.cmake")
+endif()
+
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)

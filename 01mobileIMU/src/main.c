@@ -25,6 +25,9 @@
 #include <zephyr/logging/log.h>
 #include <stdio.h>
 
+#include <zephyr/task_wdt/task_wdt.h>
+#include <zephyr/sys/reboot.h>
+
 LOG_MODULE_REGISTER(mobileIMU, LOG_LEVEL_INF);
 
 #define LED0_NODE DT_ALIAS(led0) //red
@@ -321,6 +324,12 @@ static float angle_diff_deg(float target, float current)
     return d;
 }
 
+static void task_wdt_callback(int channel_id, void *user_data)
+{
+    LOG_ERR("Accel watchdog expired — sensor may be hung");
+    sys_reboot(SYS_REBOOT_COLD);
+}
+
 
 /* == Entry point ========================================================== */
 int main(void)
@@ -450,6 +459,16 @@ int main(void)
 
 	LOG_INF("Initialization complete\n");
 
+    int task_wdt_ch = task_wdt_add(5000,  /* 5 second timeout */
+                                   task_wdt_callback,
+                                   (void *)k_current_get());
+    if (task_wdt_ch < 0) {
+        LOG_ERR("Task watchdog add failed: %d", task_wdt_ch);
+        task_wdt_ch = -1;
+    } else {
+        LOG_INF("Task watchdog started");
+    }
+
     const float dt_s = SAMPLE_INTERVAL_MS / 1000.0f;
 
 	while (1) {
@@ -501,6 +520,14 @@ int main(void)
         g_steering_angle_deg = clampf(g_cumulative_angle_deg,
                                       -MAX_STEERING_ANGLE_DEG,
                                        MAX_STEERING_ANGLE_DEG);
+
+        if (task_wdt_ch >= 0) {
+            if (ax_g != 0.0f || ay_g != 0.0f || az_g != 0.0f) {
+                task_wdt_feed(task_wdt_ch);
+            } else {
+                LOG_WRN("Accel data stale — watchdog not fed");
+            }
+        }
  
         /* ── Periodic logging and sending over BLE NUS ──────────────────────────────── */
         if (++sample_count >= LOG_EVERY_N_SAMPLES) {

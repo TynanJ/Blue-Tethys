@@ -601,6 +601,30 @@
     ],
     [
         [
+            "int wdt_setup",
+            "const struct device *dev, uint8_t options"
+        ],
+        "watchdog.h",
+        true
+    ],
+    [
+        [
+            "int wdt_disable",
+            "const struct device *dev"
+        ],
+        "watchdog.h",
+        true
+    ],
+    [
+        [
+            "int wdt_feed",
+            "const struct device *dev, int channel_id"
+        ],
+        "watchdog.h",
+        true
+    ],
+    [
+        [
             "const struct device *device_get_binding",
             "const char *name"
         ],
@@ -3701,30 +3725,6 @@
             "const struct device *dev, uint8_t command,\n\t\t\t    uint8_t family, w1_search_callback_t callback,\n\t\t\t    void *user_data"
         ],
         "w1.h",
-        false
-    ],
-    [
-        [
-            "int wdt_setup",
-            "const struct device *dev, uint8_t options"
-        ],
-        "watchdog.h",
-        false
-    ],
-    [
-        [
-            "int wdt_disable",
-            "const struct device *dev"
-        ],
-        "watchdog.h",
-        false
-    ],
-    [
-        [
-            "int wdt_feed",
-            "const struct device *dev, int channel_id"
-        ],
-        "watchdog.h",
         false
     ],
     [
