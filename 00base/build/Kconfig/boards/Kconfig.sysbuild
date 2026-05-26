@@ -1,2 +1,2 @@
 # Load Sysbuild board Kconfig descriptions.
-osource "/Users/piperhofstee/csse4011/zephyr/boards/seeed/xiao_ble/Kconfig.sysbuild"
+osource "/home/tynan/csse4011/zephyr/boards/seeed/xiao_ble/Kconfig.sysbuild"

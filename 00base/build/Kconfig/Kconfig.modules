@@ -1,46 +1,46 @@
-menu "firmware (/Users/piperhofstee/csse4011/firmware)"
-osource "/Users/piperhofstee/csse4011/firmware/Kconfig"
+menu "firmware (/home/tynan/csse4011/firmware)"
+osource "/home/tynan/csse4011/firmware/Kconfig"
 config ZEPHYR_FIRMWARE_MODULE
 	bool
 	default y
 endmenu
-menu "csse4011-sdk (/Users/piperhofstee/csse4011/csse4011-sdk)"
-osource "/Users/piperhofstee/csse4011/csse4011-sdk/Kconfig"
+menu "csse4011-sdk (/home/tynan/csse4011/csse4011-sdk)"
+osource "/home/tynan/csse4011/csse4011-sdk/Kconfig"
 config ZEPHYR_CSSE4011_SDK_MODULE
 	bool
 	default y
 endmenu
-menu "cmsis (/Users/piperhofstee/csse4011/modules/hal/cmsis)"
+menu "cmsis (/home/tynan/csse4011/modules/hal/cmsis)"
 osource "$(ZEPHYR_CMSIS_KCONFIG)"
 config ZEPHYR_CMSIS_MODULE
 	bool
 	default y
 endmenu
-menu "cmsis-dsp (/Users/piperhofstee/csse4011/modules/lib/cmsis-dsp)"
+menu "cmsis-dsp (/home/tynan/csse4011/modules/lib/cmsis-dsp)"
 osource "$(ZEPHYR_CMSIS_DSP_KCONFIG)"
 config ZEPHYR_CMSIS_DSP_MODULE
 	bool
 	default y
 endmenu
-menu "cmsis-nn (/Users/piperhofstee/csse4011/modules/lib/cmsis-nn)"
+menu "cmsis-nn (/home/tynan/csse4011/modules/lib/cmsis-nn)"
 osource "$(ZEPHYR_CMSIS_NN_KCONFIG)"
 config ZEPHYR_CMSIS_NN_MODULE
 	bool
 	default y
 endmenu
-menu "cmsis_6 (/Users/piperhofstee/csse4011/modules/hal/cmsis_6)"
+menu "cmsis_6 (/home/tynan/csse4011/modules/hal/cmsis_6)"
 osource "$(ZEPHYR_CMSIS_6_KCONFIG)"
 config ZEPHYR_CMSIS_6_MODULE
 	bool
 	default y
 endmenu
-menu "fatfs (/Users/piperhofstee/csse4011/modules/fs/fatfs)"
+menu "fatfs (/home/tynan/csse4011/modules/fs/fatfs)"
 osource "$(ZEPHYR_FATFS_KCONFIG)"
 config ZEPHYR_FATFS_MODULE
 	bool
 	default y
 endmenu
-menu "hal_nordic (/Users/piperhofstee/csse4011/modules/hal/nordic)"
+menu "hal_nordic (/home/tynan/csse4011/modules/hal/nordic)"
 osource "$(ZEPHYR_HAL_NORDIC_KCONFIG)"
 config ZEPHYR_HAL_NORDIC_MODULE
 	bool
@@ -49,13 +49,13 @@ config ZEPHYR_HAL_NORDIC_MODULE
 config ZEPHYR_HAL_NORDIC_MODULE_BLOBS
 	bool
 endmenu
-menu "hal_rpi_pico (/Users/piperhofstee/csse4011/modules/hal/rpi_pico)"
+menu "hal_rpi_pico (/home/tynan/csse4011/modules/hal/rpi_pico)"
 osource "$(ZEPHYR_HAL_RPI_PICO_KCONFIG)"
 config ZEPHYR_HAL_RPI_PICO_MODULE
 	bool
 	default y
 endmenu
-menu "hal_st (/Users/piperhofstee/csse4011/modules/hal/st)"
+menu "hal_st (/home/tynan/csse4011/modules/hal/st)"
 osource "$(ZEPHYR_HAL_ST_KCONFIG)"
 config ZEPHYR_HAL_ST_MODULE
 	bool
@@ -67,7 +67,7 @@ config ZEPHYR_HAL_STM32_MODULE
 
 config ZEPHYR_HAL_STM32_MODULE_BLOBS
 	bool
-menu "hal_tdk (/Users/piperhofstee/csse4011/modules/hal/tdk)"
+menu "hal_tdk (/home/tynan/csse4011/modules/hal/tdk)"
 osource "$(ZEPHYR_HAL_TDK_KCONFIG)"
 config ZEPHYR_HAL_TDK_MODULE
 	bool
@@ -76,13 +76,13 @@ endmenu
 config ZEPHYR_HAL_WURTHELEKTRONIK_MODULE
 	bool
 	default y
-menu "hostap (/Users/piperhofstee/csse4011/modules/lib/hostap)"
+menu "hostap (/home/tynan/csse4011/modules/lib/hostap)"
 osource "$(ZEPHYR_HOSTAP_KCONFIG)"
 config ZEPHYR_HOSTAP_MODULE
 	bool
 	default y
 endmenu
-menu "liblc3 (/Users/piperhofstee/csse4011/modules/lib/liblc3)"
+menu "liblc3 (/home/tynan/csse4011/modules/lib/liblc3)"
 osource "$(ZEPHYR_LIBLC3_KCONFIG)"
 config ZEPHYR_LIBLC3_MODULE
 	bool
@@ -91,25 +91,25 @@ endmenu
 config ZEPHYR_LIBMETAL_MODULE
 	bool
 	default y
-menu "littlefs (/Users/piperhofstee/csse4011/modules/fs/littlefs)"
+menu "littlefs (/home/tynan/csse4011/modules/fs/littlefs)"
 osource "$(ZEPHYR_LITTLEFS_KCONFIG)"
 config ZEPHYR_LITTLEFS_MODULE
 	bool
 	default y
 endmenu
-menu "loramac-node (/Users/piperhofstee/csse4011/modules/lib/loramac-node)"
+menu "loramac-node (/home/tynan/csse4011/modules/lib/loramac-node)"
 osource "$(ZEPHYR_LORAMAC_NODE_KCONFIG)"
 config ZEPHYR_LORAMAC_NODE_MODULE
 	bool
 	default y
 endmenu
-menu "lvgl (/Users/piperhofstee/csse4011/modules/lib/gui/lvgl)"
-osource "/Users/piperhofstee/csse4011/modules/lib/gui/lvgl/zephyr/Kconfig"
+menu "lvgl (/home/tynan/csse4011/modules/lib/gui/lvgl)"
+osource "/home/tynan/csse4011/modules/lib/gui/lvgl/zephyr/Kconfig"
 config ZEPHYR_LVGL_MODULE
 	bool
 	default y
 endmenu
-menu "mbedtls (/Users/piperhofstee/csse4011/modules/crypto/mbedtls)"
+menu "mbedtls (/home/tynan/csse4011/modules/crypto/mbedtls)"
 osource "$(ZEPHYR_MBEDTLS_KCONFIG)"
 config ZEPHYR_MBEDTLS_MODULE
 	bool
@@ -118,13 +118,13 @@ endmenu
 config ZEPHYR_MIPI_SYS_T_MODULE
 	bool
 	default y
-menu "nanopb (/Users/piperhofstee/csse4011/modules/lib/nanopb)"
+menu "nanopb (/home/tynan/csse4011/modules/lib/nanopb)"
 osource "$(ZEPHYR_NANOPB_KCONFIG)"
 config ZEPHYR_NANOPB_MODULE
 	bool
 	default y
 endmenu
-menu "nrf_wifi (/Users/piperhofstee/csse4011/modules/lib/nrf_wifi)"
+menu "nrf_wifi (/home/tynan/csse4011/modules/lib/nrf_wifi)"
 osource "$(ZEPHYR_NRF_WIFI_KCONFIG)"
 config ZEPHYR_NRF_WIFI_MODULE
 	bool
@@ -136,31 +136,31 @@ endmenu
 config ZEPHYR_OPEN_AMP_MODULE
 	bool
 	default y
-menu "percepio (/Users/piperhofstee/csse4011/modules/debug/percepio)"
-osource "/Users/piperhofstee/csse4011/modules/debug/percepio/zephyr/Kconfig"
+menu "percepio (/home/tynan/csse4011/modules/debug/percepio)"
+osource "/home/tynan/csse4011/modules/debug/percepio/zephyr/Kconfig"
 config ZEPHYR_PERCEPIO_MODULE
 	bool
 	default y
 endmenu
-menu "picolibc (/Users/piperhofstee/csse4011/modules/lib/picolibc)"
-osource "/Users/piperhofstee/csse4011/modules/lib/picolibc/zephyr/Kconfig"
+menu "picolibc (/home/tynan/csse4011/modules/lib/picolibc)"
+osource "/home/tynan/csse4011/modules/lib/picolibc/zephyr/Kconfig"
 config ZEPHYR_PICOLIBC_MODULE
 	bool
 	default y
 endmenu
-menu "segger (/Users/piperhofstee/csse4011/modules/debug/segger)"
+menu "segger (/home/tynan/csse4011/modules/debug/segger)"
 osource "$(ZEPHYR_SEGGER_KCONFIG)"
 config ZEPHYR_SEGGER_MODULE
 	bool
 	default y
 endmenu
-menu "uoscore-uedhoc (/Users/piperhofstee/csse4011/modules/lib/uoscore-uedhoc)"
+menu "uoscore-uedhoc (/home/tynan/csse4011/modules/lib/uoscore-uedhoc)"
 osource "$(ZEPHYR_UOSCORE_UEDHOC_KCONFIG)"
 config ZEPHYR_UOSCORE_UEDHOC_MODULE
 	bool
 	default y
 endmenu
-menu "zcbor (/Users/piperhofstee/csse4011/modules/lib/zcbor)"
+menu "zcbor (/home/tynan/csse4011/modules/lib/zcbor)"
 osource "$(ZEPHYR_ZCBOR_KCONFIG)"
 config ZEPHYR_ZCBOR_MODULE
 	bool
