@@ -240,6 +240,12 @@ static void connected(struct bt_conn *conn, uint8_t err)
     if (err) {
         LOG_INF("MTU exchange failed to start: %d\n", err);
     }
+
+    bt_le_adv_stop();
+    bt_le_adv_start(BT_LE_ADV_PARAM(BT_LE_ADV_OPT_CONN,
+                    BT_GAP_ADV_SLOW_INT_MIN,
+                    BT_GAP_ADV_SLOW_INT_MAX,
+                    NULL), ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
 }
 
 static void adv_restart_work_fn(struct k_work *work)
@@ -551,6 +557,10 @@ int main(void)
 
 		// Looping stuff
 		print_samples = 1;
-		k_sleep(K_MSEC(10));
+		if (fabsf(gz_effective) < GYRO_DEADBAND_DEG_S) {
+            k_sleep(K_MSEC(100));  /* still — sleep longer */
+        } else {
+            k_sleep(K_MSEC(SAMPLE_INTERVAL_MS));  /* moving — normal rate */
+        }
 	}
 }
