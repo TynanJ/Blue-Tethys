@@ -208,7 +208,7 @@
 			interrupts = < 0x3 0x1 >;       /* in zephyr/dts/arm/nordic/nrf52840.dtsi:165 */
 			max-frequency = < 0x7a1200 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:166 */
 			easydma-maxcnt-bits = < 0x10 >; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:167 */
-			status = "disabled";            /* in zephyr/dts/arm/nordic/nrf52840.dtsi:168 */
+			status = "disabled";            /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:3 */
 		};
 
 		/* node '/soc/i2c@40004000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:171 */
@@ -220,11 +220,11 @@
 			easydma-maxcnt-bits = < 0x10 >; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:184 */
 			zephyr,pm-device-runtime-auto;  /* in zephyr/dts/arm/nordic/nrf52840.dtsi:186 */
 			compatible = "nordic,nrf-twi";  /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:94 */
-			status = "okay";                /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:96 */
 			pinctrl-0 = < &i2c1_default >;  /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:97 */
 			pinctrl-1 = < &i2c1_sleep >;    /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:98 */
 			pinctrl-names = "default",
 			                "sleep";        /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:99 */
+			status = "disabled";            /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:16 */
 		};
 
 		/* node '/soc/spi@40004000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:189 */
@@ -244,7 +244,7 @@
 			compatible = "nordic,nrf-nfct"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:208 */
 			reg = < 0x40005000 0x1000 >;    /* in zephyr/dts/arm/nordic/nrf52840.dtsi:209 */
 			interrupts = < 0x5 0x1 >;       /* in zephyr/dts/arm/nordic/nrf52840.dtsi:210 */
-			status = "disabled";            /* in zephyr/dts/arm/nordic/nrf52840.dtsi:211 */
+			status = "disabled";            /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:58 */
 		};
 
 		/* node '/soc/gpiote@40006000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:214 */
@@ -264,7 +264,7 @@
 			interrupts = < 0x7 0x1 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:225 */
 			#io-channel-cells = < 0x1 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:227 */
 			zephyr,pm-device-runtime-auto;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:228 */
-			status = "okay";                 /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:65 */
+			status = "disabled";             /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:38 */
 		};
 
 		/* node '/soc/timer@40008000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:231 */
@@ -281,24 +281,24 @@
 		/* node '/soc/timer@40009000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:241 */
 		timer1: timer@40009000 {
 			compatible = "nordic,nrf-timer"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:242 */
-			status = "disabled";             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:243 */
 			reg = < 0x40009000 0x1000 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:244 */
 			cc-num = < 0x4 >;                /* in zephyr/dts/arm/nordic/nrf52840.dtsi:245 */
 			max-bit-width = < 0x20 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:246 */
 			interrupts = < 0x9 0x1 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:247 */
 			prescaler = < 0x0 >;             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:248 */
+			status = "disabled";             /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:73 */
 			phandle = < 0x12 >;              /* in zephyr/dts/vendor/nordic/nrf_common.dtsi:42 */
 		};
 
 		/* node '/soc/timer@4000a000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:251 */
 		timer2: timer@4000a000 {
 			compatible = "nordic,nrf-timer"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:252 */
-			status = "disabled";             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:253 */
 			reg = < 0x4000a000 0x1000 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:254 */
 			cc-num = < 0x4 >;                /* in zephyr/dts/arm/nordic/nrf52840.dtsi:255 */
 			max-bit-width = < 0x20 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:256 */
 			interrupts = < 0xa 0x1 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:257 */
 			prescaler = < 0x0 >;             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:258 */
+			status = "disabled";             /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:77 */
 		};
 
 		/* node '/soc/rtc@4000b000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:261 */
@@ -369,7 +369,7 @@
 			compatible = "nordic,nrf-qdec"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:318 */
 			reg = < 0x40012000 0x1000 >;    /* in zephyr/dts/arm/nordic/nrf52840.dtsi:319 */
 			interrupts = < 0x12 0x1 >;      /* in zephyr/dts/arm/nordic/nrf52840.dtsi:320 */
-			status = "disabled";            /* in zephyr/dts/arm/nordic/nrf52840.dtsi:321 */
+			status = "disabled";            /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:43 */
 		};
 
 		/* node '/soc/comparator@40013000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:324 */
@@ -377,7 +377,7 @@
 			compatible = "nordic,nrf-comp"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:329 */
 			reg = < 0x40013000 0x1000 >;    /* in zephyr/dts/arm/nordic/nrf52840.dtsi:330 */
 			interrupts = < 0x13 0x1 >;      /* in zephyr/dts/arm/nordic/nrf52840.dtsi:331 */
-			status = "disabled";            /* in zephyr/dts/arm/nordic/nrf52840.dtsi:332 */
+			status = "disabled";            /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:68 */
 		};
 
 		/* node '/soc/egu@40014000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:335 */
@@ -437,23 +437,23 @@
 		/* node '/soc/timer@4001a000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:377 */
 		timer3: timer@4001a000 {
 			compatible = "nordic,nrf-timer"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:378 */
-			status = "disabled";             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:379 */
 			reg = < 0x4001a000 0x1000 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:380 */
 			cc-num = < 0x6 >;                /* in zephyr/dts/arm/nordic/nrf52840.dtsi:381 */
 			max-bit-width = < 0x20 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:382 */
 			interrupts = < 0x1a 0x1 >;       /* in zephyr/dts/arm/nordic/nrf52840.dtsi:383 */
 			prescaler = < 0x0 >;             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:384 */
+			status = "disabled";             /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:81 */
 		};
 
 		/* node '/soc/timer@4001b000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:387 */
 		timer4: timer@4001b000 {
 			compatible = "nordic,nrf-timer"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:388 */
-			status = "disabled";             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:389 */
 			reg = < 0x4001b000 0x1000 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:390 */
 			cc-num = < 0x6 >;                /* in zephyr/dts/arm/nordic/nrf52840.dtsi:391 */
 			max-bit-width = < 0x20 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:392 */
 			interrupts = < 0x1b 0x1 >;       /* in zephyr/dts/arm/nordic/nrf52840.dtsi:393 */
 			prescaler = < 0x0 >;             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:394 */
+			status = "disabled";             /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:85 */
 		};
 
 		/* node '/soc/pwm@4001c000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:397 */
@@ -462,11 +462,11 @@
 			reg = < 0x4001c000 0x1000 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:399 */
 			interrupts = < 0x1c 0x1 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:400 */
 			#pwm-cells = < 0x3 >;          /* in zephyr/dts/arm/nordic/nrf52840.dtsi:402 */
-			status = "okay";               /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:103 */
 			pinctrl-0 = < &pwm0_default >; /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:104 */
 			pinctrl-1 = < &pwm0_sleep >;   /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:105 */
 			pinctrl-names = "default",
 			                "sleep";       /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:106 */
+			status = "disabled";           /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:21 */
 			phandle = < 0x14 >;            /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:41 */
 		};
 
@@ -475,12 +475,12 @@
 			compatible = "nordic,nrf-pdm"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:406 */
 			reg = < 0x4001d000 0x1000 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:407 */
 			interrupts = < 0x1d 0x1 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:408 */
-			status = "disabled";           /* in zephyr/dts/arm/nordic/nrf52840.dtsi:409 */
 			pinctrl-0 = < &pdm0_default >; /* in zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts:49 */
 			pinctrl-1 = < &pdm0_sleep >;   /* in zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts:50 */
 			pinctrl-names = "default",
 			                "sleep";       /* in zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts:51 */
 			clock-source = "PCLK32M";      /* in zephyr/boards/seeed/xiao_ble/xiao_ble_nrf52840_sense.dts:52 */
+			status = "disabled";           /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:53 */
 		};
 
 		/* node '/soc/acl@4001e000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:412 */
@@ -559,8 +559,8 @@
 			compatible = "nordic,nrf-pwm"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:446 */
 			reg = < 0x40021000 0x1000 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:447 */
 			interrupts = < 0x21 0x1 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:448 */
-			status = "disabled";           /* in zephyr/dts/arm/nordic/nrf52840.dtsi:449 */
 			#pwm-cells = < 0x3 >;          /* in zephyr/dts/arm/nordic/nrf52840.dtsi:450 */
+			status = "disabled";           /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:25 */
 		};
 
 		/* node '/soc/pwm@40022000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:453 */
@@ -568,8 +568,8 @@
 			compatible = "nordic,nrf-pwm"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:454 */
 			reg = < 0x40022000 0x1000 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:455 */
 			interrupts = < 0x22 0x1 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:456 */
-			status = "disabled";           /* in zephyr/dts/arm/nordic/nrf52840.dtsi:457 */
 			#pwm-cells = < 0x3 >;          /* in zephyr/dts/arm/nordic/nrf52840.dtsi:458 */
+			status = "disabled";           /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:29 */
 		};
 
 		/* node '/soc/spi@40023000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:461 */
@@ -581,11 +581,11 @@
 			max-frequency = < 0x7a1200 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:474 */
 			easydma-maxcnt-bits = < 0x10 >; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:475 */
 			compatible = "nordic,nrf-spi";  /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:110 */
-			status = "okay";                /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:111 */
 			pinctrl-0 = < &spi2_default >;  /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:112 */
 			pinctrl-1 = < &spi2_sleep >;    /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:113 */
 			pinctrl-names = "default",
 			                "sleep";        /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:114 */
+			status = "disabled";            /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:7 */
 		};
 
 		/* node '/soc/rtc@40024000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:479 */
@@ -594,9 +594,9 @@
 			reg = < 0x40024000 0x1000 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:481 */
 			cc-num = < 0x4 >;              /* in zephyr/dts/arm/nordic/nrf52840.dtsi:482 */
 			interrupts = < 0x24 0x1 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:483 */
-			status = "disabled";           /* in zephyr/dts/arm/nordic/nrf52840.dtsi:484 */
 			clock-frequency = < 0x8000 >;  /* in zephyr/dts/arm/nordic/nrf52840.dtsi:485 */
 			prescaler = < 0x1 >;           /* in zephyr/dts/arm/nordic/nrf52840.dtsi:486 */
+			status = "disabled";           /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:90 */
 		};
 
 		/* node '/soc/i2s@40025000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:489 */
@@ -606,7 +606,7 @@
 			#size-cells = < 0x0 >;         /* in zephyr/dts/arm/nordic/nrf52840.dtsi:492 */
 			reg = < 0x40025000 0x1000 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:493 */
 			interrupts = < 0x25 0x1 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:494 */
-			status = "disabled";           /* in zephyr/dts/arm/nordic/nrf52840.dtsi:495 */
+			status = "disabled";           /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:48 */
 		};
 
 		/* node '/soc/usbd@40027000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:498 */
@@ -645,11 +645,11 @@
 			reg-names = "qspi",
 			            "qspi_mm";          /* in zephyr/dts/arm/nordic/nrf52840.dtsi:522 */
 			interrupts = < 0x29 0x1 >;      /* in zephyr/dts/arm/nordic/nrf52840.dtsi:523 */
-			status = "okay";                /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:118 */
 			pinctrl-0 = < &qspi_default >;  /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:119 */
 			pinctrl-1 = < &qspi_sleep >;    /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:120 */
 			pinctrl-names = "default",
 			                "sleep";        /* in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:121 */
+			status = "disabled";            /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:63 */
 
 			/* node '/soc/qspi@40029000/p25q16h@0' defined in zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi:123 */
 			p25q16h: p25q16h@0 {
@@ -672,8 +672,8 @@
 			compatible = "nordic,nrf-pwm"; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:528 */
 			reg = < 0x4002d000 0x1000 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:529 */
 			interrupts = < 0x2d 0x1 >;     /* in zephyr/dts/arm/nordic/nrf52840.dtsi:530 */
-			status = "disabled";           /* in zephyr/dts/arm/nordic/nrf52840.dtsi:531 */
 			#pwm-cells = < 0x3 >;          /* in zephyr/dts/arm/nordic/nrf52840.dtsi:532 */
+			status = "disabled";           /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:33 */
 		};
 
 		/* node '/soc/spi@4002f000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:535 */
@@ -687,7 +687,7 @@
 			easydma-maxcnt-bits = < 0x10 >; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:542 */
 			rx-delay-supported;             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:543 */
 			rx-delay = < 0x2 >;             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:544 */
-			status = "disabled";            /* in zephyr/dts/arm/nordic/nrf52840.dtsi:545 */
+			status = "disabled";            /* in Blue-Tethys/01mobileIMU/boards/xiao_ble_nrf52840_sense.overlay:11 */
 		};
 
 		/* node '/soc/gpio@50000000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:548 */
