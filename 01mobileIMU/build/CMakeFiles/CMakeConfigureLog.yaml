@@ -4466,3 +4466,55 @@ events:
         - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/Users/piperhofstee/csse4011/zephyr/cmake/compiler/gcc/target.cmake:8 (find_program)"
+      - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/FindTargetTools.cmake:103 (include)"
+      - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/kernel.cmake:25 (find_package)"
+      - "/Users/piperhofstee/csse4011/zephyr/cmake/modules/zephyr_default.cmake:140 (include)"
+      - "/Users/piperhofstee/csse4011/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
+      - "/Users/piperhofstee/csse4011/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:97 (include_boilerplate)"
+      - "CMakeLists.txt:4 (find_package)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc"
+    candidate_directories:
+      - "/Users/piperhofstee/zephyr-sdk-0.17.4/"
+    found: "/Users/piperhofstee/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Users/piperhofstee/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr"
+      ENV{PATH}:
+        - "/Users/piperhofstee/csse4011/.venv/bin"
+        - "/opt/homebrew/opt/python/libexec/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/opt/homebrew/Caskroom/miniconda/base/condabin"
+        - "/opt/homebrew/opt/python/libexec/bin"
+        - "/Users/piperhofstee/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+...

@@ -45,7 +45,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      31
+      28
     ]
   ],
   [
@@ -56,7 +56,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      26
+      23
     ]
   ],
   [
@@ -97,7 +97,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      18
+      15
     ]
   ],
   [
@@ -447,12 +447,9 @@
     "CONFIG_PM_DEVICE",
     "y",
     "bool",
-    "y",
-    "assign",
-    [
-      "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      9
-    ]
+    null,
+    "unset",
+    null
   ],
   [
     "CONFIG_TICKLESS_KERNEL",
@@ -624,17 +621,6 @@
     ]
   ],
   [
-    "CONFIG_PM_DEVICE_SYSTEM_MANAGED",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/subsys/pm/Kconfig",
-      204
-    ]
-  ],
-  [
     "CONFIG_SYS_CLOCK_EXISTS",
     "y",
     "bool",
@@ -795,7 +781,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      29
+      26
     ]
   ],
   [
@@ -885,31 +871,12 @@
     ]
   ],
   [
-    "CONFIG_PM_DEVICE_RUNTIME",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
     "CONFIG_DEVICE_DEPS",
     "y",
     "bool",
     null,
     "unset",
     null
-  ],
-  [
-    "CONFIG_PM_DEVICE_POWER_DOMAIN",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/subsys/pm/Kconfig",
-      104
-    ]
   ],
   [
     "CONFIG_SOC_HAS_TIMING_FUNCTIONS",
@@ -1095,7 +1062,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      33
+      30
     ]
   ],
   [
@@ -1139,7 +1106,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      13
+      10
     ]
   ],
   [
@@ -1150,7 +1117,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      14
+      11
     ]
   ],
   [
@@ -1161,7 +1128,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      12
+      9
     ]
   ],
   [
@@ -4855,7 +4822,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      27
+      24
     ]
   ],
   [
@@ -7225,7 +7192,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      19
+      16
     ]
   ],
   [
@@ -8531,7 +8498,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      25
+      22
     ]
   ],
   [
@@ -8577,7 +8544,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      16
+      13
     ]
   ],
   [
@@ -8952,7 +8919,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      21
+      18
     ]
   ],
   [
@@ -10064,7 +10031,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      11
+      8
     ]
   ],
   [
@@ -13410,68 +13377,6 @@
     null
   ],
   [
-    "CONFIG_PM_DEVICE_LOG_LEVEL_OFF",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_PM_DEVICE_LOG_LEVEL_ERR",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_PM_DEVICE_LOG_LEVEL_WRN",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_PM_DEVICE_LOG_LEVEL_INF",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_PM_DEVICE_LOG_LEVEL_DBG",
-    "y",
-    "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_PM_DEVICE_LOG_LEVEL_DEFAULT",
-    "y",
-    "bool",
-    "y",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
-      5
-    ]
-  ],
-  [
-    "CONFIG_PM_DEVICE_LOG_LEVEL",
-    "n",
-    "int",
-    "3",
-    "default",
-    [
-      "/Users/piperhofstee/csse4011/zephyr/subsys/logging/Kconfig.template.log_config",
-      36
-    ]
-  ],
-  [
     "CONFIG_MCTP",
     "y",
     "bool",
@@ -13627,7 +13532,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      34
+      31
     ]
   ],
   [
@@ -13668,7 +13573,7 @@
     "assign",
     [
       "/Users/piperhofstee/csse4011/bluetethys/Blue-Tethys/01mobileIMU/prj.conf",
-      35
+      32
     ]
   ],
   [

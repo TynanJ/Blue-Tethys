@@ -240,12 +240,6 @@ static void connected(struct bt_conn *conn, uint8_t err)
     if (err) {
         LOG_INF("MTU exchange failed to start: %d\n", err);
     }
-
-    bt_le_adv_stop();
-    bt_le_adv_start(BT_LE_ADV_PARAM(BT_LE_ADV_OPT_CONN,
-                    BT_GAP_ADV_SLOW_INT_MIN,
-                    BT_GAP_ADV_SLOW_INT_MAX,
-                    NULL), ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
 }
 
 static void adv_restart_work_fn(struct k_work *work)
@@ -526,14 +520,15 @@ int main(void)
         g_steering_angle_deg = clampf(g_cumulative_angle_deg,
                                       -MAX_STEERING_ANGLE_DEG,
                                        MAX_STEERING_ANGLE_DEG);
-
-        if (task_wdt_ch >= 0) {
+        
+         if (task_wdt_ch >= 0) {
             if (ax_g != 0.0f || ay_g != 0.0f || az_g != 0.0f) {
                 task_wdt_feed(task_wdt_ch);
             } else {
                 LOG_WRN("Accel data stale — watchdog not fed");
             }
         }
+ 
  
         /* ── Periodic logging and sending over BLE NUS ──────────────────────────────── */
         if (++sample_count >= LOG_EVERY_N_SAMPLES) {
@@ -557,10 +552,6 @@ int main(void)
 
 		// Looping stuff
 		print_samples = 1;
-		if (fabsf(gz_effective) < GYRO_DEADBAND_DEG_S) {
-            k_sleep(K_MSEC(100));  /* still — sleep longer */
-        } else {
-            k_sleep(K_MSEC(SAMPLE_INTERVAL_MS));  /* moving — normal rate */
-        }
+		k_sleep(K_MSEC(10));
 	}
 }
