@@ -262,7 +262,7 @@ class Ship:
 
     def update(self, delta_deg, gyro_z=0.0):
         gyro_scale = min(abs(gyro_z) / 2.0, 3.0) if gyro_z != 0.0 else 1.0
-        self.heading -= math.radians(delta_deg) * TURN_RATE * gyro_scale
+        self.heading += math.radians(delta_deg) * TURN_RATE * gyro_scale
         #self.heading -= math.radians(delta_deg) * TURN_RATE
         self.x += math.cos(self.heading) * SHIP_SPEED
         self.y += math.sin(self.heading) * SHIP_SPEED
