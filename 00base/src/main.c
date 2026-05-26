@@ -157,19 +157,19 @@ struct gui_sniffer_message {
     
 // ===== DESCRIPTORS =====
 // === PositionData ===
-static const struct json_obj_descr position_data_descr[] = {
-    JSON_OBJ_DESCR_PRIM(struct position_data_message, x, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct position_data_message, y, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct position_data_message, z, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct position_data_message, vx, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct position_data_message, vy, JSON_TOK_NUMBER),
-};
+// static const struct json_obj_descr position_data_descr[] = {
+//     JSON_OBJ_DESCR_PRIM(struct position_data_message, x, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct position_data_message, y, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct position_data_message, z, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct position_data_message, vx, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct position_data_message, vy, JSON_TOK_NUMBER),
+// };
 
-static const struct json_obj_descr gui_position_message_descr[] = {
-    JSON_OBJ_DESCR_PRIM(struct gui_position_message, MessageType, JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct gui_position_message, Timestamp, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_OBJECT(struct gui_position_message, Data, position_data_descr),
-};
+// static const struct json_obj_descr gui_position_message_descr[] = {
+//     JSON_OBJ_DESCR_PRIM(struct gui_position_message, MessageType, JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct gui_position_message, Timestamp, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_OBJECT(struct gui_position_message, Data, position_data_descr),
+// };
 
 // === Beacon ===
 static const struct json_obj_descr beacon_data_descr[] = {
@@ -185,25 +185,25 @@ static const struct json_obj_descr beacon_data_descr[] = {
     JSON_OBJ_DESCR_PRIM(struct beacon_data_message, RightNeighbour, JSON_TOK_STRING),
 };
 
-static const struct json_obj_descr gui_beacon_message_descr[] = {
-    JSON_OBJ_DESCR_PRIM(struct gui_beacon_message, MessageType, JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct gui_beacon_message, Timestamp, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_OBJECT(struct gui_beacon_message, Data, beacon_data_descr),
-};
+// static const struct json_obj_descr gui_beacon_message_descr[] = {
+//     JSON_OBJ_DESCR_PRIM(struct gui_beacon_message, MessageType, JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct gui_beacon_message, Timestamp, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_OBJECT(struct gui_beacon_message, Data, beacon_data_descr),
+// };
 
 // === Sniffer ===
-static const struct json_obj_descr sniffer_data_descr[] = {
-    JSON_OBJ_DESCR_PRIM(struct sniffer_data_message, BLEMAC, JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct sniffer_data_message, BLEMajor, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct sniffer_data_message, BLEMinor, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct sniffer_data_message, RSSI, JSON_TOK_NUMBER),
-};
+// static const struct json_obj_descr sniffer_data_descr[] = {
+//     JSON_OBJ_DESCR_PRIM(struct sniffer_data_message, BLEMAC, JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct sniffer_data_message, BLEMajor, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct sniffer_data_message, BLEMinor, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct sniffer_data_message, RSSI, JSON_TOK_NUMBER),
+// };
 
-static const struct json_obj_descr gui_sniffer_message_descr[] = {
-    JSON_OBJ_DESCR_PRIM(struct gui_sniffer_message, MessageType, JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct gui_sniffer_message, Timestamp, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_OBJECT(struct gui_sniffer_message, Data, sniffer_data_descr),
-};
+// static const struct json_obj_descr gui_sniffer_message_descr[] = {
+//     JSON_OBJ_DESCR_PRIM(struct gui_sniffer_message, MessageType, JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct gui_sniffer_message, Timestamp, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_OBJECT(struct gui_sniffer_message, Data, sniffer_data_descr),
+// };
 
 /* ========================================================================== */
 /* Localisation - EKF integration                                             */
@@ -359,8 +359,8 @@ static void localisation_update(void)
 /* Localisation thread - semaphore-driven                             */
 /* ------------------------------------------------------------------ */
 
-#define KALMAN_STACK_SIZE  4096
-#define KALMAN_PRIORITY    5
+// #define KALMAN_STACK_SIZE  4096
+// #define KALMAN_PRIORITY    5
 
 K_SEM_DEFINE(localisation_sem, 0, 1);
 
@@ -408,19 +408,19 @@ struct rx_beacon_add {
     int      Y;
 };
 
-static const struct json_obj_descr rx_beacon_add_descr[] = {
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, Command,    JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, Mode,       JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, name,       JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, mac,        JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, major,      JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, minor,      JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, left_name,  JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, right_name, JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, rssi_ref,   JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, X,          JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, Y,          JSON_TOK_NUMBER),
-};
+// static const struct json_obj_descr rx_beacon_add_descr[] = {
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, Command,    JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, Mode,       JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, name,       JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, mac,        JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, major,      JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, minor,      JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, left_name,  JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, right_name, JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, rssi_ref,   JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, X,          JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_add, Y,          JSON_TOK_NUMBER),
+// };
 
 /* new - for remove_beacon command */
 struct rx_beacon_remove {
@@ -429,11 +429,11 @@ struct rx_beacon_remove {
     const char *mac;   /* identify beacon to remove by MAC */
 };
 
-static const struct json_obj_descr rx_beacon_remove_descr[] = {
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_remove, Command, JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_remove, Mode,    JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_beacon_remove, mac,     JSON_TOK_STRING),
-};
+// static const struct json_obj_descr rx_beacon_remove_descr[] = {
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_remove, Command, JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_remove, Mode,    JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_beacon_remove, mac,     JSON_TOK_STRING),
+// };
 
 K_MSGQ_DEFINE(uart_msgq, MSG_MAX_LEN, MSG_QUEUE_SIZE, 4);
 
@@ -662,13 +662,13 @@ enum node_state {
     STATE_SNIFFER,
 };
 
-static const char *const state_names[] = {
-    [STATE_BASE]    = "BASE",
-    [STATE_SNIFFER] = "SNIFFER",
-};
-static const struct bt_data ad[] = {
+// static const char *const state_names[] = {
+//     [STATE_BASE]    = "BASE",
+//     [STATE_SNIFFER] = "SNIFFER",
+// };
+// static const struct bt_data ad[] = {
 	
-};
+// };
 
 struct node_ctx {
     struct smf_ctx ctx;
@@ -745,13 +745,13 @@ K_THREAD_DEFINE(sm_tid, BT_STACK_SIZE, sm_thread, NULL, NULL, NULL,
  * State
  * ========================================================================== */
 
-static struct bt_conn *default_conn;
+// static struct bt_conn *default_conn;
 
-static struct bt_uuid_128 discover_uuid;
-static struct bt_gatt_discover_params discover_params;
+// static struct bt_uuid_128 discover_uuid;
+// static struct bt_gatt_discover_params discover_params;
 // static struct bt_gatt_subscribe_params subscribe_params;
 
-static uint16_t nus_rx_handle; /* Handle for writing to peripheral's RX */
+// static uint16_t nus_rx_handle; /* Handle for writing to peripheral's RX */
 
 /* ==========================================================================
  * GATT Notification Callback
@@ -759,21 +759,21 @@ static uint16_t nus_rx_handle; /* Handle for writing to peripheral's RX */
 // TYNAN THIS IS THERE THE KALMAN STUFF WILL GO DO NOT LOSE WHERE THIS FUNCTION IS BECAUSE IT SUCKS BALLS TO KEEP SCROLLING THROUGH CODE FOR 20 MINUTES RATHER THAN USE CONTROL F LIKE A NORMAL PERSON
 
 // Struct for incoming mobile node data
-struct rx_mobile_node_data {
-    const char* TYPE;
-    const char* BLEMAC;
-    int32_t BLEMajor;
-    int32_t BLEMinor;
-    int32_t RSSI;
-};
+// struct rx_mobile_node_data {
+//     const char* TYPE;
+//     const char* BLEMAC;
+//     int32_t BLEMajor;
+//     int32_t BLEMinor;
+//     int32_t RSSI;
+// };
 
-static const struct json_obj_descr rx_mobile_node_data_descr[] = {
-    JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, TYPE, JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, BLEMAC, JSON_TOK_STRING),
-    JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, BLEMajor, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, BLEMinor, JSON_TOK_NUMBER),
-    JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, RSSI, JSON_TOK_NUMBER),
-};
+// static const struct json_obj_descr rx_mobile_node_data_descr[] = {
+//     JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, TYPE, JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, BLEMAC, JSON_TOK_STRING),
+//     JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, BLEMajor, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, BLEMinor, JSON_TOK_NUMBER),
+//     JSON_OBJ_DESCR_PRIM(struct rx_mobile_node_data, RSSI, JSON_TOK_NUMBER),
+// };
 
 
 static uint8_t notify_func(struct bt_conn *conn,
@@ -842,60 +842,60 @@ if (strstr(data_string, "\"SteeringAngle\"") != NULL) {
     return BT_GATT_ITER_CONTINUE;
 }
 
-    // // DECODE JSON
-    struct rx_mobile_node_data decoded_ble_data;
-    int ret = json_obj_parse(data_string, length, rx_mobile_node_data_descr,
-                        ARRAY_SIZE(rx_mobile_node_data_descr), &decoded_ble_data);
+    // // // DECODE JSON
+    // struct rx_mobile_node_data decoded_ble_data;
+    // int ret = json_obj_parse(data_string, length, rx_mobile_node_data_descr,
+    //                     ARRAY_SIZE(rx_mobile_node_data_descr), &decoded_ble_data);
 
-    if (ret < 0) {
-        LOG_INF("JSON Parse Error: %d\n", ret);
-    } else {
-        //LOG_INF("BLEMAC: %s, RSSI: %d\n", decoded_ble_data.BLEMAC, decoded_ble_data.RSSI);
-    }
+    // if (ret < 0) {
+    //     LOG_INF("JSON Parse Error: %d\n", ret);
+    // } else {
+    //     //LOG_INF("BLEMAC: %s, RSSI: %d\n", decoded_ble_data.BLEMAC, decoded_ble_data.RSSI);
+    // }
 
     // Check if in sniffer mode
-    int device_mode = atomic_get(&current_mode);
-    if (device_mode == MODE_SNIFFER) {
-        int ret;
-        char buffer[256];
+    // int device_mode = atomic_get(&current_mode);
+    // if (device_mode == MODE_SNIFFER) {
+    //     int ret;
+    //     char buffer[256];
 
-        struct sniffer_data_message newbledevice = {
-            .BLEMAC = decoded_ble_data.BLEMAC,
-            .BLEMajor = decoded_ble_data.BLEMinor,
-            .BLEMinor = decoded_ble_data.BLEMajor,
-            .RSSI = decoded_ble_data.RSSI
-        };
+    //     struct sniffer_data_message newbledevice = {
+    //         .BLEMAC = decoded_ble_data.BLEMAC,
+    //         .BLEMajor = decoded_ble_data.BLEMinor,
+    //         .BLEMinor = decoded_ble_data.BLEMajor,
+    //         .RSSI = decoded_ble_data.RSSI
+    //     };
         
-        struct gui_sniffer_message transmission = {.MessageType = "Sniffer", .Timestamp = k_uptime_get(), .Data = newbledevice};
-        ret = json_obj_encode_buf(gui_sniffer_message_descr, ARRAY_SIZE(gui_sniffer_message_descr),
-                                &transmission,
-                                buffer, sizeof(buffer));
+    //     struct gui_sniffer_message transmission = {.MessageType = "Sniffer", .Timestamp = k_uptime_get(), .Data = newbledevice};
+    //     ret = json_obj_encode_buf(gui_sniffer_message_descr, ARRAY_SIZE(gui_sniffer_message_descr),
+    //                             &transmission,
+    //                             buffer, sizeof(buffer));
         
-        if (ret < 0) {
-            // printk("Error encoding JSON");
-        } else {
-            printk("%s\n", buffer);
-        }
-    }
-
-    // //Hoping and praying it works, we will find the beacon node and update it's RSSI measures
-    // LOG_INF("Looking for MAC: '%s'", decoded_ble_data.BLEMAC);
-
-    BeaconNode *dbg = anchor_beacons.head;
-    // while (dbg) {
-    //     // LOG_INF("  Stored MAC: '%s'", dbg->mac);
-    //     dbg = dbg->next;
+    //     if (ret < 0) {
+    //         // printk("Error encoding JSON");
+    //     } else {
+    //         printk("%s\n", buffer);
+    //     }
     // }
-    BeaconNode* beacon_data = beacon_list_find_mac(&anchor_beacons, decoded_ble_data.BLEMAC);
 
-    // LOG_INF("Before");
-    // If not null, update
-    if (beacon_data) {
-        k_mutex_lock(&beacon_mutex, K_FOREVER);
-        beacon_list_add_new_rssi(beacon_data, decoded_ble_data.RSSI);
-        k_mutex_unlock(&beacon_mutex);
-        k_sem_give(&localisation_sem);
-    }
+    // // //Hoping and praying it works, we will find the beacon node and update it's RSSI measures
+    // // LOG_INF("Looking for MAC: '%s'", decoded_ble_data.BLEMAC);
+
+    // BeaconNode *dbg = anchor_beacons.head;
+    // // while (dbg) {
+    // //     // LOG_INF("  Stored MAC: '%s'", dbg->mac);
+    // //     dbg = dbg->next;
+    // // }
+    // BeaconNode* beacon_data = beacon_list_find_mac(&anchor_beacons, decoded_ble_data.BLEMAC);
+
+    // // LOG_INF("Before");
+    // // If not null, update
+    // if (beacon_data) {
+    //     k_mutex_lock(&beacon_mutex, K_FOREVER);
+    //     beacon_list_add_new_rssi(beacon_data, decoded_ble_data.RSSI);
+    //     k_mutex_unlock(&beacon_mutex);
+    //     k_sem_give(&localisation_sem);
+    // }
 
         return BT_GATT_ITER_CONTINUE;
 }
@@ -994,28 +994,28 @@ static void write_func(struct bt_conn *conn, uint8_t err,
     }
 }
 
-static struct bt_gatt_write_params write_params;
+// static struct bt_gatt_write_params write_params;
 
-static int nus_send(const uint8_t *data, uint16_t len)
-{
-    if (!default_conn) {
-        LOG_ERR("Not connected");
-        return -ENOTCONN;
-    }
+// static int nus_send(const uint8_t *data, uint16_t len)
+// {
+//     if (!default_conn) {
+//         LOG_ERR("Not connected");
+//         return -ENOTCONN;
+//     }
 
-    if (nus_rx_handle == 0) {
-        LOG_ERR("NUS RX handle not discovered");
-        return -EINVAL;
-    }
+//     if (nus_rx_handle == 0) {
+//         LOG_ERR("NUS RX handle not discovered");
+//         return -EINVAL;
+//     }
 
-    write_params.func = write_func;
-    write_params.handle = nus_rx_handle;
-    write_params.offset = 0;
-    write_params.data = data;
-    write_params.length = len;
+//     write_params.func = write_func;
+//     write_params.handle = nus_rx_handle;
+//     write_params.offset = 0;
+//     write_params.data = data;
+//     write_params.length = len;
 
-    return bt_gatt_write(default_conn, &write_params);
-}
+//     return bt_gatt_write(default_conn, &write_params);
+// }
 
 /* ==========================================================================
  * NUS RX Handle Discovery
@@ -1024,8 +1024,8 @@ static int nus_send(const uint8_t *data, uint16_t len)
  * characteristic so we can write data to the peripheral.
  * ========================================================================== */
 
-static struct bt_uuid_128 rx_discover_uuid;
-static struct bt_gatt_discover_params rx_discover_params;
+// static struct bt_uuid_128 rx_discover_uuid;
+// static struct bt_gatt_discover_params rx_discover_params;
 
 static uint8_t rx_discover_func(struct bt_conn *conn,
                                 const struct bt_gatt_attr *attr,
@@ -1272,13 +1272,13 @@ static void update_data_length(struct bt_conn *conn)
     }
 }
 
-static void on_le_data_len_updated(struct bt_conn *conn,
-                   struct bt_conn_le_data_len_info *info)
-{
-    // LOG_INF("Data length updated: TX %u bytes (%u us), RX %u bytes (%u us)",
-    //     info->tx_max_len, info->tx_max_time,
-    //     info->rx_max_len, info->rx_max_time);
-}
+// static void on_le_data_len_updated(struct bt_conn *conn,
+//                    struct bt_conn_le_data_len_info *info)
+// {
+//     // LOG_INF("Data length updated: TX %u bytes (%u us), RX %u bytes (%u us)",
+//     //     info->tx_max_len, info->tx_max_time,
+//     //     info->rx_max_len, info->rx_max_time);
+// }
 
 static void mtu_exchange_cb(struct bt_conn *conn, uint8_t err,
                 struct bt_gatt_exchange_params *params)
@@ -1293,9 +1293,9 @@ static void mtu_exchange_cb(struct bt_conn *conn, uint8_t err,
     }
 }
 
-static struct bt_gatt_exchange_params mtu_exchange_params = {
-    .func = mtu_exchange_cb,
-};
+// static struct bt_gatt_exchange_params mtu_exchange_params = {
+//     .func = mtu_exchange_cb,
+// };
 
 /* ==========================================================================
  * Connection Callbacks
@@ -1394,100 +1394,100 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
 /* Main                                                                       */
 /* ========================================================================== */
 
-void inital_beacons() {
-    beacon_list_init(&anchor_beacons);
+// void inital_beacons() {
+//     beacon_list_init(&anchor_beacons);
 
-    /*
-     * beacon_list_push_back(list,
-     *     name,  mac,  major, minor,  x,    y,   rssi_ref,
-     *     left_name, right_name)
-     *
-     * x/y: update with real survey coordinates (metres).
-     * rssi_ref: replace -65 with your per-node calibrated value (dBm).
-     */
-    beacon_list_push_back(&anchor_beacons,
-        "4011-A", "F5:75:FE:85:34:67 (random)",  2753, 32998,  3.4, 0, -52,
-        "",        "4011-B");
+//     /*
+//      * beacon_list_push_back(list,
+//      *     name,  mac,  major, minor,  x,    y,   rssi_ref,
+//      *     left_name, right_name)
+//      *
+//      * x/y: update with real survey coordinates (metres).
+//      * rssi_ref: replace -65 with your per-node calibrated value (dBm).
+//      */
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-A", "F5:75:FE:85:34:67 (random)",  2753, 32998,  3.4, 0, -52,
+//         "",        "4011-B");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-B", "E5:73:87:06:1E:86 (random)", 32975, 20959,  1.7, 0, -52,
-        "4011-A",  "4011-C");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-B", "E5:73:87:06:1E:86 (random)", 32975, 20959,  1.7, 0, -52,
+//         "4011-A",  "4011-C");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-C", "CA:99:9E:FD:98:B1 (random)", 26679, 40363,  0.0, 0.0, -58,
-        "4011-B",  "4011-D");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-C", "CA:99:9E:FD:98:B1 (random)", 26679, 40363,  0.0, 0.0, -58,
+//         "4011-B",  "4011-D");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-D", "CB:1B:89:82:FF:FE (random)", 41747, 38800,  0.0, 1.5, -59,
-        "4011-C",  "4011-E");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-D", "CB:1B:89:82:FF:FE (random)", 41747, 38800,  0.0, 1.5, -59,
+//         "4011-C",  "4011-E");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-E", "D4:D2:A0:A4:5C:AC (random)", 30679, 51963,  0.0, 3.88, -58,
-        "4011-D",  "4011-F");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-E", "D4:D2:A0:A4:5C:AC (random)", 30679, 51963,  0.0, 3.88, -58,
+//         "4011-D",  "4011-F");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-F", "C1:13:27:E9:B7:7C (random)",  6195, 18394,  0.0, 5.44, -52,
-        "4011-E",  "4011-G");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-F", "C1:13:27:E9:B7:7C (random)",  6195, 18394,  0.0, 5.44, -52,
+//         "4011-E",  "4011-G");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-G", "F1:04:48:06:39:A0 (random)", 30525, 30544,  0.0, 6.99, -57,
-        "4011-F",  "4011-H");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-G", "F1:04:48:06:39:A0 (random)", 30525, 30544,  0.0, 6.99, -57,
+//         "4011-F",  "4011-H");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-H", "CA:0C:E0:DB:CE:60 (random)", 57395, 28931,  1.7, 6.99, -49,
-        "4011-G",  "4011-I");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-H", "CA:0C:E0:DB:CE:60 (random)", 57395, 28931,  1.7, 6.99, -49,
+//         "4011-G",  "4011-I");
 
-    // BEACON I WAS DEAD WHEN WE CAL'D
-    beacon_list_push_back(&anchor_beacons,
-        "4011-I", "D4:7F:D4:7C:20:13 (random)", 60345, 49995,  3.4, 6.99, -45,
-        "4011-H",  "4011-J");
-    // BEACON I WAS DEAD WHEN WE CAL'D
+//     // BEACON I WAS DEAD WHEN WE CAL'D
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-I", "D4:7F:D4:7C:20:13 (random)", 60345, 49995,  3.4, 6.99, -45,
+//         "4011-H",  "4011-J");
+//     // BEACON I WAS DEAD WHEN WE CAL'D
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-J", "F7:0B:21:F1:C8:E1 (random)", 12249, 30916,  3.4, 5.44, -62,
-        "4011-I",  "4011-K");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-J", "F7:0B:21:F1:C8:E1 (random)", 12249, 30916,  3.4, 5.44, -62,
+//         "4011-I",  "4011-K");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-K", "FD:E0:8D:FA:3E:4A (random)", 36748, 11457,  3.4, 3.88, -60,
-        "4011-J",  "4011-L");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-K", "FD:E0:8D:FA:3E:4A (random)", 36748, 11457,  3.4, 3.88, -60,
+//         "4011-J",  "4011-L");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-L", "EE:32:F7:28:FA:AC (random)", 27564, 27589,  3.4, 1.5, -62,
-        "4011-K",  "4011-M");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-L", "EE:32:F7:28:FA:AC (random)", 27564, 27589,  3.4, 1.5, -62,
+//         "4011-K",  "4011-M");
 
-    beacon_list_push_back(&anchor_beacons,
-        "4011-M", "F7:3B:46:A8:D7:2C (random)", 49247, 52925,  1.7, 3.88, -63,
-        "4011-L",  "");
+//     beacon_list_push_back(&anchor_beacons,
+//         "4011-M", "F7:3B:46:A8:D7:2C (random)", 49247, 52925,  1.7, 3.88, -63,
+//         "4011-L",  "");
 
-    // beacon_list_push_back(&anchor_beacons,
-    //     "4011-N", "HELLO HELLO HELLO", 49247, 52925,  1.7, 3.88, -69,
-    //     "4011-L",  "");
+//     // beacon_list_push_back(&anchor_beacons,
+//     //     "4011-N", "HELLO HELLO HELLO", 49247, 52925,  1.7, 3.88, -69,
+//     //     "4011-L",  "");
 
-    /* Print the full list */
-    // beacon_list_print(&anchor_beacons);
+//     /* Print the full list */
+//     // beacon_list_print(&anchor_beacons);
 
-    // /* Find by MAC */
-    // puts("\n--- Find by MAC: D4:D2:A0:A4:5C:AC ---");
-    // BeaconNode *n = beacon_list_find_mac(&list, "D4:D2:A0:A4:5C:AC");
-    // if (n)
-    //     printf("  Found: %s  rssi_ref=%d dBm\n", n->name, (int)n->rssi_ref);
+//     // /* Find by MAC */
+//     // puts("\n--- Find by MAC: D4:D2:A0:A4:5C:AC ---");
+//     // BeaconNode *n = beacon_list_find_mac(&list, "D4:D2:A0:A4:5C:AC");
+//     // if (n)
+//     //     printf("  Found: %s  rssi_ref=%d dBm\n", n->name, (int)n->rssi_ref);
 
-    // /* Find by name */
-    // puts("\n--- Find by name: 4011-G ---");
-    // BeaconNode *m = beacon_list_find_name(&list, "4011-G");
-    // if (m)
-    //     printf("  Found: %s  mac=%s  left=%s  right=%s  rssi_ref=%d dBm\n",
-    //            m->name, m->mac, m->left_name, m->right_name, (int)m->rssi_ref);
+//     // /* Find by name */
+//     // puts("\n--- Find by name: 4011-G ---");
+//     // BeaconNode *m = beacon_list_find_name(&list, "4011-G");
+//     // if (m)
+//     //     printf("  Found: %s  mac=%s  left=%s  right=%s  rssi_ref=%d dBm\n",
+//     //            m->name, m->mac, m->left_name, m->right_name, (int)m->rssi_ref);
 
-    // beacon_list_destroy(&list);
-    // return 0;
-}
+//     // beacon_list_destroy(&list);
+//     // return 0;
+// }
 
 
 int main(void)
 {
-    int ret;    
-    char buffer[256];
+    // int ret;    
+    // char buffer[256];
     
     // ====== UART Receiving ======
     // Set up UART interface for rx commands
@@ -1586,7 +1586,7 @@ int main(void)
 
     err = bt_enable(NULL);
 
-    inital_beacons();
+    // inital_beacons();
     if (err) {
         printk("Bluetooth init failed (err %d)\n", err);
         return 0;
