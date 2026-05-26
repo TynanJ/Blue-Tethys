@@ -246,7 +246,6 @@ int rc522_init(void)
     rc522_write_reg(RC522_REG_COMMAND, RC522_CMD_SOFT_RESET);
     k_msleep(50);
 
-    /* Timer config matching working Arduino version */
     rc522_write_reg(0x2A, 0x80);
     rc522_write_reg(0x2B, 0xA9);
     rc522_write_reg(0x2C, 0xE8);
@@ -259,7 +258,7 @@ int rc522_init(void)
     /* Antenna on */
     rc522_set_bits(RC522_REG_TX_CONTROL, 0x03);
 
-    /* Read version just for info, don't fail on it */
+    /* Read version just for info */
     uint8_t version;
     rc522_read_reg(RC522_REG_VERSION, &version);
     LOG_INF("RC522 version: 0x%02x", version);
@@ -638,36 +637,6 @@ static void scan_cb(const bt_addr_le_t *addr, int8_t rssi,
 
     bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
 
-    // if (extract_ibeacon(buf, uuid, &major, &minor)) {
-    //     /* iBeacon */
-    //     json_len = snprintf(json, sizeof(json),
-    //         "{\"TYPE\":\"ibeacon\","
-    //          "\"BLEMAC\":\"%s\","
-    //          "\"BLEMajor\":%u,"
-    //          "\"BLEMinor\":%u,"
-    //          "\"RSSI\":%d}\r\n",
-    //         addr_str, major, minor, rssi);
-    // } else {
-    //     // /* Generic BLE device */
-    //     // json_len = snprintf(json, sizeof(json),
-    //     //     "{\"TYPE\":\"ble\","
-    //     //      "\"BLEMAC\":\"%s\","
-    //     //      "\"BLEMajor\":0,"
-    //     //      "\"BLEMinor\":0,"
-    //     //      "\"RSSI\":%d}\r\n",
-    //     //     addr_str, rssi);
-    //     return;
-    // }
-
-    // printk("%s", json);
-
-    // if (json_len > 0 && json_len < sizeof(json)) {
-    //     int err = bt_nus_send(NULL, (uint8_t *)json, (uint16_t)json_len);
-    //     if (err < 0 && err != -EAGAIN && err != -ENOTCONN) {
-    //         printk("bt_nus_send failed: %d\n", err);
-    //     }
-
-    // }
 }
 
 /* == Scan parameters ====================================================== */
